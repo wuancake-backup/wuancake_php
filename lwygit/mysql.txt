@@ -6,6 +6,7 @@ create table test
 	name varchar(12) nut null,
 	password varchar(12) nut null
 ）
-//创建数据库
+//创建表
+
 
 增删查改
