@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22301ac4-4b3e-4c3b-b552-be2908bee558" name="Default" comment="" />
+    <list default="true" id="cec8f786-71e6-483c-b3fc-814bd30cd736" name="123" comment="123" />
     <ignored path="Login.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -38,8 +38,8 @@
       <file leaf-file-name="Login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5657143">
-              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.25142857">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding>
                 <marker date="1448250043820" expanded="true" signature="1983:2028" placeholder="select pw fr..test..." />
               </folding>
@@ -142,10 +142,6 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Login">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -215,7 +211,8 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="22301ac4-4b3e-4c3b-b552-be2908bee558" name="Default" comment="" />
+      <changelist id="" name="Default" comment="" />
+      <changelist id="cec8f786-71e6-483c-b3fc-814bd30cd736" name="123" comment="123" />
       <created>1447163514596</created>
       <option name="number" value="Default" />
       <updated>1447163514596</updated>
@@ -223,7 +220,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1323752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -588,8 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5657143">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.25142857">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding>
             <marker date="1448250043820" expanded="true" signature="1983:2028" placeholder="select pw fr..test..." />
           </folding>
