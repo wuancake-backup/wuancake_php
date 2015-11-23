@@ -1,6 +1,7 @@
 <html>
 <head>
-</head>
+    <script language="javascript" type="text/javascript"></script>
+        </head>
 <body>
 <table border="1" width="300" align="center" valign="middle">
     <tr>
