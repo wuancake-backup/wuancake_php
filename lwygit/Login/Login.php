@@ -75,13 +75,6 @@ if(!empty($_POST))
     {
         echo "帐号或密码错误！";
     }
-
-
-    // echo "$arr[pw]";
-    //  var_dump($arr);
-
-
-
 }
 
 
