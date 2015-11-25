@@ -1,0 +1,71 @@
+
+body{
+    font-size: 100%;
+	background:	#fff;
+	font-family: 'Source Sans Pro', sans-serif;
+    background:#fff url(../images/background.jpg) 50% 0 no-repeat;
+}
+
+.home-info {
+    margin:auto;
+    position:absolute;
+    top:20%;
+    margin-left:20%;
+    margin-right:20%;
+}
+.home-info h{
+	color: #212121;
+	margin: 0;
+	font-size: 50px;
+	font-weight: 900;
+}
+.home-info p {
+  	color: #212121;
+  	font-size: 19px;
+  	margin: 2em 0;
+  	line-height: 1.8em;
+  	font-weight: 500;
+}
+.home-info span {
+  	background: #212121;
+  	height: 4px;
+  	width: 26%;
+  	float: right;
+  	margin-top: 2.4%;
+}
+.button{
+	margin-top:40%;
+    margin-left:35%;
+}
+.button a {
+  	color: #212121;
+  	font-size: 18px;
+  	font-weight: 600;
+  	padding: 12px 4em;
+  	border: 2px solid #212121;
+}
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
