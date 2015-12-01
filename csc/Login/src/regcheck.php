@@ -24,16 +24,10 @@
 				}
 				else	//不存在当前注册用户名称
 				{
-					//$sql_insert = "insert into user (username,password,phone,address) values('$_POST[username]','$_POST[password]','','')";
-					
-					
-					$sql1="INSERT INTO users (user, password)VALUES('$_POST[username]','$_POST[password]')";
-					
-					$res_insert = mysql_query($sql1);
-					//$num_insert = mysql_num_rows($res_insert);
-					if($res_insert)
+					$sql_insert = "insert into user (username,password) values('$_POST[username]','$_POST[password]')";
+				if(mysql_query($sql_insert))
 					{
-						echo "<script>alert('注册成功！'); history.go(-1);</script>";
+						echo "<script>alert('注册成功！点击确定进行登录！'); window.location.href='login.php';</script>";
 					}
 					else
 					{
