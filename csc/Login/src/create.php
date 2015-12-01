@@ -1,5 +1,5 @@
 <html><title>创建数据库</title></html><?php
-$con = mysql_connect("localhost","peter","abc123");
+$con = mysql_connect("localhost","root","root");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -16,8 +16,8 @@ else
   }
 
 // Create table in vt database
-mysql_select_db("vt", $con);
-$sql = "CREATE TABLE user 
+mysql_select_db("test", $con);
+$sql = "CREATE TABLE test
 (
 username varchar(15),
 password varchar(15)
