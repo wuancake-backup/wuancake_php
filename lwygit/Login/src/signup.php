@@ -60,18 +60,36 @@ if(!empty($_POST))
     }
     else
     {
-        $sql= "insert into test (name1,pw) VALUE ('$username','$password1')";
-        $result=mysqli_query($conn,$sql);
-        if(!$result)
+        $sql_search2= "select name1 from test";
+        $result2 = mysqli_query($conn,$sql_search2);
+        while ($arr2=mysqli_fetch_array($result2))
         {
-            echo"注册不成功！";
-            echo"<a href='signup.php'>返回</a>";
+            $arr3[]=$arr2;
         }
-        else
-        {
-            echo"注册成功!";
-            echo"<a href='Login.php'>返回</a>";
+        $cout=sizeof($arr3);
+        $result=null;
+        $a=true;
+        for ($i=0;$i<$cout;$i++) {
+            if ($username == $arr3[$i]["name1"]) {
+                echo "用户名已存在！";
+                $a=false;
+                break;
+            }
         }
+
+            if($a==true) {
+                $sql = "insert into test (name1,pw) VALUE ('$username','$password1')";
+                $result = mysqli_query($conn, $sql);
+            }
+
+            if (!$result) {
+                echo "注册不成功！";
+                echo "<a href='signup.php'>返回</a>";
+            } else {
+                echo "注册成功!";
+                echo "<a href='Login.php'>返回</a>";
+            }
+
     }
 }
 

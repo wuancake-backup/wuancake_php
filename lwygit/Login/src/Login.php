@@ -7,7 +7,7 @@
     <tr>
         <td>
             <table width="300" align="center" valign="middle">
-                <form  action="welcome.PHP" method="post">
+                <form  action="#" method="post">
                 <tr >
                     <td  colspan="2" height="90"  align="center">Login</td>
                 </tr>
@@ -39,6 +39,7 @@
         </td>
     </tr>
 </table>
+
 <?php
 $mysql_server_name='localhost';
 $mysql_username='root';
@@ -51,33 +52,33 @@ if(mysqli_connect_errno($conn) == 0)
     echo "connect mysql success!";
 }
 
-if(!empty($_POST))
-{
-    $username=$_POST["username"];
-    $password=$_POST["password"];
-    if($username==""||$password=="")
-    {
+if(!empty($_POST)) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    if ($username == "" || $password == "") {
         echo "用户名和密码不能为空！";
     }
-    $sql_search= "select pw from test where name1 = '$username' ";
-    $result = mysqli_query($conn,$sql_search);
-    if(!$result)
-    {
-        echo"查询失败";
+    $sql_search = "select pw from test where name1 = '$username' ";
+
+
+    $result = mysqli_query($conn, $sql_search);
+    if (!$result) {
+        echo "查询失败";
     }
     $arr = mysqli_fetch_array($result);
-    if($password==$arr['pw'])
-    {
+    if ($password == $arr['pw']) {
         echo "登陆成功";
-        echo "欢迎"."$username";
+        echo "<script >window.location.href='welcome.php';</script>";
     }
     else
     {
         echo "帐号或密码错误！";
+        echo "<a href='signup.php'>返回</a>";
     }
 }
 
-
+// echo "$arr[pw]";
+//  var_dump($arr);
 ?>
 </body>
 </html>
