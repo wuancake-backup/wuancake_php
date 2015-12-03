@@ -9,16 +9,14 @@
 		}
 		else
 		{
-			mysql_connect("localhost","root","root");
-			mysql_select_db("vt");
-			mysql_query("set names 'gbk'");
-			$sql = "select username,password from user where username = '$_POST[username]' and password = '$_POST[password]'";
+			include'conn.php';
+			$sql = "select username,password from user where username = '$user' and password = '$psw'";
 			$result = mysql_query($sql);
 			$num = mysql_num_rows($result);
 			if($num)
 			{
 				$row = mysql_fetch_array($result);	//将数据以索引方式储存在数组中
-				echo "<script>alert('登陆成功！');</script>";echo"<center>";echo $row[0];echo",欢迎回来！";
+				echo "<script>alert('登录成功！');</script>";echo"<center>";echo $row[0];echo",欢迎回来！";
 				echo"</center>";
 			}
 			else
