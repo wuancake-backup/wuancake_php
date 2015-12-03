@@ -1,25 +1,17 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
 </head>
-<>
-<script>
-    document.write("<p>Hello World!</p>");
-    document.write("&lt"); // <
-    document.write("&gt"); // >
-    document.write("&gt");
-    document.write("&gt");
-    document.write("&gt");
-</script>
+<body>
+<p id="p1">ppppp</p>
 <button type="button" onclick="qq()">click</button>
-<p id="demo">wodeshijie</p>
 <script>
     function qq()
     {
-        x=document.getElementById("demo");
-        x.innerHTML="javascript";
+        x=document.getElementById("p1");
+        x.innerHTML="qq";
     }
     </script>
-</body>
+</body >
 </html>
 
 <?php

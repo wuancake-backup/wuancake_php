@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>   
+  <script type="text/javascript">  
+    
+    // 新窗口打开时弹出确认框，是否打开
+    function openWindow()
+{
+    // 新窗口打开时弹出确认框，是否打开
+    var open=confirm("是否打开新窗口");
+	if(open==true)
+	{	
+		url=prompt("请输入要打开的网址","http://www.baidu.com");
+		window.open(url,'_blank','width=400px,height=500px,menubar=no,toolbar=no');
+	}
+}
+    // 通过输入对话框，确定打开的网址，默认为 http：//www.imooc.com/
+
+    //打开的窗口要求，宽400像素，高500像素，无菜单栏、无工具栏。
+    
+    
+  </script> 
+ </head> 
+ <body> 
+	  <input type="button" value="新窗口打开网站" onclick="openWindow()" /> 
+ </body>
+</html>
