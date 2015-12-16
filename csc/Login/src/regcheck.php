@@ -25,7 +25,7 @@
 					$sql_insert = "insert into user (username,password) values('$user','$psw')";
 				if(mysql_query($sql_insert))
 					{
-						echo "<script>alert('注册成功！点击确定进行登录！'); window.location.href='login.php';</script>";
+						echo "<script>alert('注册成功！点击确定进行登录！'); window.location.href='login.html';</script>";
 					}
 					else
 					{
