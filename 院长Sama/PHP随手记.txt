@@ -205,3 +205,83 @@ public static function getName();
 return xxx;
 }
 echo car::getName();
+
+
+关于include：
+include与require语句相似，但是在产生错误时——
+include会生成warning并继续运行脚本
+require会生成errror并终止脚本
+调用方法：
+<?php	include	'filename.type'	?>
+
+
+fopen	/*打开文件*/
+fclose	/*关闭文件*/
+feof	/*检测是否到达文件末端*/
+fgets	/*逐行读取*/
+
+$file = fopen ("filename.type","*");
+
+"*"==>r,r+,w,w+,a,a+,x,x+;
+
+
+cookie:
+setcookie /*设置cookie*/
+setrawcookie/*设置cookie(放置URL编码)*/
+
+使用isset来确认是否设置了cookie：
+<?php	isset($_COOKIE['name'])	 ?>
+
+关于如何删除cookie？
+/*使时间变更为设置的cookie的时长之前的时间*/
+设置cookie：setrawcookie('name','value','time()+3600');/*设置一个时效为1h的cookie*/
+删除cookie：setrawcookie('name','value','time()-3600');/*删除cookie*/
+
+取回存储的cookie：$_COOKIE['name'];/*取回名字为name的cookie*/
+
+
+PHP session:为访问者创建单一的id(UID)，并基于此UID来存储变量。
+UID存储于cookie中并基于URL传导。
+会话信息是临时的，如果需要，也可以进行存储。
+
+启动会话：session_start,开始于<html>标签之前。
+存储：$_SESSION['name']
+
+使用unset或者session_destroy()来终结session
+
+unset可以用来释放指定的session变量：unset($_SESSION['name']);
+session_destroy将重置所有session，包括已存储的
+
+
+构造函数与析构函数：
+在类中，可以使用_construct()来定义一个构造函数/具有构造函数的类，通常用来进行一些初始化工作。
+子类中定义了_construct()，则不会调用父类中的_construct
+若需要同时调用，需使用parent::_construct()
+
+析构函数：当某个对象的所有引用被删除/对象被显示的销毁时会执行此函数
+
+
+class car{
+	function _construct(){
+		echo "此处构造函数被调用\n"；
+	}
+	function_destruct(){
+		echo "此处析构函数被调用\n"；
+	}
+		$car = new car();
+		......
+	}
+
+
+
+
+static静态关键字：
+①使用双冒号“::”进行调用；
+②不允许使用“->”进行调用；
+③伪变量“$this”不允许使用；
+④可以使用“self”“parent”“static”等在内部调用静态属性
+
+
+【定义类{
+	定义变量 初始化;
+	定义函数()}】
