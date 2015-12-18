@@ -1,71 +1,73 @@
 <html>
 <head>
-<title>Login</title>
-<style type="text/css">
-div{
-    width:350px;
-    height:300px;
-	border:1px solid #000;
-	margin:0 auto;	
-	text-align:center;
-}
-h1{
-   font-family:"ºÚÌå";
-   font-size:35px;
-}
-</style>
+	<title>æ³¨å†Œ</title>
+	<style type="text/css">
+		div{
+			width:350px;
+			height:300px;
+			border:1px solid #000;
+			margin:0 auto;
+			text-align:center;
+		}
+		h1{
+			font-family:"é»‘ä½“";
+			font-size:35px;
+		}
+	</style>
 </head>
 <body>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-<div>
-<h1>Login</h1></br></br>
-ÓÃ»§Ãû:<input type="text" name="username"></br>
-ÃÜÂë:&nbsp&nbsp<input type="password" name="password"></br></br>
-<input type="submit" value="µÇÂ½">&nbsp&nbsp
-<input type="button" value="È¡Ïû"></br></br>
-<a href="register.php">Ã»ÓĞÕË»§µã»÷×¢²á</a>
-</div> 
-</form>
-</body>
-<?php 
-if(mysql_connect("localhost","root","root"))
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+	<div>
+		<h1>æ³¨å†Œ</h1></br></br>
+		&nbsp&nbsp&nbsp&nbspç”¨æˆ·å:<input type="text" name="username"></br>
+		è¯·è®¾ç½®å¯†ç :<input type="password" name="password"></br>
+		è¯·ç¡®è®¤å¯†ç :<input type="password" name="password2"></br></br>
+		<input type="submit" value="æ³¨å†Œ">&nbsp&nbsp
+		<input type="button" value="å–æ¶ˆ"></br></br>
+		<a href="login.php">æ³¨å†ŒæˆåŠŸè¿”å›ç™»é™†ç•Œé¢</a>
+	</div>
+	<?php
+	if(mysql_connect("localhost","root","root"))
 	{
-		//echo "Á¬½Ó³É¹¦";
-	}else 
-	{
-		echo "Á¬½ÓÊ§°Ü";
-	}
-if(mysql_select_db("test"))
-	{
-		//echo "Ñ¡ÔñÊı¾İ¿â³É¹¦";
+		//echo "è¿æ¥æˆåŠŸ";
 	}else
 	{
-		echo "Ñ¡ÔñÊı¾İ¿âÊ§°Ü";
+		echo "è¿æ¥å¤±è´¥";
 	}
-if(!empty($_POST))
-{
-$username=$_POST["username"];
-$password=$_POST["password"];
-if($username=="" or $password=="" )
+	if(mysql_select_db("test"))
 	{
-		echo '<script>alert ("ÕËºÅ»òÃÜÂë²»ÄÜÎª¿Õ!");</script>';
+		//echo "é€‰æ‹©æ•°æ®åº“æˆåŠŸ";
 	}else
 	{
-		$sql="select password from id where username='$username'";
-		$query=mysql_query($sql);
-		$arr=mysql_fetch_array($query);
-		if($arr=="")
+		echo "é€‰æ‹©æ•°æ®åº“å¤±è´¥";
+	}
+
+	if(!empty($_POST))
+	{
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		$password2=$_POST['password2'];
+		if($username=="" or $password=="" or $password2=="")
+		{
+			echo "<script>alert('è´¦å·æˆ–å¯†ç ä¸èƒ½ä¸ºç©ºï¼');</script>";
+		}elseif ($password!=$password2)
+		{
+			echo "<script>alert('ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ç›¸åŒï¼');</script>";
+		}else
+		{
+			$sql="insert into id (username,password)
+		values('$_POST[username]','$_POST[password]')";
+			if (mysql_query($sql))
 			{
-				echo '<script>alert ("ÓÃ»§Ãû²»´æÔÚ!");</script>';
-			}elseif($arr['password']==$password)
-			{
-				echo "<script>alert ('µÇÂ½³É¹¦!');</script>";
-			    echo "<script>window.location.href='welcome.html'</script>";
+				echo "<script>alert('æ³¨å†ŒæˆåŠŸï¼');</script>";
+				echo "<script>window.location.href='login.php'</script>";
+
 			}else
 			{
-				echo '<script>alert ("ÕËºÅ»òÃÜÂë´íÎó!");</script>';
+				echo "<script>alert('ç”¨æˆ·åå·²å ç”¨ï¼');</script>";
 			}
+		}
 	}
-}
-?>
+	?>
+</body>
 </html>
