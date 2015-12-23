@@ -3,23 +3,30 @@
 <html>
 
 <body>
-<form>
 
-<h1 align="center">Login</h1>
-用户名: 
-<input type="text" name="user" />
-<br />
+<table>
 
-密码:
-<input type="password" name="password" />
-<br />
+<form action="sercer.php" method="post">
 
-<input type="button" value="登陆">
-<input type="button" value="取消">
-<br />
+<tr>
+<caption><h1>Login</h1></caption>
+<tr><th>用户名:</th> 
+<td><input type="text" name="user" /></td>
+</tr>
 
-<a href="http://localhost/register.php">没有账户点击注册</a>.<br> 
+<tr><th>密码:</th>
+<td><input type="password" name="password" />
+</td></tr>
+
+<tr><td></td>
+<td><input type="submit" value="登陆">
+<input type="button" value="取消"></td>
+<br /></tr>
+
 </form>
+</table>
+
+<a href="http://localhost/Jianbing_PHP/caoyu/register.php">没有账户点击注册</a>.<br> 
 
 
 </body>
