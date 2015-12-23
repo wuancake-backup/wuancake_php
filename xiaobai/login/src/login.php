@@ -1,70 +1,70 @@
 <html>
 <head>
-<title>Login</title>
-<style type="text/css">
-div{
-    width:350px;
-    height:300px;
-	border:1px solid #000;
-	margin:0 auto;	
-	text-align:center;
-}
-h1{
-   font-family:"ºÚÌå";
-   font-size:35px;
-}
-</style>
+	<title>Login</title>
+	<style type="text/css">
+		div{
+			width:350px;
+			height:300px;
+			border:1px solid #000;
+			margin:0 auto;
+			text-align:center;
+		}
+		h1{
+			font-family:"é»‘ä½“";
+			font-size:35px;
+		}
+	</style>
 </head>
 <body>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-<div>
-<h1>Login</h1></br></br>
-ÓÃ»§Ãû:<input type="text" name="username"></br>
-ÃÜÂë:&nbsp&nbsp<input type="password" name="password"></br></br>
-<input type="submit" value="µÇÂ½">&nbsp&nbsp
-<input type="button" value="È¡Ïû"></br></br>
-<a href="register.php">Ã»ÓĞÕË»§µã»÷×¢²á</a>
-</div> 
+	<div>
+		<h1>Login</h1></br></br>
+		ç”¨æˆ·å:<input type="text" name="username"></br>
+		å¯†ç :&nbsp&nbsp<input type="password" name="password"></br></br>
+		<input type="submit" value="ç™»å½•">&nbsp&nbsp
+		<input type="button" value="å–æ¶ˆ"></br></br>
+		<a href="register.php">æ²¡æœ‰è´¦æˆ·ç‚¹å‡»æ³¨å†Œ</a>
+	</div>
 </form>
 </body>
-<?php 
+<?php
 if(mysql_connect("localhost","root","root"))
-	{
-		//echo "Á¬½Ó³É¹¦";
-	}else 
-	{
-		echo "Á¬½ÓÊ§°Ü";
-	}
+{
+	//echo "è¿æ¥æˆåŠŸ";
+}else
+{
+	echo "è¿æ¥å¤±è´¥";
+}
 if(mysql_select_db("test"))
-	{
-		//echo "Ñ¡ÔñÊı¾İ¿â³É¹¦";
-	}else
-	{
-		echo "Ñ¡ÔñÊı¾İ¿âÊ§°Ü";
-	}
+{
+	//echo "é€‰æ‹©æ•°æ®åº“æˆåŠŸ";
+}else
+{
+	echo "é€‰æ‹©æ•°æ®åº“å¤±è´¥";
+}
 if(!empty($_POST))
 {
-$username=$_POST["username"];
-$password=$_POST["password"];
-if($username=="" or $password=="" )
+	$username=$_POST["username"];
+	$password=$_POST["password"];
+	if($username=="" or $password=="" )
 	{
-		echo '<script>alert ("ÕËºÅ»òÃÜÂë²»ÄÜÎª¿Õ!");</script>';
+		echo '<script>alert ("è´¦å·æˆ–å¯†ç ä¸èƒ½ä¸ºç©º!");</script>';
 	}else
 	{
 		$sql="select password from id where username='$username'";
 		$query=mysql_query($sql);
 		$arr=mysql_fetch_array($query);
 		if($arr=="")
-			{
-				echo '<script>alert ("ÓÃ»§Ãû²»´æÔÚ!");</script>';
-			}elseif($arr['password']==$password)
-			{
-				echo "<script>alert ('µÇÂ½³É¹¦!');</script>";
-			    echo "<script>window.location.href='welcome.html'</script>";
-			}else
-			{
-				echo '<script>alert ("ÕËºÅ»òÃÜÂë´íÎó!");</script>';
-			}
+		{
+			echo '<script>alert ("ç”¨æˆ·åä¸å­˜åœ¨!");</script>';
+		}elseif($arr['password']==$password)
+		{
+			echo "<script>alert ('ç™»å½•æˆåŠŸ!');</script>";
+			echo "<script>window.location.href='welcome.html'</script>";
+		}else
+		{
+			echo '<script>alert ("è´¦å·æˆ–å¯†ç é”™è¯¯!");</script>';
+		}
 	}
 }
 ?>
