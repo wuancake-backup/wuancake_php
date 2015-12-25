@@ -1,0 +1,41 @@
+1.1关键字  
+break   	do  		instanceof typeof
+case 		else 		new 		var
+catch 		finally	 	return 		void
+continue 	for 		switch 		while
+debugger*	function 	this		with
+default 	if			throw
+delete		in	 		try
+		
+保留字
+abstract 	enum 		int 		short
+boolean 	export 		interface 	static
+byte 		extends 	long 		super
+char 		final 		native 		synchronized
+class 		float		package 	throws
+const 		goto 		private 	transient
+debugger 	implements 	protected 	volatile
+double 		import 		public
+第五版增加保留字
+implements 	package 	public
+interface 	private		static
+let 		protected 	yield
+
+
+1.2变量
+用 var 操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，
+如果在函数中使用 var 定义一个变量，那么这个变量在函数退出后就会被销毁。
+
+function test(){
+var message = "hi"; // 局部变量
+}
+test();
+alert(message); // 错误！
+
+省略 var 操作符，可以创建一个全局变量。（不推荐）
+
+function test(){
+message = "hi"; // 全局变量
+}
+test();
+alert(message); // "hi"

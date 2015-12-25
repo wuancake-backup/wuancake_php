@@ -1,0 +1,120 @@
+Ajax实现异步通信
+XMLHttpRequest实现了Ajax
+
+Ajax概念
+运用HTML和CSS来实现页面，表达信息；
+运用XMLHttpRequest和Web服务器进行数据的异步交换；
+运用Javascript操作DOM，实现动态局部刷新；
+
+实例化一个XHR对象
+var request=new XMLHttpRequest();
+if （windows.XMLHttpRequest){
+	request = new XMLHttpRequest();
+	//IE7,Firefox,Chrome,Opera,safari...
+}else{
+	request = new ActiveXObject("Microsoft.XMLHTTP");
+	//IE6,IE5
+}
+
+
+HTTP请求是无状态协议
+
+HTTP请求过程
+1.建立TCP连接；
+2.Web浏览器向Web服务器发送请求命令；
+3.Web浏览器发送请求头信息；
+4.Web服务器应答；
+5.Web服务器发送应答头信息；
+6.Web服务器向浏览器发送数据；
+7.Web服务器关闭TCP连接；
+
+HTTP请求组成
+1.HTTP请求的方法或动作，比如是GET还是POST请求；
+2.正在请求的URL，获得请求的地址；
+3.请求头，包含一些客户端环境信息，身份验证信息等
+4.请求体，包含请求正文，请求正文中能包含客户提交的查询字符串信息，表单信息等等；
+
+HTTP请求类型
+GET     一般用于信息的获取
+		使用URL传递函数
+		对所发信息的数量有限制，一般在2000个字符
+		对所有人可见
+		
+POST	一般用于修改服务器上的资源
+		对所发送的信息的数量无限制
+
+HTTP响应组成
+1，一个数字和文字组成的状态码，用来显示请求时成功还是失败
+2，响应头，与请求头类似，包括服务器类型、日期时间、内容类型和长度
+3，响应体，便是响应正文
+
+HTTP状态码
+由3位数字组成第一位定义状态码类型
+1XX	信息类，表示收到Web浏览器的请求，正在进一步的处理中
+2XX	成功，表示用户请求被正确接受，如 200 OK
+3XX 重定向，表示用户的请求没有成功，需要进一步采取动作
+4XX 客户端错误，客户端提交的请求有误，如 500
+
+		
+XHR发送请求
+request.open(methond,url,async);//method GET OR POST ;async 默认true or false //是否使用Ajax
+request.setRequestHeader("Contect-type","application/x-www-form-urlencoded");//定义发送的数据为表单形式
+request.send(string);//输入参数
+		
+		
+XHR取得响应		
+responseText//获得字符串形式的响应数据
+responseXML//获得XML形式的响应数据
+status和statusText//以数字和文本形式返回HTTP状态码
+getAllResponseHeader()//获得所有的响应报头
+getResponseHeader()//查询响应中的某个字段的值
+onreadystatechange//存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+
+
+readyState	//0,请求未初始化,open未调用
+			//1，服务器连接已建立,open已调用
+			//2, 请求已接收，以接收头信息
+			//3，请求处理中，以接收响应主体
+			//4，请求已完成
+
+
+var request=new XMLHttpRequest();
+if （windows.XMLHttpRequest){
+	request = new XMLHttpRequest();
+	//IE7,Firefox,Chrome,Opera,safari
+}else{
+	request = new ActiveXObject("Microsoft.XMLHTTP");
+	//IE6,IE5
+}			
+request.open("GET","get.php",ture);
+request.send();			
+request.onreadystatechange=function(){
+	if (request.readyState===4 && request.status===200){
+		//响应成功，可以做一些事 request.responseText
+	}
+}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
