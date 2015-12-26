@@ -1,19 +1,38 @@
+<html>
+<head>
+	<title>Login</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="login.css" type="text/css">
+</head>
+<body>
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+	<div>
+		<h1>Login</h1></br></br>
+		用户名:<input type="text" name="username"></br>
+		密码:&nbsp&nbsp<input type="password" name="password"></br></br>
+		<input type="submit" value="登录">&nbsp&nbsp
+		<input type="button" value="取消"></br></br>
+		<a href="register.php">没有账户点击注册</a>
+	</div>
+</form>
+</body>
+</html>
 <?php
 header("content-type:text/html;charset=utf-8");
-$mysql_servername="localhost";
-$mysql_username="root";
-$mysql_password="root";
-$mysql_db="test";
-if(mysql_connect($mysql_servername,$mysql_username,$mysql_password))
+$db_host="localhost";
+$db_user="root";
+$db_pass="root";
+$db_data="fyhqqfyh";
+if(mysql_connect($db_host,$db_user,$db_pass))
 {
-    echo "连接成功";
+    //echo "连接成功";
 }else
 {
     echo "连接失败";
 }
-if(mysql_select_db($mysql_db))
+if(mysql_select_db($db_data))
 {
-    echo "选择数据库成功";
+    //echo "选择数据库成功";
 }else
 {
     echo "选择数据库失败";
@@ -27,7 +46,7 @@ if(!empty($_POST))
         echo '<script>alert ("账号或密码不能为空!");</script>';
     }else
     {
-        $sql="select password from id where username='$username'";
+        $sql="select password from admin where username='$username'";
         $query=mysql_query($sql);
         $arr=mysql_fetch_array($query);
         if($arr=="")
@@ -43,10 +62,11 @@ if(!empty($_POST))
         }
     }
 }
-?>
+
 /**
  * Created by PhpStorm.
  * User: fyhqq
  * Date: 2015/12/21
  * Time: 13:57
  */
+ ?>
