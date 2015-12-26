@@ -1,0 +1,11 @@
+div{
+    width:350px;
+    height:300px;
+    border:1px solid #000;
+    margin:0 auto;
+    text-align:center;
+}
+h1{
+    font-family:"黑体";
+    font-size:35px;
+}

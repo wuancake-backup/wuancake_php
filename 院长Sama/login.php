@@ -46,6 +46,6 @@ echo htmlspecialchars($_SERVER['PHP_SELF'])
 <span class = 'error'><?php echo $paswderr?></span>
 <br><br>
 		<input type = 'submit' name = 'submit' value = '确认'>	
-		<input type = 'button' name = 'regist' value = '注册'  onclick="location.href='02.php';">
+		<input type = 'button' name = 'regist' value = '注册'  onclick="location.href='welcome.php';">
 
 </form>
