@@ -1,14 +1,3 @@
-<html>
-<head>
-<title>
-FIRST PHP
-</title>
-</head>
-<body>
 <?php
-¡¡¡¡echo 'HELLO WORLD'
-       phpinfo();
+	echo "aaaa";
 ?>
-</body>
-</html>
- 
