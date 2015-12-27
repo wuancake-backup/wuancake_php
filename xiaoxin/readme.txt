@@ -1,1 +1,0 @@
-dollars and stars
