@@ -1,32 +1,25 @@
+<?php
 
-<!DOCTYPE html>
-<html>
+$con = mysql_connect("localhost","root","root");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
 
-<body>
+$usr=$_POST["user"];
+$pw=$_POST["password1"];
 
-<table>
-<form>
+mysql_select_db("test", $con);
 
-<caption><h1>注册</h1></caption>
-<tr><th>用 户 名 :</th> 
-<td><input type="text" name="user" /></td></tr>
+mysql_query("INSERT INTO user (username, password) 
+VALUES ('$usr', '$pw')");
+
+mysql_close($con);
 
 
-<tr><th>请设置密码:</th>
-<td><input type="password" name="password1" /></td>
-</tr>
+echo '<script language="javascript">';
+echo 'alert("注册成功!");';
+echo "location.href='main.html'";
+echo '</script>';
 
-<tr><th>请确认密码:</th>
-<td><input type="password" name="password2" /></td>
-</tr>
-
-<tr><td></td>
-<td><input type="button" value="注册">
-<a href="http://localhost/Jianbing_PHP/caoyu/login.php"><input type="button" value="取消"></a></td>
-</tr>
-
-</form>
-</table>
-
-</body>
-</html>
+?>
