@@ -1,29 +1,25 @@
+<?php
 
-<!DOCTYPE html>
-<html>
+$con = mysql_connect("localhost","root","root");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
 
-<body>
-<form>
+$usr=$_POST["user"];
+$pw=$_POST["password1"];
 
-<h1 align="center">注册</h1>
-用 户 名 : 
-<input type="text" name="user" />
-<br />
+mysql_select_db("test", $con);
 
-请设置密码:
-<input type="password" name="password1" />
-<br />
+mysql_query("INSERT INTO user (username, password) 
+VALUES ('$usr', '$pw')");
 
-请确认密码:
-<input type="password" name="password2" />
-<br />
-
-<input type="button" value="注册">
-<a href="http://localhost/login.php"><input type="button" value="取消"></a>
-<br />
-
-</form>
+mysql_close($con);
 
 
-</body>
-</html>
+echo '<script language="javascript">';
+echo 'alert("注册成功!");';
+echo "location.href='main.html'";
+echo '</script>';
+
+?>
