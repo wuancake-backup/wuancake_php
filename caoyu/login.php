@@ -1,6 +1,6 @@
 <?php
 
-//验证登陆
+//验证登录
 
 $con = mysql_connect("localhost","root","root");
 if (!$con)
