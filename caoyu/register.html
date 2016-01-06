@@ -1,78 +1,83 @@
 
+<!--注册界面-->
+
 <!DOCTYPE html>
-<html>
+  <html>
 
-<head>
-<script type="text/javascript">
+    <head>
 
-//检查是否为空
-function validate_required(field,alerttxt)
-{
-with (field)
-  {
-  if (value==null||value=="")
-    {alert(alerttxt);return false}
-  else {return true}
-  }
-}
+      <script type="text/javascript">
 
+      //检查是否为空
+      function validate_required(field,alerttxt)
+      {
+        with (field)
+        {
+          if (value==null||value=="")
+          {alert(alerttxt);return false}
+          else {return true}
+        }
+      }
 
-//检查密码是否一致..未完成
-function pw_check()
-{
-  var pw1=document.getElementById("password1");
-  var pw2=document.getElementById("password2");
-  if(pw1.value != pw2.value)
-    {alert("密码不一致!");return false}
-  else {return true}
-}
+      //检查密码是否一致..未完成
+      function pw_check()
+      {
+        var pw1=document.getElementById("password1");
+        var pw2=document.getElementById("password2");
+        if(pw1.value != pw2.value)
+          {alert("密码不一致!");return false}
+        else {return true}
+      }
 
-function validate_form(thisform)
-{
-with (thisform)
-  {
-  if (validate_required(user,"请输入用户名!")==false)
-    {user.focus();return false}
-  if (validate_required(password1,"请输入密码!")==false)
-    {password1.focus();return false}
-  if (validate_required(password2,"请再次输入密码!")==false)
-    {password2.focus();return false}
+      function validate_form(thisform)
+      {
+        with (thisform)
+        {
+          if (validate_required(user,"请输入用户名!")==false)
+          {user.focus();return false}
+          if (validate_required(password1,"请输入密码!")==false)
+          {password1.focus();return false}
+          if (validate_required(password2,"请再次输入密码!")==false)
+          {password2.focus();return false}
 
-  if (pw_check()==false)
-    {return false}
+          if (pw_check()==false)
+          {return false}
+        }
+      }
 
-  }
-}
+      </script>
+    </head>
 
-</script>
-</head>
+    <body>
 
-<body>
+      <table>
+        <form action="register.php" onsubmit="return validate_form(this)" method="post">
 
-<table>
-<form action="register.php" onsubmit="return validate_form(this)" method="post">
+          <caption><h1>注册</h1></caption>
 
-<caption><h1>注册</h1></caption>
+          <tr>
+            <th>用 户 名 :</th> 
+            <td><input type="text" name="user" /></td>
+          </tr>
 
-<tr><th>用 户 名 :</th> 
-<td><input type="text" name="user" /></td></tr>
+          <tr>
+            <th>请设置密码:</th>
+            <td><input type="password" name="password1" id="password1"/></td>
+          </tr>
 
+          <tr>
+            <th>请确认密码:</th>
+            <td><input type="password" name="password2" id="password2"/></td>
+          </tr>
 
-<tr><th>请设置密码:</th>
-<td><input type="password" name="password1" id="password1"/></td>
-</tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="注册">
+            <a href="http://localhost/Jianbing_PHP/caoyu/main.html"><input type="button" value="取消"></a></td>
+          </tr>
 
-<tr><th>请确认密码:</th>
-<td><input type="password" name="password2" id="password2"/></td>
-</tr>
+        </form>
+      </table>
 
-<tr><td></td>
-<td><input type="submit" value="注册">
-<a href="http://localhost/Jianbing_PHP/caoyu/main.html"><input type="button" value="取消"></a></td>
-</tr>
-
-</form>
-</table>
-
-</body>
-</html>
+    </body>
+  </html>

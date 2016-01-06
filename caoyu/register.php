@@ -1,5 +1,7 @@
 <?php
 
+//数据库注册
+
 $con = mysql_connect("localhost","root","root");
 if (!$con)
   {
@@ -16,7 +18,7 @@ VALUES ('$usr', '$pw')");
 
 mysql_close($con);
 
-
+//注册成功，弹出提示框，转到登陆界面
 echo '<script language="javascript">';
 echo 'alert("注册成功!");';
 echo "location.href='main.html'";
