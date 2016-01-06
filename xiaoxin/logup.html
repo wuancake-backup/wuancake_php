@@ -44,3 +44,12 @@
 	</div>
 </body>
 </html>
+<?php
+$db=mysql_connect("localhost","root","");
+if ($db) {
+	echo"ture";# code...
+}else{
+	echo "fales";
+}
+mysql_select_db("log",$db) or die ("数据库选择失败");
+?>
