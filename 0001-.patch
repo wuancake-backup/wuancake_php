@@ -1,0 +1,239 @@
+From 1f936551c4b25a310dc4dee55a3a7794481da3dd Mon Sep 17 00:00:00 2001
+From: fyhqqfyh <fyhqqfyh@outlook.com>
+Date: Tue, 24 Nov 2015 08:23:44 +0800
+Subject: [PATCH] =?UTF-8?q?=E4=B8=8A=E4=BC=A0=E6=89=80=E6=9C=89=E6=96=87?=
+ =?UTF-8?q?=E4=BB=B6?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ fyh/my.php              |  3 +++
+ fyh/start.txt           |  1 -
+ fyh/test01/insert.php   | 38 ++++++++++++++++++++++++++++++++++++++
+ fyh/test01/login.php    | 25 +++++++++++++++++++++++++
+ fyh/test01/register.php | 13 +++++++++++++
+ fyh/test02/index.php    | 24 ++++++++++++++++++++++++
+ fyh/test02/insert.php   | 25 +++++++++++++++++++++++++
+ fyh/test02/register.php | 25 +++++++++++++++++++++++++
+ 8 files changed, 153 insertions(+), 1 deletion(-)
+ create mode 100644 fyh/my.php
+ delete mode 100644 fyh/start.txt
+ create mode 100644 fyh/test01/insert.php
+ create mode 100644 fyh/test01/login.php
+ create mode 100644 fyh/test01/register.php
+ create mode 100644 fyh/test02/index.php
+ create mode 100644 fyh/test02/insert.php
+ create mode 100644 fyh/test02/register.php
+
+diff --git a/fyh/my.php b/fyh/my.php
+new file mode 100644
+index 0000000..0ab0f90
+--- /dev/null
++++ b/fyh/my.php
+@@ -0,0 +1,3 @@
++<?php
++	echo "i will";
++	?>
+\ No newline at end of file
+diff --git a/fyh/start.txt b/fyh/start.txt
+deleted file mode 100644
+index 8f765d7..0000000
+--- a/fyh/start.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-I will
+\ No newline at end of file
+diff --git a/fyh/test01/insert.php b/fyh/test01/insert.php
+new file mode 100644
+index 0000000..bd53493
+--- /dev/null
++++ b/fyh/test01/insert.php
+@@ -0,0 +1,38 @@
++<html>
++<body>
++<?php
++header("content-type:text/html;charset=utf-8");
++//连接数据库	
++if($a=mysql_connect('localhost','root','')){
++	echo "连接成功";
++}else{
++	echo "连接失败";
++}
++//选择数据库
++if(mysql_select_db('test')){
++	echo "选择数据库成功";
++}else{
++	echo "选择数据库失败";
++}
++//创建表
++//$sql ="create table namepassword
++//(
++//name varchar(16),
++//password varchar(16),
++//)";
++//if($sql){
++//	echo "创建表成功";
++//}else{
++//	echo "创建表失败";
++//}
++//插入数据
++mysql_query('set names utf8');
++if(mysql_query("insert into namepassword(name) 
++	values('$_POST[name]'")){
++	echo "插入成功";
++}else{
++	echo "插入失败";
++}
++?>
++</body>
++</html>
+\ No newline at end of file
+diff --git a/fyh/test01/login.php b/fyh/test01/login.php
+new file mode 100644
+index 0000000..7a33d28
+--- /dev/null
++++ b/fyh/test01/login.php
+@@ -0,0 +1,25 @@
++<!DOCTYPE HTML>
++<html> 
++<body>
++<?php
++//使输出不出现乱码
++header("content-type:text/html;charset=utf-8");
++//定义变量并设置为空值
++$name=$password="";
++?>
++<form action="index.php" method="post">
++<h1>登陆<h1>
++<h3>用户名：<input type="text" name="name"><br><br><h3>
++<h3>密码 ：<input type="text" name="password"><br><br><h3>
++<input type="submit" name="submit" value="登陆">
++<input type="submit" name="submit" value="取消"><br><br>
++<a href="test03.com/register.php">没有账户点击注册</a>
++<?php
++echo "现在是 " . date("Y/m/d")."  ".date("h:i:sa");
++?><br>
++<?php
++echo readfile("abc.txt");
++?>
++</form>
++</body>
++</html>
+diff --git a/fyh/test01/register.php b/fyh/test01/register.php
+new file mode 100644
+index 0000000..5d8cb77
+--- /dev/null
++++ b/fyh/test01/register.php
+@@ -0,0 +1,13 @@
++<!DOCTYPE HTML>
++<html> 
++<body>
++<form action="index.php" method="post">
++<h1>ע��<h1>
++<h3>�û�����<input type="text" name="name"><br><br><h3>
++<h3>���������� ��<input type="text" name="password"><br><br><h3>
++<h3>��ȷ������ ��<input type="text" name="password"><br><br><h3>
++<input type="submit" name="submit" value="ע��">
++<input type="submit" name="submit" value="ȡ��"><br><br>
++</form>
++</body>
++</html>
+\ No newline at end of file
+diff --git a/fyh/test02/index.php b/fyh/test02/index.php
+new file mode 100644
+index 0000000..62ae99e
+--- /dev/null
++++ b/fyh/test02/index.php
+@@ -0,0 +1,24 @@
++<!DOCTYPE HTML>
++<html> 
++<head>
++<style type="text/css">
++h3 {text-align:center}
++</style>
++</head>
++<body>
++<?php
++//使输出不出现乱码
++header("content-type:text/html;charset=utf-8");
++//定义变量并设置为空值
++$name=$password="";
++?>
++<form action="insert.php" method="post">
++<h1 align="center">登陆</h1>
++<h3>用户名：<input type="text" name="username"><br><br></h3>
++<h3>密码 ：<input type="password" name="password"><br><br></h3>
++<h3><input type="submit" name="submit" value="登陆">
++<input type="reset" name="reset" value="取消"><br><br></h3>
++<h3><a href="register.php">没有账户点击注册</a></h3>
++</form>
++</body>
++</html>
+diff --git a/fyh/test02/insert.php b/fyh/test02/insert.php
+new file mode 100644
+index 0000000..549035c
+--- /dev/null
++++ b/fyh/test02/insert.php
+@@ -0,0 +1,25 @@
++<html>
++<body>
++<?php
++header("content-type:text/html;charset=utf-8");
++//连接数据库	
++if($a=mysql_connect('localhost','root','')){
++	echo "连接成功";
++}else{
++	echo "连接失败";
++}
++//选择数据库
++if(mysql_select_db('test')){
++	echo "选择数据库成功";
++}else{
++	echo "选择数据库失败";
++}
++//插入数据
++mysql_query("set names 'utf8'");
++mysql_query("insert into id(username,password) 
++value('$username','$password')");
++$udi=mysql_insert_id();
++echo $uid;
++?>
++</body>
++</html>
+\ No newline at end of file
+diff --git a/fyh/test02/register.php b/fyh/test02/register.php
+new file mode 100644
+index 0000000..324525d
+--- /dev/null
++++ b/fyh/test02/register.php
+@@ -0,0 +1,25 @@
++<!DOCTYPE HTML>
++<html> 
++<head>
++<style type="text/css">
++h2 {text-align:justify}
++h3 {text-align:center}
++p{border: medium double rgb(0,2,0)}
++.center{
++	margin:auto;
++	width:70%;
++}
++</style>
++</head>
++<body>
++<form action="insert.php" method="post">
++<div class="center">
++ע��<br>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�û�����<input type="text" name="username"></br>
++���������� ��<input type="password" name="password"></br>
++��ȷ������ ��<input type="password" name="password"><br><br>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="ע��">
++<input type="reset" name="reset" value="ȡ��"></div>
++</form>
++</body>
++</html>
+\ No newline at end of file
+-- 
+2.6.3.windows.1
+

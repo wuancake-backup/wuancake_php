@@ -1,6 +1,13 @@
 <?php
-setcookie("userNickname","",time()-3600);
-echo "<script>window.location.href='index.php'</script>";
+session_start();
+unset($_SESSION['userNickname']);
+
+if(isset($_SESSION['userurl'])){
+    $url=$_SESSION['userurl'];
+}else{
+    $url="index.php";
+}
+echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
 /**
  * Created by PhpStorm.
  * User: fyhqq

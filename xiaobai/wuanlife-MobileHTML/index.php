@@ -20,27 +20,29 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="navbar-brand navbar-header">
-                    <a class="" href="index.html">午安网</a>
+                    <a class="" href="index.php">午安网</a>
                 </div>
                 <div class="pull-left hidden-sm hidden-xs">
                     <ul class="list-inline">
-                        <li><a href="index.html">发现</a></li>
+                        <li><a href="index.php">发现</a></li>
                         <li><a href="myGroup.php">我的星球</a></li>
-                        <li><a href="groups.html">全部星球</a></li>
+                        <li><a href="groups.php">全部星球</a></li>
                     </ul>
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            if(isset($_COOKIE['userNickname'])){
+                            session_start();
+                            $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
+                            if(isset($_SESSION['userNickname'])){
                                 echo '<a href="user.html">';
-                                echo $_COOKIE['userNickname'].'</a></li>';
+                                echo $_SESSION['userNickname'].'</a></li>';
                             }else{
                                 echo '<a href="login.php">登录</a></li>';
                             }
                             ?>
                         <li><?php
-                            if(isset($_COOKIE['userNickname'])){
+                            if(isset($_SESSION['userNickname'])){
                                 echo '<a href="exit.php">退出</a></li>';
                             }else{
                                 echo '<a href="reg.php">注册</a></li>';
@@ -60,7 +62,7 @@
         <ul class="list-inline">
             <li class="active"><a href="index.html">发现</a></li>
             <li><a href="myGroup.php">我的星球</a></li>
-            <li><a href="groups.html">全部星球</a></li>
+            <li><a href="groups.php">全部星球</a></li>
         </ul>
     </div>
 </div>

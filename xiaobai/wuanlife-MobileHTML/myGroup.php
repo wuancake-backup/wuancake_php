@@ -26,13 +26,29 @@
                     <ul class="list-inline">
                         <li><a href="index.php">发现</a></li>
                         <li><a href="myGroup.php">我的星球</a></li>
-                        <li><a href="groups.html">全部星球</a></li>
+                        <li><a href="groups.php">全部星球</a></li>
                     </ul>
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
-                        <li><a href="login.php">登录</a></li>
-                        <li><a href="reg.php">注册</a></li>
+                        <li><?php
+                            session_start();
+                            $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
+                            if(isset($_SESSION['userNickname'])){
+                                echo '<a href="user.html">';
+                                echo $_SESSION['userNickname'].'</a></li>';
+                            }else{
+
+                                echo '<script language=javascript>window.location.href="login.php"</script>';
+                            }
+                            ?>
+                        <li><?php
+                            if(isset($_SESSION['userNickname'])){
+                                echo '<a href="exit.php">退出</a></li>';
+                            }else{
+                                echo '<a href="reg.php">注册</a></li>';
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -47,7 +63,7 @@
         <ul class="list-inline">
             <li><a href="index.php">发现</a></li>
             <li class="active"><a href="myGroup.php">我的星球</a></li>
-            <li><a href="groups.html">全部星球</a></li>
+            <li><a href="groups.php">全部星球</a></li>
         </ul>
     </div>
 </div>

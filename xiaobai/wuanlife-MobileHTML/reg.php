@@ -26,7 +26,7 @@
                     <ul class="list-inline">
                         <li><a href="index.php">发现</a></li>
                         <li><a href="myGroup.php">我的星球</a></li>
-                        <li><a href="groups.html">全部星球</a></li>
+                        <li><a href="groups.php">全部星球</a></li>
                     </ul>
                 </div>
                 <div class=" pull-right">
@@ -91,14 +91,26 @@ if(!empty($_POST)) {
         $userNickname = $_POST['userNickname'];
         $userEmail = $_POST['userEmail'];
     }
-
+    $userPassword=md5($userPassword);
     mysql_query("set names 'utf8'");
     $sql="INSERT INTO users (userName,userPassword,userNickname,userEmail) VALUE ('$userName','$userPassword','$userNickname','$userEmail')";
     $retval=mysql_query($sql,$conn);
     if ($retval)
     {
-        echo "<script>alert('注册成功！');</script>";
-        echo "<script>window.location.href='login.php'</script>";
+        $userNickname=$arr['userNickname'];
+        session_start();
+        $_SESSION['userNickname']=$userNickname;
+        if(isset($_SESSION['userurl'])){
+            $url=$_SESSION['userurl'];
+        }else{
+            $url="index.php";
+        }
+       // echo "<script>alert ('注册成功!');</script>";
+        echo "<script>window.location.href=\"$url\"</script>";
+//        $userNickname=$arr['userNickname'];
+//        setcookie('userNickname',$userNickname);
+//        echo "<script>alert('注册成功！');</script>";
+//        echo "<script>window.location.href='login.php'</script>";
 
     }else
     {

@@ -26,7 +26,7 @@
                     <ul class="list-inline">
                         <li><a href="index.php">发现</a></li>
                         <li><a href="myGroup.php">我的星球</a></li>
-                        <li><a href="groups.html">全部星球</a></li>
+                        <li><a href="groups.php">全部星球</a></li>
                     </ul>
                 </div>
                 <div class=" pull-right">
@@ -88,21 +88,29 @@ if(!empty($_POST)) {
 
 
     $sql="SELECT userPassword,userNickname FROM users WHERE userName='$userName'";
+
     $query=mysql_query($sql,$conn);
     $arr=mysql_fetch_array($query);
+    $userPassword=md5($userPassword);
     if($arr=="")
     {
         echo '<script>alert ("用户名不存在!");</script>';
     }elseif($arr['userPassword']==$userPassword)
     {
         $userNickname=$arr['userNickname'];
-        setcookie('userNickname',$userNickname,time()+3600);
-        echo "<script>alert ('登录成功!');</script>";
-        echo "<script>window.location.href='index.php'</script>";
+        session_start();
+        $_SESSION['userNickname']=$userNickname;
+        if(isset($_SESSION['userurl'])){
+            $url=$_SESSION['userurl'];
+        }else{
+            $url="index.php";
+        }
+        //echo "<script>alert ('登录成功!');</script>";
+        echo "<script>window.location.href=\"$url\"</script>";
     }else
     {
+
         echo '<script>alert ("账号或密码错误!");</script>';
-        echo "<script>window.location.href='login.php'</script>";
     }
 
 
