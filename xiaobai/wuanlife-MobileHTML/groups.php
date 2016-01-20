@@ -85,12 +85,13 @@
                     <ul class="list-unstyled top-ic ">
                         <?php
                         include_once "conn.php";
-                        $sql="SELECT gb.name,gb.ID,gd.userID \n".
-                            "FROM  group_base gb,group_detail gd \n".
-                            "WHERE gb.ID=gd.ID";
+                        $sql="SELECT name,ID FROM  group_base ";
                         $query=mysql_query($sql,$conn);
                         while($arr=mysql_fetch_array($query)){
-
+                        $groupID=$arr['ID'];
+                            $sql2="SELECT COUNT(userID) AS count FROM group_detail WHERE ID='$groupID'";
+                            $result=mysql_fetch_array(mysql_query($sql2));
+                            $count=$result['count'];
                         ?>
                         <li class="">
                             <a><img src="image/logo-3x.png"></a>
@@ -101,7 +102,7 @@
 
                                 ?>
 
-                                <p>999 个成员</p>
+                                <p><?php echo $count;?>个成员</p>
                             </div>
                         </li>
                         <?php

@@ -97,7 +97,7 @@
                             $query2=mysql_query($sql2,$conn);
                             $arr2=mysql_fetch_array($query2);
                             if(isset($_COOKIE['nickName'])) {
-                                if(isset($arr2)){
+                                if(!empty($arr2)){
                                         echo '<a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>';
                                     }else{
                                         echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
