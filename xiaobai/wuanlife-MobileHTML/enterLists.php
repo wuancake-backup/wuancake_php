@@ -47,7 +47,9 @@
                             ?>
                         <li><?php
                             if(isset($_COOKIE['nickName'])){
-                                echo '<a href="exit.php">退出</a></li>';
+
+                                echo "<a href='exit.php'>退出</a></li>";
+
                             }else{
                                 echo '<a href="reg.php">注册</a></li>';
                             }
@@ -72,17 +74,6 @@
 </div>
 <!-- framework-->
 <!-- content-->
-<?php
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "root";
-$db_data = "wuan";
-$conn=mysql_connect($db_host, $db_user, $db_pass);
-mysql_select_db($db_data);
-$sql="SELECT password,nickName,ID FROM user_base WHERE name='$name'";
-$query=mysql_query($sql,$conn);
-$arr=mysql_fetch_array($query);
-?>
 <div class="framework-content">
     <div class="container">
         <div class="row">
@@ -90,8 +81,38 @@ $arr=mysql_fetch_array($query);
             <div class="col-md-12">
                 <section>
                     <div class="delete-float">
-                        <h2 class="pull-left">鬼扯天地</h2>
-                        <a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>
+                            <?php
+                            include_once "conn.php";
+                            $groupID=$_GET['groupID'];
+                            $userID=$_COOKIE['userID'];
+                            //输出小组名
+                            $sql="SELECT name FROM group_base WHERE ID='$groupID'";
+                            $query=mysql_query($sql,$conn);
+                            $arr=mysql_fetch_array($query);
+                            $groupName=$arr['name'];
+                            echo '<h2 class="pull-left">'.$groupName.'</h2>';
+                            //判断用户以是否加入小组
+
+                            $sql2="SELECT userID FROM group_detail WHERE ID='$groupID' AND userID='$userID'";
+                            $query2=mysql_query($sql2,$conn);
+                            $arr2=mysql_fetch_array($query2);
+                            if(isset($_COOKIE['nickName'])) {
+                                if(isset($arr2)){
+                                        echo '<a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>';
+                                    }else{
+                                        echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
+                                    }
+                                }
+
+//                                if (in_array($userID, $arr2)) {
+//                                    echo '<a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>';
+//                                } else {
+//                                    echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
+//                                }
+//                            }else{
+//                                echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
+//                            }
+//                            ?>
                     </div>
 
                     <!-- 请判断帖子是否存在图片需要展示，判断后决定输出的模板 第一个是有图 第二个是无图-->

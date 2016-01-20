@@ -40,16 +40,6 @@ if(!isset($_COOKIE['nickName'])){
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            //session方法
-                            /*                            session_start();
-                                                        $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
-                                                        if(isset($_SESSION['userNickname'])){
-                                                            echo '<a href="user.html">';
-                                                            echo $_SESSION['userNickname'].'</a></li>';
-                                                        }else{
-
-                                                            echo '<script language=javascript>window.location.href="login.php"</script>';
-                                                        }*/
                             $nickName=urldecode($_COOKIE['nickName']);
                             echo '<a href="myGroup.php">';
                             echo $nickName.'</a></li>';

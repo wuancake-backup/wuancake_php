@@ -32,15 +32,6 @@
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            /*                            //session方法
-                                                        session_start();
-                                                        $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
-                                                        if(isset($_SESSION['userNickname'])){
-                                                            echo '<a href="user.html">';
-                                                            echo $_SESSION['userNickname'].'</a></li>';
-                                                        }else{
-                                                            echo '<a href="login.php">登录</a></li>';
-                                                        }*/
                             //cookie方法
 
                             $userurl=$_SERVER['REQUEST_URI'];
@@ -92,15 +83,30 @@
                         <a href="createGroup.php" class="pull-right btn btn-primary">创建星球</a>
                     </div>
                     <ul class="list-unstyled top-ic ">
+                        <?php
+                        include_once "conn.php";
+                        $sql="SELECT gb.name,gb.ID,gd.userID \n".
+                            "FROM  group_base gb,group_detail gd \n".
+                            "WHERE gb.ID=gd.ID";
+                        $query=mysql_query($sql,$conn);
+                        while($arr=mysql_fetch_array($query)){
 
+                        ?>
                         <li class="">
-                            <a><img  src="image/logo-3x.png"></a>
+                            <a><img src="image/logo-3x.png"></a>
+
                             <div class="text-center">
-                                <a href=""><p>我们都是技术宅</p></a>
+                                <?php
+                                echo "<a href=\"enterLists.php?groupID=".$arr['ID']."\"><p>".$arr['name']."</p></a>";
+
+                                ?>
+
                                 <p>999 个成员</p>
                             </div>
                         </li>
-
+                        <?php
+                        }
+                        ?>
                         <li class="">
                             <a><img  src="image/logo-3x.png"></a>
                             <div class="text-center">

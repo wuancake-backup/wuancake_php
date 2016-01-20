@@ -71,23 +71,7 @@ if(!empty($_POST)) {
         if (preg_match('/^[0-9a-zA-Z\x{4e00}-\x{9fa5}]{1,16}+$/u', $nickName)) {
             if (preg_match('/^[\s|\S]{6,18}$/u', $password)) {
 
-
-                $db_host = "localhost";
-                $db_user = "root";
-                $db_pass = "root";
-                $db_data = "wuan";
-                $conn = mysql_connect($db_host, $db_user, $db_pass);
-                if ($conn) {
-                    //echo "连接成功";
-                } else {
-                    echo "连接失败";
-                }
-                if (mysql_select_db($db_data)) {
-                    //echo "选择数据库成功";
-                } else {
-                    echo "选择数据库失败";
-                }
-
+                include_once "conn.php";
 
                 if (!get_magic_quotes_gpc()) {
                     $name = addslashes($name);
@@ -101,7 +85,8 @@ if(!empty($_POST)) {
                 $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
                 $retval = mysql_query($sql, $conn);
                 $sql2="SELECT ID FROM user_base WHERE name='$name'";
-                $arr=mysql_query($sql2,$conn);
+                $retval2=mysql_query($sql2,$conn);
+                $arr=mysql_fetch_array($retval2);
                 if ($retval) {
                     $nickName = urlencode($nickName);
                     $userID = $arr['ID'];

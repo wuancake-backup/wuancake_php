@@ -2,8 +2,8 @@
 
 setcookie('nickName','',time()-3600*24*7*2);
 
-if(isset($_SESSION['userurl'])){
-    $url=$_SESSION['userurl'];
+if(isset($_COOKIE['userurl'])){
+    $url=$_COOKIE['userurl'];
 }else{
     $url="index.php";
 }

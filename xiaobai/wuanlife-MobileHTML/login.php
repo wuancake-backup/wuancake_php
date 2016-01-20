@@ -63,22 +63,7 @@
 $loginurl=$_SERVER['REQUEST_URI'];
 setcookie('loginurl',$loginurl);
 if(!empty($_POST)) {
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_pass = "root";
-    $db_data = "wuan";
-    $conn=mysql_connect($db_host, $db_user, $db_pass);
-    if ($conn) {
-        //echo "连接成功";
-    } else {
-        echo "连接失败";
-    }
-    if (mysql_select_db($db_data)) {
-        //echo "选择数据库成功";
-    } else {
-        echo "选择数据库失败";
-    }
-
+    include_once "conn.php";
 
     if (!get_magic_quotes_gpc()) {
         $name = addslashes($_POST['name']);

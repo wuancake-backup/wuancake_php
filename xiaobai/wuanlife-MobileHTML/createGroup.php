@@ -73,22 +73,7 @@ if(!empty($_POST)) {
     if (!preg_match('/^[0-9a-zA-Z_\x{4e00}-\x{9fa5}]{1,20}+$/u', $name)){
         echo "<script>alert('小组名只能为中文、英文、数字或者下划线，但不得超过20字节！');</script>";
     }else{
-        $db_host = "localhost";
-        $db_user = "root";
-        $db_pass = "root";
-        $db_data = "wuan";
-        $conn = mysql_connect($db_host, $db_user, $db_pass);
-        if ($conn) {
-            //echo "连接成功";
-        } else {
-            echo "连接失败";
-        }
-        if (mysql_select_db($db_data)) {
-            //echo "选择数据库成功";
-        } else {
-            echo "选择数据库失败";
-        }
-
+        include_once "conn.php";
 
         if (!get_magic_quotes_gpc()) {
             $name = addslashes($name);
@@ -96,16 +81,17 @@ if(!empty($_POST)) {
 
         mysql_query("set names 'utf8'");
         $sql = "INSERT INTO group_base (name) VALUE ('$name')";
-        $sql2="SELECT ID FROM group_base WHERE name='$name'";
         $retval = mysql_query($sql, $conn);
-        $arr=mysql_query($sql2,$conn);
+        $sql2="SELECT ID FROM group_base WHERE name='$name'";
+        $retval2=mysql_query($sql2,$conn);
+        $arr=mysql_fetch_array($retval2);
         $groupID=$arr['ID'];
         $userID=$_COOKIE['userID'];
         $sql3="INSERT INTO group_detail (ID,userID) VALUE ('$groupID','$userID')";
-        $retval2=mysql_query($sql3,$conn);
-        if($retval==1 && $retval2==1){
-echo $groupID;
-           // echo "<script>window.location.href='enterLists.php?groupid=\"$groupID\"'</script>";
+        $retval3=mysql_query($sql3,$conn);
+        if($retval3){
+
+            echo "<script>window.location.href='enterLists.php?groupid=$groupID'</script>";
         }
 
 
