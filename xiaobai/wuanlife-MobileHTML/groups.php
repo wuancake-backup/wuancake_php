@@ -85,27 +85,30 @@
                     <ul class="list-unstyled top-ic ">
                         <?php
                         include_once "conn.php";
-                        $sql="SELECT name,ID FROM  group_base ";
+                        $sql="SELECT ID,COUNT(userID) AS count FROM group_detail "
+                            ."GROUP BY ID HAVING COUNT(userID)>=1 ORDER BY COUNT(userID) DESC";
                         $query=mysql_query($sql,$conn);
-                        while($arr=mysql_fetch_array($query)){
-                        $groupID=$arr['ID'];
-                            $sql2="SELECT COUNT(userID) AS count FROM group_detail WHERE ID='$groupID'";
-                            $result=mysql_fetch_array(mysql_query($sql2));
-                            $count=$result['count'];
-                        ?>
-                        <li class="">
-                            <a><img src="image/logo-3x.png"></a>
+                        while($arr=mysql_fetch_array($query)) {
 
-                            <div class="text-center">
-                                <?php
-                                echo "<a href=\"enterLists.php?groupID=".$arr['ID']."\"><p>".$arr['name']."</p></a>";
+                            $groupID = $arr['ID'];
+                            $count = $arr['count'];
+                            $sql2 = "SELECT name FROM  group_base WHERE ID='$groupID'";
+                            $result = mysql_fetch_array(mysql_query($sql2));
+                            $groupName = $result['name'];
+                            ?>
+                            <li class="">
+                                <a><img src="image/logo-3x.png"></a>
 
-                                ?>
+                                <div class="text-center">
+                                    <?php
+                                    echo "<a href=\"enterLists.php?groupID=" . $groupID . "\"><p>" . $groupName . "</p></a>";
 
-                                <p><?php echo $count;?>个成员</p>
-                            </div>
-                        </li>
-                        <?php
+                                    ?>
+
+                                    <p><?php echo $count; ?>个成员</p>
+                                </div>
+                            </li>
+                            <?php
                         }
                         ?>
                         <li class="">

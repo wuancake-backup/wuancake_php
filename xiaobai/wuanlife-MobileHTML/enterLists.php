@@ -102,17 +102,17 @@
                                     }else{
                                         echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
                                     }
-                                }
+
 
 //                                if (in_array($userID, $arr2)) {
 //                                    echo '<a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>';
 //                                } else {
 //                                    echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
 //                                }
-//                            }else{
-//                                echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
-//                            }
-//                            ?>
+                            }else{
+                                echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
+                            }
+                            ?>
                     </div>
 
                     <!-- 请判断帖子是否存在图片需要展示，判断后决定输出的模板 第一个是有图 第二个是无图-->

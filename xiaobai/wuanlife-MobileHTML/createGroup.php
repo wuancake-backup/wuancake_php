@@ -91,7 +91,7 @@ if(!empty($_POST)) {
         $retval3=mysql_query($sql3,$conn);
         if($retval3){
 
-            echo "<script>window.location.href='enterLists.php?groupid=$groupID'</script>";
+            echo "<script>window.location.href='enterLists.php?groupID=$groupID'</script>";
         }
 
 
