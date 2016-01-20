@@ -85,8 +85,19 @@
                     <ul class="list-unstyled top-ic ">
                         <?php
                         include_once "conn.php";
+                        //小组分页
+                        $sql="select ID from group_base";
+                        $query=mysql_query($sql);
+                        $all_num=mysql_num_rows($query);//总条数
+                        $page_num=2;//每页条数
+                        $page_all_num=ceil($all_num/$page_num);//总页数
+                        $page=empty($_GET['page'])?1:$_GET['page'];//当前页数
+                        $page=(int)$page;//安全强制转换
+                        $limit_st=($page-1)*$page_num;//起始数
+                        //显示小组列表
                         $sql="SELECT ID,COUNT(userID) AS count FROM group_detail "
-                            ."GROUP BY ID HAVING COUNT(userID)>=1 ORDER BY COUNT(userID) DESC";
+                            ."GROUP BY ID HAVING COUNT(userID)>=1 "
+                            ." ORDER BY COUNT(userID) DESC";
                         $query=mysql_query($sql,$conn);
                         while($arr=mysql_fetch_array($query)) {
 
@@ -102,7 +113,6 @@
                                 <div class="text-center">
                                     <?php
                                     echo "<a href=\"enterLists.php?groupID=" . $groupID . "\"><p>" . $groupName . "</p></a>";
-
                                     ?>
 
                                     <p><?php echo $count; ?>个成员</p>
@@ -110,22 +120,9 @@
                             </li>
                             <?php
                         }
+                        $px=$page>=$page_all_num?$page_all_num:$page+1;
+                        $ps=$page<=1?1:$page-1;
                         ?>
-                        <li class="">
-                            <a><img  src="image/logo-3x.png"></a>
-                            <div class="text-center">
-                                <a href=""><p>我们都是技术宅</p></a>
-                                <p>999 个成员</p>
-                            </div>
-                        </li>
-
-                        <li class="">
-                            <a><img  src="image/logo-3x.png"></a>
-                            <div class="text-center">
-                                <a href=""><p>我们都是技术宅</p></a>
-                                <p>999 个成员</p>
-                            </div>
-                        </li>
 
                     </ul>
 
@@ -141,9 +138,9 @@
     <div class="row">
         <div class="col-md-12 hidden-lg hidden-md">
             <ul class="list-unstyled list-inline ">
-                <li><a href="">上一页</a></li>
+                <li><a href="groups.php?page=<?php echo $ps?>">上一页</a></li>
                 <li> 29 / 210</li>
-                <li><a href="">下一页</a></li>
+                <li><a href="groups.php?page=<?php echo $px?>">下一页</a></li>
             </ul>
         </div>
 
