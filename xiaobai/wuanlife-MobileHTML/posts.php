@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+//记录当前url 判断用户是否登陆 若未登录这跳转到登陆界面
+$userurl=$_SERVER['REQUEST_URI'];
+setcookie('userurl',$userurl);
+if(!isset($_COOKIE['nickName'])){
+    echo '<script language=javascript>window.location.href="login.php"</script>';
+}
+?>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -31,8 +39,28 @@
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
-                        <li><a href="login.html">登录</a></li>
-                        <li><a href="reg.html">注册</a></li>
+                        <li><?php
+                            //session方法
+                            /*                            session_start();
+                                                        $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
+                                                        if(isset($_SESSION['userNickname'])){
+                                                            echo '<a href="user.html">';
+                                                            echo $_SESSION['userNickname'].'</a></li>';
+                                                        }else{
+
+                                                            echo '<script language=javascript>window.location.href="login.php"</script>';
+                                                        }*/
+                            $nickName=urldecode($_COOKIE['nickName']);
+                            echo '<a href="myGroup.php">';
+                            echo $nickName.'</a></li>';
+                            ?>
+                        <li><?php
+                            if(isset($_COOKIE['nickName'])){
+                                echo '<a href="exit.php">退出</a></li>';
+                            }else{
+                                echo '<a href="reg.php">注册</a></li>';
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -57,52 +85,75 @@
     <div class="container">
         <div class="row">
             <!-- main framework-->
+            <?php
+            $page= substr($_SERVER['QUERY_STRING'],3,9);
+            $con = mysql_connect("localhost","root","root");
+            if (!$con)
+            {
+                die('Could not connect: ' . mysql_error());
+            }
+
+            mysql_select_db("wuan", $con);
+
+            $result = mysql_query("SELECT pb.title,pd.text,pd.createTime,ub.nickName,gb.name\n"
+                . " FROM post_base pb,post_detail pd,group_base gb,user_base ub\n"
+                . " WHERE ub.ID = pd.postID\n"
+                . " AND pb.groupID = gb.ID\n"
+                . " AND pb.ID = pd.ID\n"
+                . " AND pd.ID = $page\n"
+                . " ORDER BY pd.floor");
+            $row = mysql_fetch_array($result);
+            mysql_close($con);
+            ?>
             <div class="col-md-12">
                 <section>
                     <article>
-                        <h3>卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</h3>
+                        <?php
+                        echo "<h3>". $row['title'] ."</h3>";
+                        ?>
                         <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
+                            <?php
+                            echo "<span class=\"pull-left\"><a href=\"\">". $row['nickName'] ."</a> 发表于 <a href=\"\">". $row['name'] ."</a></span>";
+                            echo "<span class=\"pull-right\">". $row['createTime'] ."</span>";
+                            ?>
                         </footer>
                         <div>
-                            <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                然而露珠平时好像是没有眼袋的啊！
-                                百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                            </p>
+                            <?php
+                            echo "<p>". $row['text'] ."</p>";
+                            ?>
+                            <?php
+
+                            ?>
                         </div>
 
 
                         <!-- reply list-->
                         <!--  -->
+                        <?php
+                        while($row = mysql_fetch_array($result))
+                        {
+                        ?>
                         <section class="reply-list">
                             <div>
 
                                 <footer class="footer">
-                                    <span class="pull-left"><a href="">陶陶</a></span>
-                                    <span class="pull-right">2015-12-26 22:00</span>
+                                    <?php
+                                    echo "<span class=\"pull-left\"><a href=\"\">". $row['nickName'] ."</a></span>";
+                                    echo "<span class=\"pull-right\">". $row['createTime'] ."</span>";
+                                    ?>
                                 </footer>
                                 <div>
-                                     <p>
-                                         我追过清风，喝过烈酒，唱过悲歌，爱过你。
-                                      </p>
+                                    <?php
+                                    echo "<p>". $row['text'] ."</p>";
+                                    ?>
                                 </div>
                             </div>
 
-                            <div>
 
-                                <footer class="footer">
-                                    <span class="pull-left"><a href="">陶陶</a></span>
-                                    <span class="pull-right">2015-12-26 22:00</span>
-                                </footer>
-                                <div>
-                                    <p>
-                                        我追过清风，喝过烈酒，唱过悲歌，爱过你。
-                                    </p>
-                                </div>
-                            </div>
                         </section>
-
+                            <?php
+                        }
+                        ?>
                         <form action="" method="get" class="form-group form-max-none">
                             <textarea class="form-control" placeholder="输入回复内容" rows="4"></textarea>
                             <button type="submit" class="pull-right btn btn-primary">回复</button>

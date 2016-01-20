@@ -31,8 +31,8 @@
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
-                        <li><a href="login.html">登录</a></li>
-                        <li><a href="reg.html">注册</a></li>
+                        <li><a href="login.php">登录</a></li>
+                        <li><a href="reg.php">注册</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,13 +60,34 @@
 
     </div>
 </div>
+
 <?php
-if(!empty($_POST)) {
-    if (preg_match("/^[a-zA-Z0-9]{,15}$", $name)) {
-//        if(preg_match("/^[a-zA-Z0-9]|")){
-//
-//        }
-    } else {
+//if(!empty($_POST)) {
+//    if(preg_match("/^[a-zA-Z0-9]{,15}$",$name)){
+////        if(preg_match("/^[a-zA-Z0-9]|")){
+////
+////        }
+//    }else{
+//        echo "<script>alert('用户名只能为数字和字母，不得超过16位！');</script>";
+//    }
+if(!empty($_POST)){
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $nickName = $_POST['nickName'];
+    $Email = $_POST['Email'];
+    if(preg_match("/^[a-zA-Z0-9]{1,16}$/",$name)){
+        if(preg_match('/^[0-9a-zA-Z\x{4e00}-\x{9fa5}]{1,16}+$/u',$nickName)){
+            if(preg_match('/^[\s|\S]{6,18}$/u',$password)){
+                echo "123";
+
+
+            }else{
+                echo "<script>alert('密码长度为6-18位！');</script>";
+            }
+        }else{
+            echo "<script>alert('昵称只能为中文、英文、数字，不得超过16位！');</script>";
+        }
+    }else{
         echo "<script>alert('用户名只能为数字和字母，不得超过16位！');</script>";
     }
 }

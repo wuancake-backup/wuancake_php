@@ -1,6 +1,6 @@
 <?php
-session_start();
-unset($_SESSION['userNickname']);
+
+setcookie('nickName','',time()-3600*24*7*2);
 
 if(isset($_SESSION['userurl'])){
     $url=$_SESSION['userurl'];

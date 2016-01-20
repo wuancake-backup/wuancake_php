@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
     <meta name="format-detection" content="adress=no">
-    <title>创建星球 - -午安网 - 过你想过的生活</title>
+    <title>主页 - 午安网 - 过你想过的生活</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/wuan.css">
 </head>
@@ -40,19 +40,67 @@
     </div>
 </div>
 <!-- head end-->
-
 <!-- framework-->
 <!-- content-->
 <div class="framework-content">
-    <div class="container  text-center">
-        <h2 >创建星球</h2>
-        <form class="form-signin">
-           <label for="groupName" class="sr-only">groupName</label>
-           <input type="text" id="groupName" class="form-control" placeholder="星球名字：" required="" autofocus="">
-            <button class="btn pull-right btn-primary" type="submit">创 建</button>
+    <div class="container text-center">
+        <div class="text-center">
+            <h3>找回密码</h3>
+        </div>
+        <form class="form-signin" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+            <label for="getEmail" class="sr-only">getEmail</label>
+            <input type="text" id="getEmail" class="form-control" placeholder="邮箱：" required="" autofocus="" name="Email">
+            <button class="btn  btn-primary btn-block" type="submit">发送邮件</button>
         </form>
     </div>
 </div>
+
+<?php
+if(!empty($_POST)) {
+    $db_host = "localhost";
+    $db_user = "root";
+    $db_pass = "root";
+    $db_data = "wuan";
+    $conn=mysql_connect($db_host, $db_user, $db_pass);
+    if ($conn) {
+        //echo "连接成功";
+    } else {
+        echo "连接失败";
+    }
+    if (mysql_select_db($db_data)) {
+        //echo "选择数据库成功";
+    } else {
+        echo "选择数据库失败";
+    }
+
+
+    if (!get_magic_quotes_gpc()) {
+        $Email = addslashes($_POST['Email']);
+    }else {
+        $Email = $_POST['Email'];
+    }
+
+
+    $sql="SELECT password FROM user_base WHERE Email='$Email'";
+
+    $query=mysql_query($sql,$conn);
+    $arr=mysql_fetch_array($query);
+
+    if($arr=="")
+    {
+        echo '<script>alert ("请输入正确的邮箱!");</script>';
+
+    }else
+    {
+        $password=$arr['password'];
+        $massage="resetpsw.php?psw=$password";
+        mail($Email,'重置密码',$massage);
+        echo '<script>alert ("邮件已发送!");</script>';
+    }
+
+
+}
+?>
 
 
 <script src="js/jquery-1.11.3.min.js"></script>

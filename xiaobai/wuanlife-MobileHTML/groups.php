@@ -32,17 +32,30 @@
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            session_start();
-                            $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
-                            if(isset($_SESSION['userNickname'])){
-                                echo '<a href="user.html">';
-                                echo $_SESSION['userNickname'].'</a></li>';
+                            /*                            //session方法
+                                                        session_start();
+                                                        $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
+                                                        if(isset($_SESSION['userNickname'])){
+                                                            echo '<a href="user.html">';
+                                                            echo $_SESSION['userNickname'].'</a></li>';
+                                                        }else{
+                                                            echo '<a href="login.php">登录</a></li>';
+                                                        }*/
+                            //cookie方法
+
+                            $userurl=$_SERVER['REQUEST_URI'];
+                            setcookie('userurl',$userurl);
+
+                            if(isset($_COOKIE['nickName'])){
+                                $nickName=urldecode($_COOKIE['nickName']);
+                                echo '<a href="myGroup.php">';
+                                echo $nickName.'</a></li>';
                             }else{
                                 echo '<a href="login.php">登录</a></li>';
                             }
                             ?>
                         <li><?php
-                            if(isset($_SESSION['userNickname'])){
+                            if(isset($_COOKIE['nickName'])){
                                 echo '<a href="exit.php">退出</a></li>';
                             }else{
                                 echo '<a href="reg.php">注册</a></li>';
@@ -76,7 +89,7 @@
                 <section>
                     <div class="delete-float">
                         <h2 class="pull-left">全部星球</h2>
-                        <a href="createGroup.html" class="pull-right btn btn-primary">创建星球</a>
+                        <a href="createGroup.php" class="pull-right btn btn-primary">创建星球</a>
                     </div>
                     <ul class="list-unstyled top-ic ">
 

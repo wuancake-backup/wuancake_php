@@ -48,13 +48,13 @@
         </div>
         <form class="form-signin" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
             <label for="userName" class="sr-only">userName</label>
-            <input type="text" id="userName" class="form-control" placeholder="用户名" required="" autofocus="" name="userName">
+            <input type="text" id="userName" class="form-control" placeholder="用户名" required="" autofocus="" name="name">
             <label for="petName" class="sr-only">petName</label>
-            <input type="text" id="petName" class="form-control" placeholder="昵&#12288;称" required="" autofocus="" name="userNickname">
+            <input type="text" id="petName" class="form-control" placeholder="昵&#12288;称" required="" autofocus="" name="nickName">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="密&#12288;码" required="" name="userPassword">
+            <input type="password" id="inputPassword" class="form-control" placeholder="密&#12288;码" required="" name="password">
             <label for="userEmail" class="sr-only">Email</label>
-            <input type="email" id="userEmail" class="form-control" placeholder="邮&#12288;箱" required="" name="userEmail">
+            <input type="email" id="userEmail" class="form-control" placeholder="邮&#12288;箱" required="" name="Email">
             <button class="btn btn-primary btn-block" type="submit" >注册</button>
         </form>
 
@@ -63,64 +63,93 @@
 
 <?php
 if(!empty($_POST)) {
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_pass = "root";
-    $db_data = "wuan";
-    $conn=mysql_connect($db_host, $db_user, $db_pass);
-    if ($conn) {
-        //echo "连接成功";
-    } else {
-        echo "连接失败";
-    }
-    if (mysql_select_db($db_data)) {
-        //echo "选择数据库成功";
-    } else {
-        echo "选择数据库失败";
-    }
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $nickName = $_POST['nickName'];
+    $Email = $_POST['Email'];
+    if (preg_match("/^[a-zA-Z0-9]{1,16}$/", $name)) {
+        if (preg_match('/^[0-9a-zA-Z\x{4e00}-\x{9fa5}]{1,16}+$/u', $nickName)) {
+            if (preg_match('/^[\s|\S]{6,18}$/u', $password)) {
 
 
-    if (!get_magic_quotes_gpc()) {
-        $userName = addslashes($_POST['userName']);
-        $userPassword = addslashes($_POST['userPassword']);
-        $userNickname = addslashes($_POST['userNickname']);
-        $userEmail = addslashes($_POST['userEmail']);
-    }else {
-        $userName = $_POST['userName'];
-        $userPassword = $_POST['userPassword'];
-        $userNickname = $_POST['userNickname'];
-        $userEmail = $_POST['userEmail'];
-    }
-    $userPassword=md5($userPassword);
-    mysql_query("set names 'utf8'");
-    $sql="INSERT INTO users (userName,userPassword,userNickname,userEmail) VALUE ('$userName','$userPassword','$userNickname','$userEmail')";
-    $retval=mysql_query($sql,$conn);
-    if ($retval)
-    {
-        $userNickname=$arr['userNickname'];
-        session_start();
-        $_SESSION['userNickname']=$userNickname;
-        if(isset($_SESSION['userurl'])){
-            $url=$_SESSION['userurl'];
-        }else{
-            $url="index.php";
-        }
-       // echo "<script>alert ('注册成功!');</script>";
-        echo "<script>window.location.href=\"$url\"</script>";
-//        $userNickname=$arr['userNickname'];
-//        setcookie('userNickname',$userNickname);
+                $db_host = "localhost";
+                $db_user = "root";
+                $db_pass = "root";
+                $db_data = "wuan";
+                $conn = mysql_connect($db_host, $db_user, $db_pass);
+                if ($conn) {
+                    //echo "连接成功";
+                } else {
+                    echo "连接失败";
+                }
+                if (mysql_select_db($db_data)) {
+                    //echo "选择数据库成功";
+                } else {
+                    echo "选择数据库失败";
+                }
+
+
+                if (!get_magic_quotes_gpc()) {
+                    $name = addslashes($name);
+                    $password = addslashes($password);
+                    $nickName = addslashes($nickName);
+                    $Email = addslashes($Email);
+                }
+
+                $password = md5($password);
+                mysql_query("set names 'utf8'");
+                $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
+                $retval = mysql_query($sql, $conn);
+                $sql2="SELECT ID FROM user_base WHERE name='$name'";
+                $arr=mysql_query($sql2,$conn);
+                if ($retval) {
+                    $nickName = urlencode($nickName);
+                    $userID = $arr['ID'];
+                    /*      //  --session方法
+                            session_start();
+                            $_SESSION['nickName']=$nickName;
+                            if(isset($_SESSION['userurl'])){
+                                $url=$_SESSION['userurl'];
+                            }else{
+                                $url="index.php";
+                            }
+                            echo "<script>alert ('注册成功!');</script>";
+                            echo "<script>window.location.href=\"$url\"</script>";*/
+
+//       -- cookie方法
+                    setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
+                    setcookie('userID', $userID, time() + 3600 * 24 * 7 * 2);
+
+                    if (isset($_COOKIE['userurl'])) {
+                        if (isset($_COOKIE['loginurl'])) {
+                            $url = "index.php";
+                        } else {
+                            $url = $_COOKIE['userurl'];
+                        }
+
+                    } else {
+                        $url = "index.php";
+                    }
 //        echo "<script>alert('注册成功！');</script>";
-//        echo "<script>window.location.href='login.php'</script>";
+                    echo "<script>window.location.href=\"$url\"</script>";
 
-    }else
-    {
-        echo "<script>alert('用户名已占用！');</script>";
-        echo "<script>window.location.href='reg.php'</script>";
+                } else {
+                    echo "<script>alert('用户名已占用！');</script>";
+//        echo "<script>window.location.href='reg.php'</script>";
+                }
+
+
+            } else {
+                echo "<script>alert('密码长度为6-18位！');</script>";
+            }
+        } else {
+            echo "<script>alert('昵称只能为中文、英文、数字，不得超过16位！');</script>";
+        }
+    } else {
+        echo "<script>alert('用户名只能为数字和字母，不得超过16位！');</script>";
     }
-
-
-
 }
+
 ?>
 <script src="js/jquery-1.11.3.min.js"></script>
 </body>

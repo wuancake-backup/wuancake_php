@@ -31,8 +31,27 @@
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
-                        <li><a href="login.html">登录</a></li>
-                        <li><a href="reg.html">注册</a></li>
+                        <li><?php
+                            //cookie方法
+
+                            $userurl=$_SERVER['REQUEST_URI'];
+                            setcookie('userurl',$userurl);
+
+                            if(isset($_COOKIE['nickName'])){
+                                $nickName=urldecode($_COOKIE['nickName']);
+                                echo '<a href="myGroup.php">';
+                                echo $nickName.'</a></li>';
+                            }else{
+                                echo '<a href="login.php">登录</a></li>';
+                            }
+                            ?>
+                        <li><?php
+                            if(isset($_COOKIE['nickName'])){
+                                echo '<a href="exit.php">退出</a></li>';
+                            }else{
+                                echo '<a href="reg.php">注册</a></li>';
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -53,6 +72,17 @@
 </div>
 <!-- framework-->
 <!-- content-->
+<?php
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "root";
+$db_data = "wuan";
+$conn=mysql_connect($db_host, $db_user, $db_pass);
+mysql_select_db($db_data);
+$sql="SELECT password,nickName,ID FROM user_base WHERE name='$name'";
+$query=mysql_query($sql,$conn);
+$arr=mysql_fetch_array($query);
+?>
 <div class="framework-content">
     <div class="container">
         <div class="row">

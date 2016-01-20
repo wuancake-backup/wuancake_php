@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+//记录当前url 判断用户是否登陆 若未登录这跳转到登陆界面
+$userurl=$_SERVER['REQUEST_URI'];
+setcookie('userurl',$userurl);
+if(!isset($_COOKIE['nickName'])){
+    echo '<script language=javascript>window.location.href="login.php"</script>';
+}
+?>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +40,8 @@
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            session_start();
+                            //session方法
+/*                            session_start();
                             $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
                             if(isset($_SESSION['userNickname'])){
                                 echo '<a href="user.html">';
@@ -40,14 +49,18 @@
                             }else{
 
                                 echo '<script language=javascript>window.location.href="login.php"</script>';
-                            }
+                            }*/
+                            $nickName=urldecode($_COOKIE['nickName']);
+                            echo '<a href="myGroup.php">';
+                            echo $nickName.'</a></li>';
                             ?>
                         <li><?php
-                            if(isset($_SESSION['userNickname'])){
+//                            if(isset($_COOKIE['nickName'])){
                                 echo '<a href="exit.php">退出</a></li>';
-                            }else{
-                                echo '<a href="reg.php">注册</a></li>';
-                            }
+//                            }
+//                            else{
+//                                echo '<a href="reg.php">注册</a></li>';
+//                            }
                             ?>
                     </ul>
                 </div>

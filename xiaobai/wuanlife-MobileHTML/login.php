@@ -48,18 +48,20 @@
         </div>
         <form class="form-signin" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
             <label for="userName" class="sr-only">userName</label>
-            <input type="text" id="userName" class="form-control" placeholder="用户名" required="" autofocus="" name="userName">
+            <input type="text" id="userName" class="form-control" placeholder="用户名" required="" autofocus="" name="name">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="密码" required="" name="userPassword">
+            <input type="password" id="inputPassword" class="form-control" placeholder="密码" required="" name="password">
             <button class="btn  btn-primary btn-block" type="submit">登录</button>
             <div class="footer ">
-                <a class="pull-right text-16" href="rePassword.html">找回密码</a>
+                <a class="pull-right text-16" href="rePassword.php">找回密码</a>
             </div>
         </form>
 
     </div>
 </div>
 <?php
+$loginurl=$_SERVER['REQUEST_URI'];
+setcookie('loginurl',$loginurl);
 if(!empty($_POST)) {
     $db_host = "localhost";
     $db_user = "root";
@@ -79,33 +81,50 @@ if(!empty($_POST)) {
 
 
     if (!get_magic_quotes_gpc()) {
-        $userName = addslashes($_POST['userName']);
-        $userPassword = addslashes($_POST['userPassword']);
+        $name = addslashes($_POST['name']);
+        $password = addslashes($_POST['password']);
     }else {
-        $userName = $_POST['userName'];
-        $userPassword = $_POST['userPassword'];
+        $name = $_POST['name'];
+        $password = $_POST['password'];
     }
 
 
-    $sql="SELECT userPassword,userNickname FROM users WHERE userName='$userName'";
+    $sql="SELECT password,nickName,ID FROM user_base WHERE name='$name'";
 
     $query=mysql_query($sql,$conn);
     $arr=mysql_fetch_array($query);
-    $userPassword=md5($userPassword);
+
+    $password=md5($password);
+//    print_r($arr['password']);
+//    echo "<br/>";
+//    echo $password;
     if($arr=="")
     {
         echo '<script>alert ("用户名不存在!");</script>';
-    }elseif($arr['userPassword']==$userPassword)
+    }elseif($arr['password']==$password)
     {
-        $userNickname=$arr['userNickname'];
-        session_start();
-        $_SESSION['userNickname']=$userNickname;
-        if(isset($_SESSION['userurl'])){
-            $url=$_SESSION['userurl'];
+        $nickName=urlencode($arr['nickName']);
+        $userID=$arr['ID'];
+        /*      //  --session方法
+                session_start();
+                $_SESSION['nickName']=$nickName;
+                if(isset($_SESSION['userurl'])){
+                    $url=$_SESSION['userurl'];
+                }else{
+                    $url="index.php";
+                }
+                echo "<script>alert ('注册成功!');</script>";
+                echo "<script>window.location.href=\"$url\"</script>";*/
+
+//       -- cookie方法
+        setcookie('nickName',$nickName,time()+3600*24*7*2);
+        setcookie('userID',$userID,time()+3600*24*7*2);
+        if(isset($_COOKIE['userurl'])){
+            $url=$_COOKIE['userurl'];
         }else{
             $url="index.php";
         }
-        //echo "<script>alert ('登录成功!');</script>";
+//        echo "<script>alert('登录成功！');</script>";
         echo "<script>window.location.href=\"$url\"</script>";
     }else
     {

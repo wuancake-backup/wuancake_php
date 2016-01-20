@@ -32,6 +32,7 @@
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
+/*                            //session方法
                             session_start();
                             $_SESSION['userurl']=$_SERVER['REQUEST_URI'];
                             if(isset($_SESSION['userNickname'])){
@@ -39,10 +40,22 @@
                                 echo $_SESSION['userNickname'].'</a></li>';
                             }else{
                                 echo '<a href="login.php">登录</a></li>';
+                            }*/
+                            //cookie方法
+
+                           $userurl=$_SERVER['REQUEST_URI'];
+                            setcookie('userurl',$userurl);
+
+                            if(isset($_COOKIE['nickName'])){
+                                $nickName=urldecode($_COOKIE['nickName']);
+                                echo '<a href="myGroup.php">';
+                                echo $nickName.'</a></li>';
+                            }else{
+                                echo '<a href="login.php">登录</a></li>';
                             }
                             ?>
                         <li><?php
-                            if(isset($_SESSION['userNickname'])){
+                            if(isset($_COOKIE['nickName'])){
                                 echo '<a href="exit.php">退出</a></li>';
                             }else{
                                 echo '<a href="reg.php">注册</a></li>';
