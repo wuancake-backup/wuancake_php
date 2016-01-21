@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index,follow">
@@ -95,9 +95,6 @@
                             <?php
                             echo "<p>". $row['text'] ."</p>";
                             ?>
-                            <?php
-
-                            ?>
                         </div>
 
 
@@ -106,7 +103,7 @@
                         <?php
                         while($row = mysql_fetch_array($result))
                         {
-                            ?>
+                        ?>
                             <section class="reply-list">
                                 <div>
 
