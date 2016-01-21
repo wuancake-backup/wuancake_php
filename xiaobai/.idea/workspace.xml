@@ -57,33 +57,39 @@
       <file leaf-file-name="groups.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/groups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6453901">
-              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5744681">
+              <caret line="91" column="36" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
               <folding>
-                <marker date="1453300832032" expanded="true" signature="3437:3462" placeholder="select ID fr..group_base..." />
-                <marker date="1453300832032" expanded="true" signature="3936:3987" placeholder="SELECT ID CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4019" placeholder="SELECT ID CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4055" placeholder="SELECT ID,CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4056" placeholder="SELECT ID CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4084" placeholder="SELECT ID,CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4087" placeholder="SELECT ID,CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4115" placeholder="SELECT ID,CO..." />
-                <marker date="1453300832032" expanded="true" signature="3936:4172" placeholder="SELECT ID CO..." />
-                <marker date="1453300832032" expanded="true" signature="4118:4172" placeholder="SELECT name,..group_base..." />
-                <marker date="1453300832032" expanded="true" signature="4379:4427" placeholder="SELECT name,..group_base..." />
-                <marker date="1453300832032" expanded="true" signature="4429:4634" placeholder="SELECT COUNT..." />
-                <marker date="1453300832032" expanded="true" signature="5500:5865" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="5522:5858" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="5574:5846" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="5626:5831" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="5922:6541" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="5952:6534" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="5984:6523" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="6001:6026" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="6001:6151" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="6052:6133" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="6363:6509" placeholder="..." />
-                <marker date="1453300832032" expanded="true" signature="6410:6491" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="3437:3462" placeholder="select ID fr..group_base..." />
+                <marker date="1453360335032" expanded="true" signature="3937:3988" placeholder="SELECT ID CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4020" placeholder="SELECT ID CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4056" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4057" placeholder="SELECT ID CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4085" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4088" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4115" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4154" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4155" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4164" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4165" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4174" placeholder="SELECT ID,CO..." />
+                <marker date="1453360335032" expanded="true" signature="3937:4230" placeholder="SELECT ID CO..." />
+                <marker date="1453360335032" expanded="true" signature="4176:4230" placeholder="SELECT name,..group_base..." />
+                <marker date="1453360335032" expanded="true" signature="4437:4485" placeholder="SELECT name,..group_base..." />
+                <marker date="1453360335032" expanded="true" signature="4487:4692" placeholder="SELECT COUNT..." />
+                <marker date="1453360335032" expanded="true" signature="5572:5937" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="5594:5930" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="5646:5918" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="5698:5903" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="5994:7665" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="6024:7658" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="6056:7647" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="6073:6098" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="6073:6254" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="6155:6236" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="7456:7481" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="7456:7633" placeholder="..." />
+                <marker date="1453360335032" expanded="true" signature="7534:7615" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -786,33 +792,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/groups.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6453901">
-          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5744681">
+          <caret line="91" column="36" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
           <folding>
-            <marker date="1453300832032" expanded="true" signature="3437:3462" placeholder="select ID fr..group_base..." />
-            <marker date="1453300832032" expanded="true" signature="3936:3987" placeholder="SELECT ID CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4019" placeholder="SELECT ID CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4055" placeholder="SELECT ID,CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4056" placeholder="SELECT ID CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4084" placeholder="SELECT ID,CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4087" placeholder="SELECT ID,CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4115" placeholder="SELECT ID,CO..." />
-            <marker date="1453300832032" expanded="true" signature="3936:4172" placeholder="SELECT ID CO..." />
-            <marker date="1453300832032" expanded="true" signature="4118:4172" placeholder="SELECT name,..group_base..." />
-            <marker date="1453300832032" expanded="true" signature="4379:4427" placeholder="SELECT name,..group_base..." />
-            <marker date="1453300832032" expanded="true" signature="4429:4634" placeholder="SELECT COUNT..." />
-            <marker date="1453300832032" expanded="true" signature="5500:5865" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="5522:5858" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="5574:5846" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="5626:5831" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="5922:6541" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="5952:6534" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="5984:6523" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="6001:6026" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="6001:6151" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="6052:6133" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="6363:6509" placeholder="..." />
-            <marker date="1453300832032" expanded="true" signature="6410:6491" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="3437:3462" placeholder="select ID fr..group_base..." />
+            <marker date="1453360335032" expanded="true" signature="3937:3988" placeholder="SELECT ID CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4020" placeholder="SELECT ID CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4056" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4057" placeholder="SELECT ID CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4085" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4088" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4115" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4154" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4155" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4164" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4165" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4174" placeholder="SELECT ID,CO..." />
+            <marker date="1453360335032" expanded="true" signature="3937:4230" placeholder="SELECT ID CO..." />
+            <marker date="1453360335032" expanded="true" signature="4176:4230" placeholder="SELECT name,..group_base..." />
+            <marker date="1453360335032" expanded="true" signature="4437:4485" placeholder="SELECT name,..group_base..." />
+            <marker date="1453360335032" expanded="true" signature="4487:4692" placeholder="SELECT COUNT..." />
+            <marker date="1453360335032" expanded="true" signature="5572:5937" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="5594:5930" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="5646:5918" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="5698:5903" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="5994:7665" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="6024:7658" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="6056:7647" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="6073:6098" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="6073:6254" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="6155:6236" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="7456:7481" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="7456:7633" placeholder="..." />
+            <marker date="1453360335032" expanded="true" signature="7534:7615" placeholder="..." />
           </folding>
         </state>
       </provider>

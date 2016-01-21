@@ -89,7 +89,7 @@
                         $sql="select ID from group_base";
                         $query=mysql_query($sql);
                         $all_num=mysql_num_rows($query);//总条数
-                        $page_num=2;//每页条数
+                        $page_num=20;//每页条数
                         $page_all_num=ceil($all_num/$page_num);//总页数
                         $page=empty($_GET['page'])?1:$_GET['page'];//当前页数
                         $page=(int)$page;//安全强制转换
@@ -97,7 +97,8 @@
                         //显示小组列表
                         $sql="SELECT ID,COUNT(userID) AS count FROM group_detail "
                             ."GROUP BY ID HAVING COUNT(userID)>=1 "
-                            ." ORDER BY COUNT(userID) DESC";
+                            ."ORDER BY COUNT(userID) DESC "
+                            ."LIMIT $limit_st,$page_num";
                         $query=mysql_query($sql,$conn);
                         while($arr=mysql_fetch_array($query)) {
 
@@ -115,7 +116,7 @@
                                     echo "<a href=\"enterLists.php?groupID=" . $groupID . "\"><p>" . $groupName . "</p></a>";
                                     ?>
 
-                                    <p><?php echo $count; ?>个成员</p>
+                                    <p><?php echo $count.$page_all_num; ?>个成员</p>
                                 </div>
                             </li>
                             <?php
@@ -150,17 +151,37 @@
     <nav class="text-center">
         <ul class="pagination">
             <li>
-                <a href="#" aria-label="Previous">
+                <a href="groups.php?page=<?php echo $ps?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <?php
+                if ($page_all_num>=5) {
+                    if ($page <= 3) {
+                        for ($num = 0; $num < 5; $num++) {
+                            $page1= 1 + $num;
+                            echo "<li><a href=\"groups.php?page=$page1\">$page1</a></li>";
+                        }
+                    } elseif ($page > 3 && $page+4<=$page_all_num) {
+                        for ($num = 0; $num < 5; $num++) {
+                            $page_ = $page + $num - 2;
+                            echo "<li><a href=\"groups.php?page=$page_\">$page_</a></li>";
+                        }
+                    }else {
+                            for ($num=0; $num < 5; $num++) {
+                                $x=$page_all_num-3;
+                                $page_ =$x + $num - 1;
+                                echo "<li><a href=\"groups.php?page=$page_\">$page_</a></li>";
+                            }
+                    }
+                }else{
+                    for($page;$page<=$page_all_num;$page++){
+                        echo "<li><a href=\"groups.php?page=$page\">$page</a></li>";
+                    }
+                }
+            ?>
             <li>
-                <a href="#" aria-label="Next">
+                <a href="groups.php?page=<?php echo $px?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
