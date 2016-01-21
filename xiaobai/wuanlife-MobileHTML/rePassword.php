@@ -57,22 +57,7 @@
 
 <?php
 if(!empty($_POST)) {
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_pass = "root";
-    $db_data = "wuan";
-    $conn=mysql_connect($db_host, $db_user, $db_pass);
-    if ($conn) {
-        //echo "连接成功";
-    } else {
-        echo "连接失败";
-    }
-    if (mysql_select_db($db_data)) {
-        //echo "选择数据库成功";
-    } else {
-        echo "选择数据库失败";
-    }
-
+include_once "conn.php";
 
     if (!get_magic_quotes_gpc()) {
         $Email = addslashes($_POST['Email']);
@@ -81,7 +66,7 @@ if(!empty($_POST)) {
     }
 
 
-    $sql="SELECT password FROM user_base WHERE Email='$Email'";
+    $sql="SELECT name,nickName,password FROM user_base WHERE Email='$Email'";
 
     $query=mysql_query($sql,$conn);
     $arr=mysql_fetch_array($query);
@@ -93,7 +78,10 @@ if(!empty($_POST)) {
     }else
     {
         $password=$arr['password'];
-        $massage="resetpsw.php?psw=$password";
+        $name=$arr['name'];
+        $nickName=$arr['nickName'];
+        $massage="尊敬的$nickName：
+        若您的用户名为$name。请点击该链接进行密码重置resetpsw.php?password=$password&name=$name&nickName=$nickName&Email=$Email";
         mail($Email,'重置密码',$massage);
         echo '<script>alert ("邮件已发送!");</script>';
     }

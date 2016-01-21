@@ -116,7 +116,7 @@
                                     echo "<a href=\"enterLists.php?groupID=" . $groupID . "\"><p>" . $groupName . "</p></a>";
                                     ?>
 
-                                    <p><?php echo $count.$page_all_num; ?>个成员</p>
+                                    <p><?php echo $count; ?>个成员</p>
                                 </div>
                             </li>
                             <?php

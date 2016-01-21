@@ -90,16 +90,6 @@ if(!empty($_POST)) {
                 if ($retval) {
                     $nickName = urlencode($nickName);
                     $userID = $arr['ID'];
-                    /*      //  --session方法
-                            session_start();
-                            $_SESSION['nickName']=$nickName;
-                            if(isset($_SESSION['userurl'])){
-                                $url=$_SESSION['userurl'];
-                            }else{
-                                $url="index.php";
-                            }
-                            echo "<script>alert ('注册成功!');</script>";
-                            echo "<script>window.location.href=\"$url\"</script>";*/
 
 //       -- cookie方法
                     setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
