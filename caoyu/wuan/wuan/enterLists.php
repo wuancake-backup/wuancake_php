@@ -84,8 +84,9 @@
             <div class="col-md-12">
                 <section>
                     <div class="delete-float">
-                            <?php
+                        <?php
                             include_once "conn.php";
+
                             $groupID=$_GET['groupID'];
                             $userID=$_COOKIE['userID'];
                             //输出小组名
@@ -95,6 +96,17 @@
                             $groupName=$arr['name'];
                             echo '<h2 class="pull-left">'.$groupName.'</h2>';
                             //判断用户以是否加入小组
+
+                            //小组分页
+                            $sql="select pb.ID from post_base pb,group_base gb WHERE gb.ID = pb.groupID AND gb.ID='$groupID' ";
+                            $query=mysql_query($sql);
+                            $all_num=mysql_num_rows($query);//总条数
+                            $page_num=5;//每页条数
+                            $page_all_num=ceil($all_num/$page_num);//总页数
+                            $page=empty($_GET['page'])?1:$_GET['page'];//当前页数
+                            $page=(int)$page;//安全强制转换
+                            $limit_st=($page-1)*$page_num;//起始数
+                            //显示帖子列表
 
                             $sql2="SELECT userID FROM group_detail WHERE ID='$groupID' AND userID='$userID'";
                             $query2=mysql_query($sql2,$conn);
@@ -126,7 +138,7 @@
                         . "AND pb.ID = pd.ID\n"
                         . "AND pd.floor = '1'\n"
                         . "ORDER BY pd.createTime DESC\n"
-                        . " LIMIT 0, 30 ";
+                        . "LIMIT $limit_st,$page_num";
                     $result = mysql_query($sql_p);
                     while($row = mysql_fetch_array($result))
                         {
@@ -167,9 +179,9 @@
     <div class="row">
         <div class="col-md-12 hidden-lg hidden-md">
             <ul class="list-unstyled list-inline ">
-                <li><a href="">上一页</a></li>
-                <li> 29 / 210</li>
-                <li><a href="">下一页</a></li>
+                <li><a href="enterLists.php?page=<?php echo $ps?>">上一页</a></li>
+                <li><?php echo  $page." / ".$page_all_num ?></li>
+                <li><a href="enterLists.php?page=<?php echo $px?>">下一页</a></li>
             </ul>
         </div>
 
@@ -179,17 +191,37 @@
     <nav class="text-center">
         <ul class="pagination">
             <li>
-                <a href="#" aria-label="Previous">
+                <a href="enterLists.php?page=<?php echo $ps?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <?php
+                if ($page_all_num>=5) {
+                    if ($page <= 3) {
+                        for ($num = 0; $num < 5; $num++) {
+                            $page1= 1 + $num;
+                            echo "<li><a href=\"enterLists.php?page=$page1\">$page1</a></li>";
+                        }
+                    } elseif ($page > 3 && $page+4<=$page_all_num) {
+                        for ($num = 0; $num < 5; $num++) {
+                            $page_ = $page + $num - 2;
+                            echo "<li><a href=\"enterLists.php?page=$page_\">$page_</a></li>";
+                        }
+                    }else {
+                            for ($num=0; $num < 5; $num++) {
+                                $x=$page_all_num-3;
+                                $page_ =$x + $num - 1;
+                                echo "<li><a href=\"enterLists.php?page=$page_\">$page_</a></li>";
+                            }
+                    }
+                }else{
+                    for($page;$page<=$page_all_num;$page++){
+                        echo "<li><a href=\"enterLists.php?page=$page\">$page</a></li>";
+                    }
+                }
+            ?>
             <li>
-                <a href="#" aria-label="Next">
+                <a href="enterLists.php?page=<?php echo $px?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

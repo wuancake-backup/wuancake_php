@@ -109,8 +109,9 @@
             $sqlPD = "INSERT INTO post_detail (ID,postID,text,floor,createTime) VALUE ('$p_id','$u_id','$p_text','1','$p_time')";
             mysql_query($sqlPB);
             mysql_query($sqlPD);
+            $url = $_COOKIE['userurl'];
             echo '<script language="javascript">';
-            echo "window.history.go(-2)";
+            echo "<script>window.location.href=\"$url\"</script>";
             echo '</script>';
         }else if(!isset($_COOKIE['nickName'])){
             echo '<script language="javascript">';
