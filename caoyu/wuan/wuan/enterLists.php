@@ -31,6 +31,9 @@
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
+
+
+
                         <li><?php
                             //cookie方法
 
@@ -114,63 +117,43 @@
                             }
                             ?>
                     </div>
-
-                    <!-- 请判断帖子是否存在图片需要展示，判断后决定输出的模板 第一个是有图 第二个是无图-->
-                    <article>
-                        <h3><a href="">卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</a></h3>
-                        <div class="delete-float">
-                            <div class="pull-left container-content" >
-                                <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                    然而露珠平时好像是没有眼袋的啊！
-                                    百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                                </p>
-                            </div>
-                            <div class="pull-right container-img">
-                                <img  src="image/logo-1x.png">
-                            </div>
-                        </div>
-                        <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
-                        </footer>
-                    </article>
+                    <?php
+                    include_once "conn.php";
+                    $sql_p="SELECT pb.title,pd.text,pd.createTime,ub.nickName,gb.name,pb.ID\n"
+                        . "FROM post_base pb,post_detail pd,group_base gb,user_base ub \n"
+                        . "WHERE ub.ID = pb.userID \n"
+                        . "AND pb.groupID = gb.ID\n"
+                        . "AND pb.ID = pd.ID\n"
+                        . "AND pd.floor = '1'\n"
+                        . "ORDER BY pd.createTime DESC\n"
+                        . " LIMIT 0, 30 ";
+                    $result = mysql_query($sql_p);
+                    while($row = mysql_fetch_array($result))
+                        {
+                    ?>
 
                     <article>
-                        <h3><a href="">卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</a></h3>
+                        <?php
+                        echo "<h3><a href=\"posts.php?P_ID=". $row['ID'] ."\">". $row['title'] ."</a></h3>";
+                        ?>
                         <div class="delete-float">
                             <div>
-                                <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                    然而露珠平时好像是没有眼袋的啊！
-                                    百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                                </p>
+                                <?php
+                                echo "<p>". $row['text'] ."</p>";
+                                ?>
                             </div>
 
                         </div>
                         <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
+                            <?php
+                            echo "<span class=\"pull-left\"><a href=\"\">". $row['nickName'] ."</a> 发表于 <a href=\"\">". $row['name'] ."</a></span>";
+                            echo "<span class=\"pull-right\">". $row['createTime'] . "</span>";
+                            ?>
                         </footer>
                     </article>
-
-                    <article>
-                        <h3><a href="">卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</a></h3>
-                        <div class="delete-float">
-                            <div class="pull-left container-content" >
-                                <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                    然而露珠平时好像是没有眼袋的啊！
-                                    百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                                </p>
-                            </div>
-                            <div class="pull-right container-img">
-                                <img  src="image/logo-3x.png">
-                            </div>
-                        </div>
-                        <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
-                        </footer>
-                    </article>
-
+                    <?php
+                    }
+                    ?>
 
                 </section>
             </div>

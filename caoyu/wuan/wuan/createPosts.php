@@ -74,16 +74,52 @@
     <div class="framework-content">
         <div class="container text-center">
             <h2 >发表帖子</h2>
-            <form class="form-signin">
+            <form class="form-signin" method="post" onSubmit="return check_form(this);" action="<?php $_SERVER["PHP_SELF"]."?".$_SERVER["QUERY_STRING"]?>">
                 <label for="postsName" class="sr-only">postsName</label>
-                <input type="text" id="postsName" class="form-control" placeholder="标题：" required="" autofocus="">
-                <textarea rows="6" class="form-control" placeholder="内容："></textarea>
+                <input type="text" id="postsName" class="form-control" placeholder="标题：" required="" autofocus="" name="title">
+                <textarea rows="6" class="form-control" placeholder="内容：" required="" name="postText"></textarea>
                 <button class="btn pull-right btn-primary" type="submit">发 表</button>
             </form>
         </div>
     </div>
 
-
     <script src="js/jquery-1.11.3.min.js"></script>
+
+    <?php
+    if(!empty($_POST)){
+        if(isset($_COOKIE['nickName'])){
+            $g_id= substr($_SERVER['QUERY_STRING'],8,9);
+            $u_id = $_COOKIE["userID"];
+            $p_title = $_POST['title'];
+            $p_text = $_POST['postText'];
+            $p_time = date('Y-m-d H:i',time());
+
+            include "conn.php";
+    //取得postID
+            $sql_getPID = "SELECT ID as postID\n"
+            . "FROM post_base\n"
+            . "ORDER by ID DESC\n"
+            . "LIMIT 0 , 1";
+            $result1 = mysql_query($sql_getPID);
+            $row1 = mysql_fetch_array($result1);
+            $p_id = $row1['postID']+1;
+
+    //插入数据
+            $sqlPB = "INSERT INTO post_base (ID,userID,groupID,title) VALUE ('$p_id','$u_id','$g_id','$p_title')";
+            $sqlPD = "INSERT INTO post_detail (ID,postID,text,floor,createTime) VALUE ('$p_id','$u_id','$p_text','1','$p_time')";
+            mysql_query($sqlPB);
+            mysql_query($sqlPD);
+            echo '<script language="javascript">';
+            echo "window.history.go(-2)";
+            echo '</script>';
+        }else if(!isset($_COOKIE['nickName'])){
+            echo '<script language="javascript">';
+            echo 'alert("请先登录!");';
+            echo '</script>';
+        }
+    }
+
+
+    ?>
 </body>
 </html>

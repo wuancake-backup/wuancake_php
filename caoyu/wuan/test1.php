@@ -6,7 +6,7 @@
 <body>
 	<?php
     echo '<script language="javascript">';
-    echo 'alert("注册成功!");';
+    //echo 'alert("注册成功!");';
     // echo 'alert(window.location.pathname);';
     // echo 'alert(window.location.href);';
     // echo 'alert(window.location.port);';
@@ -14,9 +14,14 @@
     // echo 'alert(window.location.hash);';
     // echo 'alert(window.location.host);';
     //echo 'alert(window.location.search);';
-
-    echo "location.href=window.location.href";
+    echo "window.history.go(-2)";
+    //echo "location.href=window.location.href";
+    //echo "<a herf=\"javascript:history.go(-1)>\"";
     echo '</script>';
     ?>
+    <script language="javascript">
+    //window.history.go(-2)
+    </script>
+    
 </body>
 </html>
