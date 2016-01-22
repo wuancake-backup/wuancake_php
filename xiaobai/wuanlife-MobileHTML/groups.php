@@ -121,8 +121,8 @@
                             </li>
                             <?php
                         }
-                        $px=$page>=$page_all_num?$page_all_num:$page+1;
-                        $ps=$page<=1?1:$page-1;
+                        $px=$page>=$page_all_num?$page_all_num:$page+1;//下一页
+                        $ps=$page<=1?1:$page-1;//上一页
                         ?>
 
                     </ul>

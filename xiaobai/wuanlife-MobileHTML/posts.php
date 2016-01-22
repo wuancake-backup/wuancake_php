@@ -86,6 +86,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             ?>
+
             <div class="col-md-12">
                 <section>
                     <article>
@@ -110,7 +111,7 @@
                         <?php
                         while($row = mysql_fetch_array($result))
                         {
-                            ?>
+                        ?>
                         <section class="reply-list">
                             <div>
 
@@ -129,21 +130,21 @@
                             <?php
                             }
                             ?>
-
                         </section>
 
-                        <form action="" method="get" class="form-group form-max-none">
-                            <textarea class="form-control" placeholder="输入回复内容" rows="4"></textarea>
+                        <form method="post" class="form-group form-max-none" onSubmit="return check_form(this);" action="<?php $_SERVER["PHP_SELF"]."?".$_SERVER["QUERY_STRING"]?>">
+                            <textarea class="form-control" placeholder="输入回复内容" required="" rows="4" name="replyTest"></textarea>
                             <button type="submit" class="pull-right btn btn-primary">回复</button>
                         </form>
 
                     </article>
                 </section>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-</div>
-</div>
-</div>
 <?php
 if(!empty($_POST)){
     if(isset($_COOKIE['nickName'])){
@@ -176,6 +177,8 @@ if(!empty($_POST)){
 
 
 ?>
+
+
 <!-- file="page.html"-->
 <!-- page-->
 <div class="container page-nav ">
