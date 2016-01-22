@@ -140,7 +140,7 @@
         <div class="col-md-12 hidden-lg hidden-md">
             <ul class="list-unstyled list-inline ">
                 <li><a href="groups.php?page=<?php echo $ps?>">上一页</a></li>
-                <li> 29 / 210</li>
+                <li><?php echo  $page." / ".$page_all_num ?></li>
                 <li><a href="groups.php?page=<?php echo $px?>">下一页</a></li>
             </ul>
         </div>

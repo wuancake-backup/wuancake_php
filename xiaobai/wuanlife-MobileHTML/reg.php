@@ -67,61 +67,44 @@ if(!empty($_POST)) {
     $password = $_POST['password'];
     $nickName = $_POST['nickName'];
     $Email = $_POST['Email'];
-    if (preg_match("/^[a-zA-Z0-9]{1,16}$/", $name)) {
-        if (preg_match('/^[0-9a-zA-Z\x{4e00}-\x{9fa5}]{1,16}+$/u', $nickName)) {
-            if (preg_match('/^[\s|\S]{6,18}$/u', $password)) {
+    if (!preg_match("/^[a-zA-Z0-9]{1,16}$/", $name)) {
+        echo "<script>alert('用户名只能为数字和字母，不得超过16位！');</script>";
+    } elseif (!preg_match('/^[0-9a-zA-Z\x{4e00}-\x{9fa5}]{1,16}+$/u', $nickName)) {
+        echo "<script>alert('昵称只能为中文、英文、数字，不得超过16位！');</script>";
+    } elseif (!preg_match('/^[\s|\S]{6,18}$/u', $password)) {
+        echo "<script>alert('密码长度为6-18位！');</script>";
+    } else {
+        include_once "conn.php";
 
-                include_once "conn.php";
+        $password = md5($password);
+        mysql_query("set names 'utf8'");
+        $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
+        $retval = mysql_query($sql, $conn);
+        $sql2 = "SELECT ID FROM user_base WHERE name='$name'";
+        $retval2 = mysql_query($sql2, $conn);
+        $arr = mysql_fetch_array($retval2);
+        if ($retval2) {
+            $nickName = urlencode($nickName);
+            $userID = $arr['ID'];
 
-                if (!get_magic_quotes_gpc()) {
-                    $name = addslashes($name);
-                    $password = addslashes($password);
-                    $nickName = addslashes($nickName);
-                    $Email = addslashes($Email);
-                }
+            setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
+            setcookie('userID', $userID, time() + 3600 * 24 * 7 * 2);
 
-                $password = md5($password);
-                mysql_query("set names 'utf8'");
-                $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
-                $retval = mysql_query($sql, $conn);
-                $sql2="SELECT ID FROM user_base WHERE name='$name'";
-                $retval2=mysql_query($sql2,$conn);
-                $arr=mysql_fetch_array($retval2);
-                if ($retval) {
-                    $nickName = urlencode($nickName);
-                    $userID = $arr['ID'];
-
-//       -- cookie方法
-                    setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
-                    setcookie('userID', $userID, time() + 3600 * 24 * 7 * 2);
-
-                    if (isset($_COOKIE['userurl'])) {
-                        if (isset($_COOKIE['loginurl'])) {
-                            $url = "index.php";
-                        } else {
-                            $url = $_COOKIE['userurl'];
-                        }
-
-                    } else {
-                        $url = "index.php";
-                    }
-//        echo "<script>alert('注册成功！');</script>";
-                    echo "<script>window.location.href=\"$url\"</script>";
-
+            if (isset($_COOKIE['userurl'])) {
+                if (isset($_COOKIE['loginurl'])) {
+                    $url = "index.php";
                 } else {
-                    echo "<script>alert('用户名已占用！');</script>";
-//        echo "<script>window.location.href='reg.php'</script>";
+                    $url = $_COOKIE['userurl'];
                 }
-
 
             } else {
-                echo "<script>alert('密码长度为6-18位！');</script>";
+                $url = "index.php";
             }
+            echo "<script>window.location.href=\"$url\"</script>";
+
         } else {
-            echo "<script>alert('昵称只能为中文、英文、数字，不得超过16位！');</script>";
+            echo "<script>alert('用户名已占用！');</script>";
         }
-    } else {
-        echo "<script>alert('用户名只能为数字和字母，不得超过16位！');</script>";
     }
 }
 

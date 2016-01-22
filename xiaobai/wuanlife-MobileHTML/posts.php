@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<?php
-//记录当前url 判断用户是否登陆 若未登录这跳转到登陆界面
-$userurl=$_SERVER['REQUEST_URI'];
-setcookie('userurl',$userurl);
-if(!isset($_COOKIE['nickName'])){
-    echo '<script language=javascript>window.location.href="login.php"</script>';
-}
-?>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -40,9 +32,15 @@ if(!isset($_COOKIE['nickName'])){
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            $nickName=urldecode($_COOKIE['nickName']);
-                            echo '<a href="myGroup.php">';
-                            echo $nickName.'</a></li>';
+                            $userurl=$_SERVER['REQUEST_URI'];
+                            setcookie('userurl',$userurl);
+                            if(isset($_COOKIE['nickName'])){
+                                $nickName=urldecode($_COOKIE['nickName']);
+                                echo '<a href="myGroup.php">';
+                                echo $nickName.'</a></li>';
+                            }else{
+                                echo '<a href="login.php">登录</a></li>';
+                            }
                             ?>
                         <li><?php
                             if(isset($_COOKIE['nickName'])){
@@ -76,24 +74,17 @@ if(!isset($_COOKIE['nickName'])){
         <div class="row">
             <!-- main framework-->
             <?php
-            $page= substr($_SERVER['QUERY_STRING'],3,9);
-            $con = mysql_connect("localhost","root","root");
-            if (!$con)
-            {
-                die('Could not connect: ' . mysql_error());
-            }
-
-            mysql_select_db("wuan", $con);
-
-            $result = mysql_query("SELECT pb.title,pd.text,pd.createTime,ub.nickName,gb.name\n"
+            $page= substr($_SERVER['QUERY_STRING'],5,9);
+            include "conn.php";
+            $sql="SELECT pb.title,pd.text,pd.createTime,ub.nickName,gb.name\n"
                 . " FROM post_base pb,post_detail pd,group_base gb,user_base ub\n"
                 . " WHERE ub.ID = pd.postID\n"
                 . " AND pb.groupID = gb.ID\n"
                 . " AND pb.ID = pd.ID\n"
                 . " AND pd.ID = $page\n"
-                . " ORDER BY pd.floor");
+                . " ORDER BY pd.floor";
+            $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
-            mysql_close($con);
             ?>
             <div class="col-md-12">
                 <section>
@@ -111,9 +102,6 @@ if(!isset($_COOKIE['nickName'])){
                             <?php
                             echo "<p>". $row['text'] ."</p>";
                             ?>
-                            <?php
-
-                            ?>
                         </div>
 
 
@@ -122,7 +110,7 @@ if(!isset($_COOKIE['nickName'])){
                         <?php
                         while($row = mysql_fetch_array($result))
                         {
-                        ?>
+                            ?>
                         <section class="reply-list">
                             <div>
 
@@ -138,12 +126,12 @@ if(!isset($_COOKIE['nickName'])){
                                     ?>
                                 </div>
                             </div>
-
+                            <?php
+                            }
+                            ?>
 
                         </section>
-                            <?php
-                        }
-                        ?>
+
                         <form action="" method="get" class="form-group form-max-none">
                             <textarea class="form-control" placeholder="输入回复内容" rows="4"></textarea>
                             <button type="submit" class="pull-right btn btn-primary">回复</button>
@@ -156,6 +144,38 @@ if(!isset($_COOKIE['nickName'])){
 </div>
 </div>
 </div>
+<?php
+if(!empty($_POST)){
+    if(isset($_COOKIE['nickName'])){
+        $u_id = $_COOKIE["userID"];
+        $p_id = $page;
+        $p_text = $_POST['replyTest'];
+        $p_time = date('Y-m-d H:i',time());
+
+        include "conn.php";
+        //取得楼层
+        $sql1 = "SELECT count(*) as floor \n"
+            . "FROM `post_detail` \n"
+            . "where ID=$page";
+        $result1 = mysql_query($sql1);
+        $row1 = mysql_fetch_array($result1);
+        $p_floor = $row1['floor']+1;
+
+        //插入数据
+        $sql2 = "INSERT INTO post_detail (ID,postID,text,floor,createTime) VALUE ('$p_id','$u_id','$p_text','$p_floor','$p_time')";
+        mysql_query($sql2);
+        echo '<script language="javascript">';
+        echo "location.href=window.location.href";
+        echo '</script>';
+    }else if(!isset($_COOKIE['nickName'])){
+        echo '<script language="javascript">';
+        echo 'alert("请先登录!");';
+        echo '</script>';
+    }
+}
+
+
+?>
 <!-- file="page.html"-->
 <!-- page-->
 <div class="container page-nav ">

@@ -73,16 +73,11 @@ if(!empty($_POST)) {
         $password = $_POST['password'];
     }
 
-
     $sql="SELECT password,nickName,ID FROM user_base WHERE name='$name'";
-
     $query=mysql_query($sql,$conn);
     $arr=mysql_fetch_array($query);
-
     $password=md5($password);
-//    print_r($arr['password']);
-//    echo "<br/>";
-//    echo $password;
+
     if($arr=="")
     {
         echo '<script>alert ("用户名不存在!");</script>';
@@ -90,18 +85,7 @@ if(!empty($_POST)) {
     {
         $nickName=urlencode($arr['nickName']);
         $userID=$arr['ID'];
-        /*      //  --session方法
-                session_start();
-                $_SESSION['nickName']=$nickName;
-                if(isset($_SESSION['userurl'])){
-                    $url=$_SESSION['userurl'];
-                }else{
-                    $url="index.php";
-                }
-                echo "<script>alert ('注册成功!');</script>";
-                echo "<script>window.location.href=\"$url\"</script>";*/
 
-//       -- cookie方法
         setcookie('nickName',$nickName,time()+3600*24*7*2);
         setcookie('userID',$userID,time()+3600*24*7*2);
         if(isset($_COOKIE['userurl'])){
@@ -109,7 +93,7 @@ if(!empty($_POST)) {
         }else{
             $url="index.php";
         }
-//        echo "<script>alert('登录成功！');</script>";
+
         echo "<script>window.location.href=\"$url\"</script>";
     }else
     {

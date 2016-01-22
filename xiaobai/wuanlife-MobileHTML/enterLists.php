@@ -83,7 +83,7 @@
                     <div class="delete-float">
                             <?php
                             include_once "conn.php";
-                            $groupID=$_GET['groupID'];
+                            $groupID=empty($_GET['groupID'])?1:$_GET['groupID'];
                             $userID=$_COOKIE['userID'];
                             //输出小组名
                             $sql="SELECT name FROM group_base WHERE ID='$groupID'";
@@ -98,17 +98,10 @@
                             $arr2=mysql_fetch_array($query2);
                             if(isset($_COOKIE['nickName'])) {
                                 if(!empty($arr2)){
-                                        echo '<a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>';
+                                        echo '<a href="createPosts.php" class="pull-right btn btn-primary">发帖</a>';
                                     }else{
                                         echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
                                     }
-
-
-//                                if (in_array($userID, $arr2)) {
-//                                    echo '<a href="createPosts.html" class="pull-right btn btn-primary">发帖</a>';
-//                                } else {
-//                                    echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
-//                                }
                             }else{
                                 echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
                             }
@@ -116,61 +109,42 @@
                     </div>
 
                     <!-- 请判断帖子是否存在图片需要展示，判断后决定输出的模板 第一个是有图 第二个是无图-->
-                    <article>
-                        <h3><a href="">卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</a></h3>
-                        <div class="delete-float">
-                            <div class="pull-left container-content" >
-                                <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                    然而露珠平时好像是没有眼袋的啊！
-                                    百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                                </p>
-                            </div>
-                            <div class="pull-right container-img">
-                                <img  src="image/logo-1x.png">
-                            </div>
-                        </div>
-                        <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
-                        </footer>
-                    </article>
+                    <?php
+                    $sql="SELECT pb.title,pd.text,pd.createTime,pb.ID,pb.userID,ub.nickName \n"
+                    . "FROM post_base pb,post_detail pd,user_base ub \n"
+                    . "WHERE pb.groupID=$groupID \n"
+                    . "AND pb.ID = pd.ID \n"
+                    . "AND pb.userID = ub.ID \n"
+                    . "AND pd.floor = '1' \n"
+                    . " ORDER BY createTime DESC";
+                    $result = mysql_query($sql);
 
-                    <article>
-                        <h3><a href="">卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</a></h3>
-                        <div class="delete-float">
-                            <div>
-                                <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                    然而露珠平时好像是没有眼袋的啊！
-                                    百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                                </p>
-                            </div>
-
-                        </div>
-                        <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
-                        </footer>
-                    </article>
-
-                    <article>
-                        <h3><a href="">卧槽！谁来告诉我我这是眼袋还是卧蚕！我才知道我笑起来那么吓人</a></h3>
-                        <div class="delete-float">
-                            <div class="pull-left container-content" >
-                                <p>昨天拍了个照片也没太注意。。发给朋友看他们说你最近眼袋怎么那么重！
-                                    然而露珠平时好像是没有眼袋的啊！
-                                    百度了一下说卧蚕什么紧贴下睫毛啊细细一条啊但是露珠的好像并不细。。。哭 大...
-                                </p>
-                            </div>
-                            <div class="pull-right container-img">
-                                <img  src="image/logo-3x.png">
-                            </div>
-                        </div>
-                        <footer class="footer">
-                            <span class="pull-left"><a href="">陶陶</a> 发表于 <a href="">鬼扯天地</a></span>
-                            <span class="pull-right">2015-12-26 22:00</span>
-                        </footer>
-                    </article>
-
+            while ($row = mysql_fetch_array($result)) {
+            ?>
+            <article>
+                <?php
+                echo "<h3><a href=\"posts.php?P_ID=" . $row['ID'] . "\">" . $row['title'] . "</a></h3>";
+                ?>
+                <div class="delete-float">
+                    <div class="pull-left container-content">
+                        <?php
+                        echo "<p>" . $row['title'] . "</p>";
+                        ?>
+                    </div>
+                    <div class="pull-right container-img">
+                        <img src="image/logo-1x.png">
+                    </div>
+                </div>
+                <footer class="footer">
+                    <?php
+                    echo "<span class=\"pull-left\"><a href=\"\">" . $row['nickName'] . "</a> 发表于 <a href=\"\">" . $groupName . "</a></span>";
+                    echo "<span class=\"pull-right\">" . $row['createTime'] . "</span>";
+                    ?>
+                </footer>
+            </article>
+            <?php
+            }
+            ?>
 
                 </section>
             </div>
