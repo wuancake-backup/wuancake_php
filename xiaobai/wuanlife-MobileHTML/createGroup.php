@@ -72,33 +72,30 @@ if(!empty($_POST)) {
     $name = $_POST['name'];
     if (!preg_match('/^[0-9a-zA-Z_\x{4e00}-\x{9fa5}]{1,20}+$/u', $name)){
         echo "<script>alert('小组名只能为中文、英文、数字或者下划线，但不得超过20字节！');</script>";
-    }else{
+    }else {
         include_once "conn.php";
+        $check = "select ID from group_base WHERE name='$name'";
+        $query=mysql_query($check, $conn);
+        $a=mysql_fetch_array($query);
+        if (!empty($a)) {
+            echo "<script>alert('该星球已存在！');</script>";
+        } else {
+            mysql_query("set names 'utf8'");
+            $sql = "INSERT INTO group_base (name) VALUE ('$name')";
+            $retval = mysql_query($sql, $conn);
+            $sql2 = "SELECT ID FROM group_base WHERE name='$name'";
+            $retval2 = mysql_query($sql2, $conn);
+            $arr = mysql_fetch_array($retval2);
+            $groupID = $arr['ID'];
+            $userID = $_COOKIE['userID'];
+            $sql3 = "INSERT INTO group_detail (ID,userID) VALUE ('$groupID','$userID')";
+            $retval3 = mysql_query($sql3, $conn);
+            if ($retval3) {
 
-        if (!get_magic_quotes_gpc()) {
-            $name = addslashes($name);
+                echo "<script>window.location.href='enterLists.php?groupID=$groupID'</script>";
+            }
         }
-
-        mysql_query("set names 'utf8'");
-        $sql = "INSERT INTO group_base (name) VALUE ('$name')";
-        $retval = mysql_query($sql, $conn);
-        $sql2="SELECT ID FROM group_base WHERE name='$name'";
-        $retval2=mysql_query($sql2,$conn);
-        $arr=mysql_fetch_array($retval2);
-        $groupID=$arr['ID'];
-        $userID=$_COOKIE['userID'];
-        $sql3="INSERT INTO group_detail (ID,userID) VALUE ('$groupID','$userID')";
-        $retval3=mysql_query($sql3,$conn);
-        if($retval3){
-
-            echo "<script>window.location.href='enterLists.php?groupID=$groupID'</script>";
-        }
-
-
     }
-
-
-
 }
     ?>
 <script src="js/jquery-1.11.3.min.js"></script>

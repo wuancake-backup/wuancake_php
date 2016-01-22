@@ -87,7 +87,7 @@
                         <?php
                         include_once "conn.php";
 
-                        $groupID=$_GET['groupID'];
+                        $groupID=empty($_GET['groupID'])?1:$_GET['groupID'];
                         $userID=$_COOKIE['userID'];
                         //输出小组名
                         $sql="SELECT name FROM group_base WHERE ID='$groupID'";
@@ -195,23 +195,23 @@
                 if ($page <= 3) {
                     for ($num = 0; $num < 5; $num++) {
                         $page1= 1 + $num;
-                        echo "<li><a href=\"enterLists.php?groupID=<?php echo $groupID?>&page=$page1\">$page1</a></li>";
+                        echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$page1."\">".$page1."</a></li>";
                     }
                 } elseif ($page > 3 && $page+4<=$page_all_num) {
                     for ($num = 0; $num < 5; $num++) {
                         $page_ = $page + $num - 2;
-                        echo "<li><a href=\"enterLists.php?groupID=<?php echo $groupID?>&page=$page_\">$page_</a></li>";
+                        echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$page_."\">".$page_."</a></li>";
                     }
                 }else {
                     for ($num=0; $num < 5; $num++) {
                         $x=$page_all_num-3;
                         $page_ =$x + $num - 1;
-                        echo "<li><a href=\"enterLists.php?groupID=<?php echo $groupID?>&page=$page_\">$page_</a></li>";
+                        echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$page_."\">".$page_."</a></li>";
                     }
                 }
             }else{
                 for($x=1;$x<=$page_all_num;$x++){
-                    echo "<li><a href=\"enterLists.php?page=$x\">$x</a></li>";
+                    echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$x."\">".$x."</a></li>";
                 }
             }
             ?>
