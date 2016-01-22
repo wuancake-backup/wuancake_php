@@ -25,13 +25,58 @@
       <file leaf-file-name="enterLists.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/enterLists.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-34.275864">
-              <caret line="100" column="135" selection-start-line="100" selection-start-column="135" selection-end-line="100" selection-end-column="135" />
+            <state vertical-scroll-proportion="-5.6551723">
+              <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
               <folding>
-                <marker date="1453447309061" expanded="true" signature="3360:3407" placeholder="SELECT name ..group_base..." />
-                <marker date="1453447309061" expanded="true" signature="3739:3811" placeholder="SELECT userI..group_detail..." />
-                <marker date="1453447309061" expanded="true" signature="5283:5327" placeholder="..." />
+                <marker date="1453455782891" expanded="true" signature="3318:3365" placeholder="SELECT name ..group_base..." />
+                <marker date="1453455782891" expanded="true" signature="3703:3793" placeholder="select pb.ID..post_base..." />
+                <marker date="1453455782891" expanded="true" signature="4270:4342" placeholder="SELECT userI..group_detail..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createPosts.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/createPosts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.37931">
+              <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
+              <folding>
+                <marker date="1453453470364" expanded="true" signature="3432:3522" placeholder="INSERT INTO ..." />
+                <marker date="1453453470364" expanded="true" signature="3543:3648" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/exit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.4482758">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.793103">
+              <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+              <folding>
+                <marker date="1453453264236" expanded="true" signature="2840:2901" placeholder="SELECT passw..user_base..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myGroup.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/myGroup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43439716">
+              <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -39,29 +84,63 @@
       <file leaf-file-name="groups.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/groups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="24.862068">
-              <caret line="124" column="52" selection-start-line="124" selection-start-column="52" selection-end-line="124" selection-end-column="52" />
+            <state vertical-scroll-proportion="-69.68965">
+              <caret line="178" column="82" selection-start-line="178" selection-start-column="82" selection-end-line="178" selection-end-column="82" />
               <folding>
-                <marker date="1453448382845" expanded="true" signature="3437:3462" placeholder="select ID fr..group_base..." />
-                <marker date="1453448382845" expanded="true" signature="3937:4164" placeholder="SELECT ID,CO..." />
-                <marker date="1453448382845" expanded="true" signature="4437:4485" placeholder="SELECT name ..group_base..." />
+                <marker date="1453455757902" expanded="true" signature="3441:3466" placeholder="select ID fr..group_base..." />
+                <marker date="1453455757902" expanded="true" signature="3941:4168" placeholder="SELECT ID,CO..." />
+                <marker date="1453455757902" expanded="true" signature="4441:4489" placeholder="SELECT name ..group_base..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reg.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="posts.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/posts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="101.24138">
+              <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+              <folding>
+                <marker date="1453453470278" expanded="true" signature="6473:6585" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.793103">
+              <caret line="182" column="78" selection-start-line="182" selection-start-column="78" selection-end-line="182" selection-end-column="78" />
+              <folding>
+                <marker date="1453455757923" expanded="true" signature="3294:3318" placeholder="select ID fr..post_base..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reg.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/reg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.711111">
-              <caret line="107" column="28" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
+            <state vertical-scroll-proportion="-68.27586">
+              <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
               <folding>
-                <marker date="1453451890591" expanded="true" signature="3351:3400" placeholder="select passw..user_base..." />
-                <marker date="1453451890591" expanded="true" signature="3422:3479" placeholder="select passw..user_base..." />
-                <marker date="1453451890591" expanded="true" signature="3501:3552" placeholder="select passw..user_base..." />
-                <marker date="1453451890591" expanded="true" signature="4107:4208" placeholder="INSERT INTO ..." />
-                <marker date="1453451890591" expanded="true" signature="4280:4323" placeholder="SELECT ID FR..user_base..." />
+                <marker date="1453453264264" expanded="true" signature="3351:3400" placeholder="select passw..user_base..." />
+                <marker date="1453453264264" expanded="true" signature="3422:3479" placeholder="select passw..user_base..." />
+                <marker date="1453453264264" expanded="true" signature="3501:3552" placeholder="select passw..user_base..." />
+                <marker date="1453453264264" expanded="true" signature="4107:4208" placeholder="INSERT INTO ..." />
+                <marker date="1453453264264" expanded="true" signature="4280:4323" placeholder="SELECT ID FR..user_base..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rePassword.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/rePassword.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.793103">
+              <caret line="85" column="50" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,18 +162,18 @@
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/conn.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/exit.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/enterGroup.php" />
-        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/createGroup.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/rePassword.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/resetpsw.php" />
-        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/login.php" />
-        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/index.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/test.php" />
-        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/myGroup.php" />
-        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/enterLists.php" />
+        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/reg.php" />
+        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/login.php" />
+        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/createGroup.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/createPosts.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/posts.php" />
         <option value="$PROJECT_DIR$/wuanlife-MobileHTML/groups.php" />
-        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/reg.php" />
+        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/index.php" />
+        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/enterLists.php" />
+        <option value="$PROJECT_DIR$/wuanlife-MobileHTML/myGroup.php" />
       </list>
     </option>
   </component>
@@ -110,10 +189,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="67" />
-    <option name="y" value="3" />
-    <option name="width" value="1255" />
-    <option name="height" value="730" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -247,10 +326,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="3" width="1255" height="730" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11380753" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.102874435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -318,7 +397,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="107" column="10" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
           <folding>
-            <marker date="1453365654175" expanded="true" signature="-1:-1" placeholder="SELECT passw..user_base..." />
+            <marker date="1453453264236" expanded="true" signature="2840:2901" placeholder="SELECT passw..user_base..." />
           </folding>
         </state>
       </provider>
@@ -327,7 +406,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="73" selection-start-line="35" selection-start-column="73" selection-end-line="35" selection-end-column="73" />
-          <folding />
+          <folding>
+            <marker date="1453455757923" expanded="true" signature="3294:3318" placeholder="select ID fr..post_base..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -335,21 +416,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -366,11 +433,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
           <folding>
-            <marker date="1453451890591" expanded="true" signature="3351:3400" placeholder="select passw..user_base..." />
-            <marker date="1453451890591" expanded="true" signature="3422:3479" placeholder="select passw..user_base..." />
-            <marker date="1453451890591" expanded="true" signature="3501:3552" placeholder="select passw..user_base..." />
-            <marker date="1453451890591" expanded="true" signature="4107:4208" placeholder="INSERT INTO ..." />
-            <marker date="1453451890591" expanded="true" signature="4280:4323" placeholder="SELECT ID FR..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="3351:3400" placeholder="select passw..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="3422:3479" placeholder="select passw..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="3501:3552" placeholder="select passw..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="4107:4208" placeholder="INSERT INTO ..." />
+            <marker date="1453453264264" expanded="true" signature="4280:4323" placeholder="SELECT ID FR..user_base..." />
           </folding>
         </state>
       </provider>
@@ -396,7 +463,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
           <folding>
-            <marker date="1453365654175" expanded="true" signature="-1:-1" placeholder="SELECT passw..user_base..." />
+            <marker date="1453453264236" expanded="true" signature="2840:2901" placeholder="SELECT passw..user_base..." />
           </folding>
         </state>
       </provider>
@@ -413,7 +480,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1453455757923" expanded="true" signature="3294:3318" placeholder="select ID fr..post_base..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -472,14 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/exit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17730497">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -488,33 +549,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/createGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59042555">
-          <caret line="93" column="70" selection-start-line="93" selection-start-column="70" selection-end-line="93" selection-end-column="70" />
-          <folding>
-            <marker date="1453288342090" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1453288342090" expanded="true" signature="-1:-1" placeholder="SELECT ID FR..group_base..." />
-            <marker date="1453288342090" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/Tencent Files/825193638/FileRecv/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8085107">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/rePassword.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4326241">
-          <caret line="85" column="50" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="50" />
-          <folding>
-            <marker date="1453361446608" expanded="true" signature="-1:-1" placeholder="SELECT name,..user_base..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -540,24 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/posts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7037038">
-          <caret line="218" column="7" selection-start-line="218" selection-start-column="7" selection-end-line="218" selection-end-column="7" />
-          <folding>
-            <marker date="1453448188330" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.962963">
-          <caret line="53" column="22" selection-start-line="31" selection-start-column="13" selection-end-line="53" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.074074075">
@@ -566,52 +587,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/myGroup.php">
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/createGroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67407405">
-          <caret line="98" column="63" selection-start-line="98" selection-start-column="63" selection-end-line="98" selection-end-column="63" />
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="42" column="51" selection-start-line="42" selection-start-column="51" selection-end-line="42" selection-end-column="51" />
           <folding>
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1453446837236" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57222223">
-          <caret line="96" column="62" selection-start-line="90" selection-start-column="7" selection-end-line="96" selection-end-column="62" />
-          <folding>
-            <marker date="1453365654175" expanded="true" signature="-1:-1" placeholder="SELECT passw..user_base..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/createPosts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037037037">
-          <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
-          <folding>
-            <marker date="1453447794810" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1453447794810" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1453453470237" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1453453470237" expanded="true" signature="-1:-1" placeholder="SELECT ID FR..group_base..." />
+            <marker date="1453453470237" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/enterGroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25925925">
+        <state vertical-scroll-proportion="-4.827586">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
             <marker date="1453282074118" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
@@ -619,41 +609,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/rePassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.793103">
+          <caret line="85" column="50" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/reg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-68.27586">
+          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+          <folding>
+            <marker date="1453453264264" expanded="true" signature="3351:3400" placeholder="select passw..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="3422:3479" placeholder="select passw..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="3501:3552" placeholder="select passw..user_base..." />
+            <marker date="1453453264264" expanded="true" signature="4107:4208" placeholder="INSERT INTO ..." />
+            <marker date="1453453264264" expanded="true" signature="4280:4323" placeholder="SELECT ID FR..user_base..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/posts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="101.24138">
+          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+          <folding>
+            <marker date="1453453470278" expanded="true" signature="6473:6585" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.793103">
+          <caret line="182" column="78" selection-start-line="182" selection-start-column="78" selection-end-line="182" selection-end-column="78" />
+          <folding>
+            <marker date="1453455757923" expanded="true" signature="3294:3318" placeholder="select ID fr..post_base..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/enterLists.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.275864">
-          <caret line="100" column="135" selection-start-line="100" selection-start-column="135" selection-end-line="100" selection-end-column="135" />
+        <state vertical-scroll-proportion="-5.6551723">
+          <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
           <folding>
-            <marker date="1453447309061" expanded="true" signature="3360:3407" placeholder="SELECT name ..group_base..." />
-            <marker date="1453447309061" expanded="true" signature="3739:3811" placeholder="SELECT userI..group_detail..." />
-            <marker date="1453447309061" expanded="true" signature="5283:5327" placeholder="..." />
+            <marker date="1453455782891" expanded="true" signature="3318:3365" placeholder="SELECT name ..group_base..." />
+            <marker date="1453455782891" expanded="true" signature="3703:3793" placeholder="select pb.ID..post_base..." />
+            <marker date="1453455782891" expanded="true" signature="4270:4342" placeholder="SELECT userI..group_detail..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/createPosts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.37931">
+          <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
+          <folding>
+            <marker date="1453453470364" expanded="true" signature="3432:3522" placeholder="INSERT INTO ..." />
+            <marker date="1453453470364" expanded="true" signature="3543:3648" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/exit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4482758">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.793103">
+          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+          <folding>
+            <marker date="1453453264236" expanded="true" signature="2840:2901" placeholder="SELECT passw..user_base..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/groups.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="24.862068">
-          <caret line="124" column="52" selection-start-line="124" selection-start-column="52" selection-end-line="124" selection-end-column="52" />
+        <state vertical-scroll-proportion="-69.68965">
+          <caret line="178" column="82" selection-start-line="178" selection-start-column="82" selection-end-line="178" selection-end-column="82" />
           <folding>
-            <marker date="1453448382845" expanded="true" signature="3437:3462" placeholder="select ID fr..group_base..." />
-            <marker date="1453448382845" expanded="true" signature="3937:4164" placeholder="SELECT ID,CO..." />
-            <marker date="1453448382845" expanded="true" signature="4437:4485" placeholder="SELECT name ..group_base..." />
+            <marker date="1453455757902" expanded="true" signature="3441:3466" placeholder="select ID fr..group_base..." />
+            <marker date="1453455757902" expanded="true" signature="3941:4168" placeholder="SELECT ID,CO..." />
+            <marker date="1453455757902" expanded="true" signature="4441:4489" placeholder="SELECT name ..group_base..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/reg.php">
+    <entry file="file://$PROJECT_DIR$/wuanlife-MobileHTML/myGroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.711111">
-          <caret line="107" column="28" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
-          <folding>
-            <marker date="1453451890591" expanded="true" signature="3351:3400" placeholder="select passw..user_base..." />
-            <marker date="1453451890591" expanded="true" signature="3422:3479" placeholder="select passw..user_base..." />
-            <marker date="1453451890591" expanded="true" signature="3501:3552" placeholder="select passw..user_base..." />
-            <marker date="1453451890591" expanded="true" signature="4107:4208" placeholder="INSERT INTO ..." />
-            <marker date="1453451890591" expanded="true" signature="4280:4323" placeholder="SELECT ID FR..user_base..." />
-          </folding>
+        <state vertical-scroll-proportion="0.43439716">
+          <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

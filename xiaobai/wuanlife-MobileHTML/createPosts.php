@@ -29,7 +29,7 @@
                             setcookie('userurl',$userurl);
 
                             if(isset($_COOKIE['nickName'])){
-                                $nickName=urldecode($_COOKIE['nickName']);
+                                $nickName=base64_decode($_COOKIE['nickName']);
                                 echo '<a href="myGroup.php">';
                                 echo $nickName.'</a></li>';
                             }else{

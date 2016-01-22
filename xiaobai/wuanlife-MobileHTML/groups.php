@@ -38,7 +38,7 @@
                             setcookie('userurl',$userurl);
 
                             if(isset($_COOKIE['nickName'])){
-                                $nickName=urldecode($_COOKIE['nickName']);
+                                $nickName=base64_decode($_COOKIE['nickName']);
                                 echo '<a href="myGroup.php">';
                                 echo $nickName.'</a></li>';
                             }else{
@@ -175,8 +175,8 @@
                             }
                     }
                 }else{
-                    for($page;$page<=$page_all_num;$page++){
-                        echo "<li><a href=\"groups.php?page=$page\">$page</a></li>";
+                    for($x=1;$x<=$page_all_num;$x++){
+                        echo "<li><a href=\"enterLists.php?page=$x\">$x</a></li>";
                     }
                 }
             ?>

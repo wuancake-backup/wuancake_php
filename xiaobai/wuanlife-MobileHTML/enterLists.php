@@ -31,6 +31,9 @@
                 </div>
                 <div class=" pull-right">
                     <ul class="list-inline">
+
+
+
                         <li><?php
                             //cookie方法
 
@@ -38,7 +41,7 @@
                             setcookie('userurl',$userurl);
 
                             if(isset($_COOKIE['nickName'])){
-                                $nickName=urldecode($_COOKIE['nickName']);
+                                $nickName=base64_decode($_COOKIE['nickName']);
                                 echo '<a href="myGroup.php">';
                                 echo $nickName.'</a></li>';
                             }else{
@@ -81,70 +84,83 @@
             <div class="col-md-12">
                 <section>
                     <div class="delete-float">
-                            <?php
-                            include_once "conn.php";
-                            $groupID=empty($_GET['groupID'])?1:$_GET['groupID'];
-                            $userID=$_COOKIE['userID'];
-                            //输出小组名
-                            $sql="SELECT name FROM group_base WHERE ID='$groupID'";
-                            $query=mysql_query($sql,$conn);
-                            $arr=mysql_fetch_array($query);
-                            $groupName=$arr['name'];
-                            echo '<h2 class="pull-left">'.$groupName.'</h2>';
-                            //判断用户以是否加入小组
-
-                            $sql2="SELECT userID FROM group_detail WHERE ID='$groupID' AND userID='$userID'";
-                            $query2=mysql_query($sql2,$conn);
-                            $arr2=mysql_fetch_array($query2);
-                            if(isset($_COOKIE['nickName'])) {
-                                if(!empty($arr2)){
-                                    echo "<a href=\"createPosts.php?groupID=".$groupID."\"class=\"pull-right btn btn-primary\">发帖</a>";
-                                    }else{
-                                        echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
-                                    }
-                            }else{
-                                echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
-                            }
-                            ?>
-                    </div>
-
-                    <!-- 请判断帖子是否存在图片需要展示，判断后决定输出的模板 第一个是有图 第二个是无图-->
-                    <?php
-                    $sql="SELECT pb.title,pd.text,pd.createTime,pb.ID,pb.userID,ub.nickName \n"
-                    . "FROM post_base pb,post_detail pd,user_base ub \n"
-                    . "WHERE pb.groupID=$groupID \n"
-                    . "AND pb.ID = pd.ID \n"
-                    . "AND pb.userID = ub.ID \n"
-                    . "AND pd.floor = '1' \n"
-                    . " ORDER BY createTime DESC";
-                    $result = mysql_query($sql);
-
-            while ($row = mysql_fetch_array($result)) {
-            ?>
-            <article>
-                <?php
-                echo "<h3><a href=\"posts.php?P_ID=" . $row['ID'] . "\">" . $row['title'] . "</a></h3>";
-                ?>
-                <div class="delete-float">
-                    <div class="pull-left container-content">
                         <?php
-                        echo "<p>" . $row['title'] . "</p>";
+                        include_once "conn.php";
+
+                        $groupID=$_GET['groupID'];
+                        $userID=$_COOKIE['userID'];
+                        //输出小组名
+                        $sql="SELECT name FROM group_base WHERE ID='$groupID'";
+                        $query=mysql_query($sql,$conn);
+                        $arr=mysql_fetch_array($query);
+                        $groupName=$arr['name'];
+                        echo '<h2 class="pull-left">'.$groupName.'</h2>';
+                        //判断用户以是否加入小组
+
+                        //小组分页
+                        $sql="select pb.ID from post_base pb,group_base gb WHERE gb.ID = pb.groupID AND gb.ID='$groupID' ";
+                        $query=mysql_query($sql);
+                        $all_num=mysql_num_rows($query);//总条数
+                        $page_num=5;//每页条数
+                        $page_all_num=ceil($all_num/$page_num);//总页数
+                        $page=empty($_GET['page'])?1:$_GET['page'];//当前页数
+                        $page=(int)$page;//安全强制转换
+                        $limit_st=($page-1)*$page_num;//起始数
+                        //显示帖子列表
+
+                        $sql2="SELECT userID FROM group_detail WHERE ID='$groupID' AND userID='$userID'";
+                        $query2=mysql_query($sql2,$conn);
+                        $arr2=mysql_fetch_array($query2);
+                        if(isset($_COOKIE['nickName'])) {
+                            if(!empty($arr2)){
+                                echo "<a href=\"createPosts.php?groupID=".$groupID."\"class=\"pull-right btn btn-primary\">发帖</a>";
+                            }else{
+                                echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
+                            }
+                        }else{
+                            echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
+                        }
                         ?>
                     </div>
-                    <div class="pull-right container-img">
-                        <img src="image/logo-1x.png">
-                    </div>
-                </div>
-                <footer class="footer">
                     <?php
-                    echo "<span class=\"pull-left\"><a href=\"\">" . $row['nickName'] . "</a> 发表于 <a href=\"\">" . $groupName . "</a></span>";
-                    echo "<span class=\"pull-right\">" . $row['createTime'] . "</span>";
+                    include_once "conn.php";
+                    $sql_p="SELECT pb.title,pd.text,pd.createTime,ub.nickName,gb.name,pb.ID\n"
+                        . "FROM post_base pb,post_detail pd,group_base gb,user_base ub \n"
+                        . "WHERE ub.ID = pb.userID \n"
+                        . "AND pb.groupID = gb.ID\n"
+                        . "AND pb.ID = pd.ID\n"
+                        . "AND pd.floor = '1'\n"
+                        . "ORDER BY pd.createTime DESC\n"
+                        . "LIMIT $limit_st,$page_num";
+                    $result = mysql_query($sql_p);
+                    while($row = mysql_fetch_array($result))
+                    {
+                        ?>
+
+                        <article>
+                            <?php
+                            echo "<h3><a href=\"posts.php?P_ID=". $row['ID'] ."\">". $row['title'] ."</a></h3>";
+                            ?>
+                            <div class="delete-float">
+                                <div>
+                                    <?php
+                                    echo "<p>". $row['text'] ."</p>";
+                                    ?>
+                                </div>
+
+                            </div>
+                            <footer class="footer">
+                                <?php
+                                echo "<span class=\"pull-left\"><a href=\"\">". $row['nickName'] ."</a> 发表于 <a href=\"\">". $row['name'] ."</a></span>";
+                                echo "<span class=\"pull-right\">". $row['createTime'] . "</span>";
+                                ?>
+                            </footer>
+                        </article>
+                        <?php
+                    }
+                    $px=$page>=$page_all_num?$page_all_num:$page+1;//下一页
+                    $ps=$page<=1?1:$page-1;//上一页
                     ?>
-                </footer>
-            </article>
-            <?php
-            }
-            ?>
 
                 </section>
             </div>
@@ -158,9 +174,9 @@
     <div class="row">
         <div class="col-md-12 hidden-lg hidden-md">
             <ul class="list-unstyled list-inline ">
-                <li><a href="">上一页</a></li>
-                <li> 29 / 210</li>
-                <li><a href="">下一页</a></li>
+                <li><a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $ps?>">上一页</a></li>
+                <li><?php echo  $page." / ".$page_all_num ?></li>
+                <li><a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $px?>">下一页</a></li>
             </ul>
         </div>
 
@@ -170,17 +186,37 @@
     <nav class="text-center">
         <ul class="pagination">
             <li>
-                <a href="#" aria-label="Previous">
+                <a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $ps?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <?php
+            if ($page_all_num>=5) {
+                if ($page <= 3) {
+                    for ($num = 0; $num < 5; $num++) {
+                        $page1= 1 + $num;
+                        echo "<li><a href=\"enterLists.php?groupID=<?php echo $groupID?>&page=$page1\">$page1</a></li>";
+                    }
+                } elseif ($page > 3 && $page+4<=$page_all_num) {
+                    for ($num = 0; $num < 5; $num++) {
+                        $page_ = $page + $num - 2;
+                        echo "<li><a href=\"enterLists.php?groupID=<?php echo $groupID?>&page=$page_\">$page_</a></li>";
+                    }
+                }else {
+                    for ($num=0; $num < 5; $num++) {
+                        $x=$page_all_num-3;
+                        $page_ =$x + $num - 1;
+                        echo "<li><a href=\"enterLists.php?groupID=<?php echo $groupID?>&page=$page_\">$page_</a></li>";
+                    }
+                }
+            }else{
+                for($x=1;$x<=$page_all_num;$x++){
+                    echo "<li><a href=\"enterLists.php?page=$x\">$x</a></li>";
+                }
+            }
+            ?>
             <li>
-                <a href="#" aria-label="Next">
+                <a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $px?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

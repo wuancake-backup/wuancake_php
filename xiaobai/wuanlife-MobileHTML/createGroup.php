@@ -40,7 +40,7 @@ if(!isset($_COOKIE['nickName'])){
                 <div class=" pull-right">
                     <ul class="list-inline">
                         <li><?php
-                            $nickName=urldecode($_COOKIE['nickName']);
+                            $nickName=base64_decode($_COOKIE['nickName']);
                             echo '<a href="myGroup.php">';
                             echo $nickName.'</a></li>';
                             ?>

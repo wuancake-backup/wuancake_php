@@ -83,7 +83,7 @@ if(!empty($_POST)) {
         echo '<script>alert ("用户名不存在!");</script>';
     }elseif($arr['password']==$password)
     {
-        $nickName=urlencode($arr['nickName']);
+        $nickName=base64_encode($arr['nickName']);
         $userID=$arr['ID'];
 
         setcookie('nickName',$nickName,time()+3600*24*7*2);

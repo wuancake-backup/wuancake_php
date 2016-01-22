@@ -96,7 +96,7 @@ if(!empty($_POST)) {
             $retval2 = mysql_query($sql2, $conn);
             $arr = mysql_fetch_array($retval2);
             if ($retval2) {
-                $nickName = urlencode($nickName);
+                $nickName = base64_encode($nickName);
                 $userID = $arr['ID'];
 
                 setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
