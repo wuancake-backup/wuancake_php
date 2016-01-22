@@ -75,39 +75,50 @@ if(!empty($_POST)) {
         echo "<script>alert('密码长度为6-18位！');</script>";
     } else {
         include_once "conn.php";
-
-        $password = md5($password);
-        mysql_query("set names 'utf8'");
-        $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
-        $retval = mysql_query($sql, $conn);
-        $sql2 = "SELECT ID FROM user_base WHERE name='$name'";
-        $retval2 = mysql_query($sql2, $conn);
-        $arr = mysql_fetch_array($retval2);
-        if ($retval2) {
-            $nickName = urlencode($nickName);
-            $userID = $arr['ID'];
-
-            setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
-            setcookie('userID', $userID, time() + 3600 * 24 * 7 * 2);
-
-            if (isset($_COOKIE['userurl'])) {
-                if (isset($_COOKIE['loginurl'])) {
-                    $url = "index.php";
-                } else {
-                    $url = $_COOKIE['userurl'];
-                }
-
-            } else {
-                $url = "index.php";
-            }
-            echo "<script>window.location.href=\"$url\"</script>";
-
+        $check1 = "select password from user_base WHERE name='$name'";
+        $check2 = "select password from user_base WHERE nickName='$nickName'";
+        $check3 = "select password from user_base WHERE Email='$Email'";
+        $ch1 = mysql_fetch_array(mysql_query($check1));
+        $ch2 = mysql_fetch_array(mysql_query($check2));
+        $ch3 = mysql_fetch_array(mysql_query($check3));
+        if (!empty($ch1)) {
+            echo "<script>alert('该用户名已占用！');</script>";
+        } elseif (!empty($ch2)) {
+            echo "<script>alert('该昵称已占用！');</script>";
+        } elseif (!empty($ch3)) {
+            echo "<script>alert('该邮箱已注册！');</script>";
         } else {
-            echo "<script>alert('用户名已占用！');</script>";
+            $password = md5($password);
+            mysql_query("set names 'utf8'");
+            $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
+            $retval = mysql_query($sql, $conn);
+            $sql2 = "SELECT ID FROM user_base WHERE name='$name'";
+            $retval2 = mysql_query($sql2, $conn);
+            $arr = mysql_fetch_array($retval2);
+            if ($retval2) {
+                $nickName = urlencode($nickName);
+                $userID = $arr['ID'];
+
+                setcookie('nickName', $nickName, time() + 3600 * 24 * 7 * 2);
+                setcookie('userID', $userID, time() + 3600 * 24 * 7 * 2);
+
+                if (isset($_COOKIE['userurl'])) {
+                    if (isset($_COOKIE['loginurl'])) {
+                        $url = "index.php";
+                    } else {
+                        $url = $_COOKIE['userurl'];
+                    }
+
+                } else {
+                    $url = "index.php";
+                }
+                echo "<script>window.location.href=\"$url\"</script>";
+
+            }
+
         }
     }
 }
-
 ?>
 <script src="js/jquery-1.11.3.min.js"></script>
 </body>
