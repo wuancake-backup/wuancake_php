@@ -91,9 +91,8 @@ if(!empty($_POST)){
         $sqlPD = "INSERT INTO post_detail (ID,postID,text,floor,createTime) VALUE ('$p_id','$u_id','$p_text','1','$p_time')";
         mysql_query($sqlPB);
         mysql_query($sqlPD);
-        echo '<script language="javascript">';
-        echo "window.history.go(-2)";
-        echo '</script>';
+
+        echo "<script>window.location.href=\"posts.php?P_ID=$p_id\"</script>";
     }else if(!isset($_COOKIE['nickName'])){
         echo '<script language="javascript">';
         echo 'alert("请先登录!");';

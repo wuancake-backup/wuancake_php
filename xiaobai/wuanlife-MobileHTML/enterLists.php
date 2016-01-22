@@ -98,7 +98,7 @@
                             $arr2=mysql_fetch_array($query2);
                             if(isset($_COOKIE['nickName'])) {
                                 if(!empty($arr2)){
-                                        echo '<a href="createPosts.php" class="pull-right btn btn-primary">发帖</a>';
+                                    echo "<a href=\"createPosts.php?groupID=".$groupID."\"class=\"pull-right btn btn-primary\">发帖</a>";
                                     }else{
                                         echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
                                     }

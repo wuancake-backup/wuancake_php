@@ -96,7 +96,7 @@ if(!isset($_COOKIE['nickName'])){
                                     您还没有关注任何星球，去全部星球看看吧
                                </div>";
                     }else {
-                        while ($row) {
+                        while ($row= mysql_fetch_array($result)) {
                             ?>
                             <article>
                                 <?php
