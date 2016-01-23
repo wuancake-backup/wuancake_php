@@ -191,7 +191,7 @@ if(!isset($_COOKIE['nickName'])){
                 }
             }else{
                 for($x=1;$x<=$page_all_num;$x++){
-                    echo "<li><a href=\"enterLists.php?page=$x\">$x</a></li>";
+                    echo "<li><a href=\"myGroup.php?page=$x\">$x</a></li>";
                 }
             }
             ?>
