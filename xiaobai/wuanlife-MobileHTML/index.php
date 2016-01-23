@@ -93,14 +93,12 @@
                     $limit_st=($page-1)*$page_num;//起始数
                     //显示帖子列表
 
-                    $sql="SELECT pb.title,pd.text,pd.createTime,ub.nickName,gb.name,pb.ID,gb.ID as Gid\n"
-                        . "FROM post_base pb,post_detail pd,group_base gb,user_base ub \n"
-                        . "WHERE ub.ID = pb.userID \n"
-                        . "AND pb.groupID = gb.ID\n"
-                        . "AND pb.ID = pd.ID\n"
-                        . "AND pd.floor = '1'\n"
-                        . "ORDER BY pd.createTime DESC\n"
-                        . "LIMIT $limit_st,$page_num";
+                    $sql="SELECT pb.title,pd.ID,pd.text,MAX(pd.createTime) AS createTime,ub.nickName,gb.name,gb.ID as Gid
+                          FROM post_detail pd,post_base pb ,group_base gb,user_base ub
+                          WHERE pb.ID=pd.ID AND pb.userID=ub.ID AND pb.groupID=gb.ID
+                          GROUP BY ID
+                          ORDER BY MAX(pd.createTime) DESC
+                          LIMIT $limit_st,$page_num";
                     $result = mysql_query($sql);
                     while($row = mysql_fetch_array($result))
                     {

@@ -89,7 +89,6 @@ if(!empty($_POST)) {
             echo "<script>alert('该邮箱已注册！');</script>";
         } else {
             $password = md5($password);
-            mysql_query("set names 'utf8'");
             $sql = "INSERT INTO user_base (name,password,nickName,Email) VALUE ('$name','$password','$nickName','$Email')";
             $retval = mysql_query($sql, $conn);
             $sql2 = "SELECT ID FROM user_base WHERE name='$name'";
