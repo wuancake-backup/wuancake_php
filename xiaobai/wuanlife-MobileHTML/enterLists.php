@@ -93,70 +93,73 @@
                         $sql="SELECT name FROM group_base WHERE ID='$groupID'";
                         $query=mysql_query($sql,$conn);
                         $arr=mysql_fetch_array($query);
-                        $groupName=$arr['name'];
-                        echo '<h2 class="pull-left">'.$groupName.'</h2>';
+                        if(empty($arr)){
+                            echo "<script>alert('该小组还未创建，快去创建吧！');</script>";
+                            echo "<script>window.location.href='createGroup.php'</script>";
+                        }else{
+                        $groupName = $arr['name'];
+                        echo '<h2 class="pull-left">' . $groupName . '</h2>';
                         //判断用户以是否加入小组
 
                         //小组分页
-                        $sql="select pb.ID from post_base pb,group_base gb WHERE gb.ID = pb.groupID AND gb.ID='$groupID' ";
-                        $query=mysql_query($sql);
-                        $all_num=mysql_num_rows($query);//总条数
-                        $page_num=5;//每页条数
-                        $page_all_num=ceil($all_num/$page_num);//总页数
-                        $page=empty($_GET['page'])?1:$_GET['page'];//当前页数
-                        $page=(int)$page;//安全强制转换
-                        $limit_st=($page-1)*$page_num;//起始数
+                        $sql = "select pb.ID from post_base pb,group_base gb WHERE gb.ID = pb.groupID AND gb.ID='$groupID' ";
+                        $query = mysql_query($sql);
+                        $all_num = mysql_num_rows($query);//总条数
+                        $page_num = 5;//每页条数
+                        $page_all_num = ceil($all_num / $page_num);//总页数
+                        $page = empty($_GET['page']) ? 1 : $_GET['page'];//当前页数
+                        $page = (int)$page;//安全强制转换
+                        $limit_st = ($page - 1) * $page_num;//起始数
                         //显示帖子列表
 
-                        $sql2="SELECT userID FROM group_detail WHERE ID='$groupID' AND userID='$userID'";
-                        $query2=mysql_query($sql2,$conn);
-                        $arr2=mysql_fetch_array($query2);
-                        if(isset($_COOKIE['nickName'])) {
-                            if(!empty($arr2)){
-                                echo "<a href=\"createPosts.php?groupID=".$groupID."\"class=\"pull-right btn btn-primary\">发帖</a>";
-                            }else{
-                                echo "<a href=\"enterGroup.php?groupID=".$groupID."\" class=\"pull-right btn btn-primary\">加入</a>";
+                        $sql2 = "SELECT userID FROM group_detail WHERE ID='$groupID' AND userID='$userID'";
+                        $query2 = mysql_query($sql2, $conn);
+                        $arr2 = mysql_fetch_array($query2);
+                        if (isset($_COOKIE['nickName'])) {
+                            if (!empty($arr2)) {
+                                echo "<a href=\"createPosts.php?groupID=" . $groupID . "\"class=\"pull-right btn btn-primary\">发帖</a>";
+                            } else {
+                                echo "<a href=\"enterGroup.php?groupID=" . $groupID . "\" class=\"pull-right btn btn-primary\">加入</a>";
                             }
-                        }else{
+                        } else {
                             echo '<a href="login.php" class="pull-right btn btn-primary">加入</a>';
                         }
                         ?>
                     </div>
                     <?php
 
-                    $sql_p="SELECT pb.title,pd.ID,pd.text,MAX(pd.createTime) AS createTime,ub.nickName,gb.name,gb.ID as Gid
+                    $sql_p = "SELECT pb.title,pd.ID,pd.text,MAX(pd.createTime) AS createTime,ub.nickName,gb.name,gb.ID as Gid
                           FROM post_detail pd,post_base pb ,group_base gb,user_base ub
                           WHERE pb.ID=pd.ID AND pb.userID=ub.ID AND pb.groupID=$groupID AND pb.groupID=gb.ID
                           GROUP BY ID
                           ORDER BY MAX(pd.createTime) DESC LIMIT $limit_st,$page_num";
                     $result = mysql_query($sql_p);
-                    while($row = mysql_fetch_array($result))
-                    {
+                    while ($row = mysql_fetch_array($result)) {
                         ?>
 
                         <article>
                             <?php
-                            echo "<h3><a href=\"posts.php?P_ID=". $row['ID'] ."\">". $row['title'] ."</a></h3>";
+                            echo "<h3><a href=\"posts.php?P_ID=" . $row['ID'] . "\">" . $row['title'] . "</a></h3>";
                             ?>
                             <div class="delete-float">
                                 <div>
                                     <?php
-                                    echo "<p>". $row['text'] ."</p>";
+                                    echo "<p>" . $row['text'] . "</p>";
                                     ?>
                                 </div>
 
                             </div>
                             <footer class="footer">
                                 <?php
-                                echo "<span class=\"pull-left\"><a href=\"\">". $row['nickName'] ."</a> 发表于 <a href=\"\">". $row['name'] ."</a></span>";
-                                echo "<span class=\"pull-right\">". $row['createTime'] . "</span>";
+                                echo "<span class=\"pull-left\"><a href=\"\">" . $row['nickName'] . "</a> 发表于 <a href=\"\">" . $row['name'] . "</a></span>";
+                                echo "<span class=\"pull-right\">" . $row['createTime'] . "</span>";
                                 ?>
                             </footer>
                         </article>
                         <?php
                     }
-                    $px=$page>=$page_all_num?$page_all_num:$page+1;//下一页
-                    $ps=$page<=1?1:$page-1;//上一页
+                    $px = $page >= $page_all_num ? $page_all_num : $page + 1;//下一页
+                    $ps = $page <= 1 ? 1 : $page - 1;//上一页
                     ?>
 
                 </section>
@@ -171,9 +174,9 @@
     <div class="row">
         <div class="col-md-12 hidden-lg hidden-md">
             <ul class="list-unstyled list-inline ">
-                <li><a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $ps?>">上一页</a></li>
-                <li><?php echo  $page." / ".$page_all_num ?></li>
-                <li><a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $px?>">下一页</a></li>
+                <li><a href="enterLists.php?groupID=<?php echo $groupID ?>&page=<?php echo $ps ?>">上一页</a></li>
+                <li><?php echo $page . " / " . $page_all_num ?></li>
+                <li><a href="enterLists.php?groupID=<?php echo $groupID ?>&page=<?php echo $px ?>">下一页</a></li>
             </ul>
         </div>
 
@@ -183,33 +186,34 @@
     <nav class="text-center">
         <ul class="pagination">
             <li>
-                <a href="enterLists.php?groupID=<?php echo $groupID?>&page=<?php echo $ps?>" aria-label="Previous">
+                <a href="enterLists.php?groupID=<?php echo $groupID ?>&page=<?php echo $ps ?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <?php
-            if ($page_all_num>=5) {
+            if ($page_all_num >= 5) {
                 if ($page <= 3) {
                     for ($num = 0; $num < 5; $num++) {
-                        $page1= 1 + $num;
-                        echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$page1."\">".$page1."</a></li>";
+                        $page1 = 1 + $num;
+                        echo "<li><a href=\"enterLists.php?groupID=" . $groupID . "&page=" . $page1 . "\">" . $page1 . "</a></li>";
                     }
-                } elseif ($page > 3 && $page+4<=$page_all_num) {
+                } elseif ($page > 3 && $page + 4 <= $page_all_num) {
                     for ($num = 0; $num < 5; $num++) {
                         $page_ = $page + $num - 2;
-                        echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$page_."\">".$page_."</a></li>";
+                        echo "<li><a href=\"enterLists.php?groupID=" . $groupID . "&page=" . $page_ . "\">" . $page_ . "</a></li>";
                     }
-                }else {
-                    for ($num=0; $num < 5; $num++) {
-                        $x=$page_all_num-3;
-                        $page_ =$x + $num - 1;
-                        echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$page_."\">".$page_."</a></li>";
+                } else {
+                    for ($num = 0; $num < 5; $num++) {
+                        $x = $page_all_num - 3;
+                        $page_ = $x + $num - 1;
+                        echo "<li><a href=\"enterLists.php?groupID=" . $groupID . "&page=" . $page_ . "\">" . $page_ . "</a></li>";
                     }
                 }
-            }else{
-                for($x=1;$x<=$page_all_num;$x++){
-                    echo "<li><a href=\"enterLists.php?groupID=".$groupID."&page=".$x."\">".$x."</a></li>";
+            } else {
+                for ($x = 1; $x <= $page_all_num; $x++) {
+                    echo "<li><a href=\"enterLists.php?groupID=" . $groupID . "&page=" . $x . "\">" . $x . "</a></li>";
                 }
+            }
             }
             ?>
             <li>
