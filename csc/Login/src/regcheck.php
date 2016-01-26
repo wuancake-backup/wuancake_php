@@ -20,7 +20,7 @@
 				{
 					echo "<script>alert('用户名已存在'); history.go(-1);</script>";
 				}
-				else	//不存在当前注册用户名称
+				else	 //不存在当前注册用户名称
 				{
 					$sql_insert = "insert into user (username,password) values('$user','$psw')";
 				if(mysql_query($sql_insert))
