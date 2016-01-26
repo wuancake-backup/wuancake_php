@@ -1,33 +1,49 @@
-<?php error_reporting(0);
-include 'conn.php'; 
-if($_POST['submit']){ 
-$sql="INSERT INTO message(id,user,title,content,lastdate) VALUES (NULL, '$_POST[user]', '$_POST[title]', '$_POST[content]', now())"; 
-mysql_query($sql); 
-
-//Ò³ÃæÌø×ª£¬ÊµÏÖ·½Ê½Îªjavascript 
-$url = "list.php"; 
-echo "<script language='javascript' type='text/javascript'>"; 
-echo "window.location.href='$url'"; 
-echo "</script>"; 
-} 
-?> 
-<script type="text/javascript"> 
+<META http-equiv="content-type" content="text/html; charset=utf-8">
+ <script type="text/javascript"> 
 function checkPost(){ 
 
 if(addForm.user.value==""){ 
-alert("ÇëÊäÈëÓÃ»§Ãû"); 
+alert("è¯·è¾“å…¥ç”¨æˆ·å"); 
 addForm.user.focus(); 
 return false; 
 } 
 if(addForm.title.value.length<5){ 
-alert("±êÌâ²»ÄÜÉÙÓÚ5¸ö×Ö·û"); 
+alert("æ ‡é¢˜ä¸èƒ½å°‘äº5ä¸ªå­—ç¬¦"); 
 addForm.title.focus(); 
 return false; 
 } 
 } 
 </script> 
+<? session_start();?>
 <FORM name="addForm" METHOD="POST" ACTION="add.php" onsubmit="return checkPost();"> 
-ÓÃ»§£º<INPUT TYPE="text" NAME="user" /><br /> 
-±êÌâ£º<INPUT TYPE="text" NAME="title" /><br /> 
-ÄÚÈİ£º<TEXTAREA NAME="content" ROWS="8" COLS="30"></TEXTAREA><br /> 
-<INPUT TYPE="submit" name="submit" value="add" /></FORM>
+ç”¨æˆ·ï¼š<input type="hidden" name="user" value="<?=$_SESSION['username']?>">
+<?php echo $_SESSION['username']?><br/>
+æ ‡é¢˜ï¼š<INPUT TYPE="text" NAME="title" /><br /> 
+å†…å®¹ï¼š<TEXTAREA NAME="content" ROWS="8" COLS="30"></TEXTAREA><br /> 
+<INPUT TYPE="submit" name="submit" value="æ·»åŠ " /></FORM>
+
+
+
+
+<?php if(!empty($_POST)){ 
+include 'conn.php'; 
+//å–å¾—postID
+        $sql_getPID = "SELECT ID as postID\n"
+            . "FROM post_base\n"
+            . "ORDER by ID DESC\n"
+            . "LIMIT 0 , 1";
+        $result1 = mysql_query($sql_getPID);
+        $row1 = mysql_fetch_array($result1);
+        $p = $row1['postID']+1;
+
+$sql="INSERT INTO post_base(ID,userID,title) VALUES ('$p', '$_SESSION[userid]', '$_POST[title]')"; 
+$sqla="INSERT INTO post_detail(ID,postID,text,floor,createTime) VALUES ('$p','$_SESSION[userid]','$_POST[content]','1',now())";
+mysql_query($sql); mysql_query($sqla);
+
+//é¡µé¢è·³è½¬ï¼Œå®ç°æ–¹å¼ä¸ºjavascript 
+$url = "list.php"; 
+echo "<script language='javascript' type='text/javascript'>"; 
+echo "window.location.href='$url'"; 
+echo "</script>"; 
+} 
+?>

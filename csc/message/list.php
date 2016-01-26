@@ -1,31 +1,61 @@
+<META http-equiv="content-type" content="text/html; charset=utf-8">
+<script language="javascript">
+    function submit1()
+    {
+    document.getElementById("submitform").action="preEdit.php";
+    document.getElementById("submitform").submit();
+    }
+    
+    function submit2()
+    {
+    document.getElementById("submitform").action="delete.php";
+    document.getElementById("submitform").submit();
+    }
+</script>
 <?php 
 include 'conn.php'; 
 ?> 
 <?php 
-echo "<div align='center'><a href='add.php'>¼ÌĞøÌí¼Ó</a></div>"; 
+echo "<div align='center'><a href='add.php'>ç»§ç»­æ·»åŠ </a></div>"; 
 ?> 
 <table width=500 border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#add3ef"> 
 <?php 
-$sql="select * from message order by id"; 
-$query=mysql_query($sql); 
-while ($row=mysql_fetch_array($query)){ error_reporting(0);
+$sql="SELECT pb.title,pd.ID,pd.text,MAX(pd.createTime) AS createTime,ub.name
+                          FROM post_detail pd,post_base pb ,user_base ub
+                          WHERE pb.ID=pd.ID AND pb.userID=ub.ID 
+                          GROUP BY ID
+                          ORDER BY MAX(pd.createTime) DESC";
+                         // LIMIT $limit_st,$page_num";
+                    $result = mysql_query($sql);
+                    while($row = mysql_fetch_array($result))
+                    {
+                         error_reporting(0);
 ?> 
 
 <tr bgcolor="#eff3ff"> 
-       <td>±êÌâ£º<font color="red"><?=$row[title]?></font> 
-       ÓÃ»§£º<font color="red"><?=$row[user] ?></font>
+       <td>æ ‡é¢˜ï¼š<font color="red"><?=$row[title]?></font> 
+       ç”¨æˆ·ï¼š<font color="red"><?=$row[name] ?></font>
        <div align="right">
-               <a href="preEdit.php?id=<?=$row[id]?>">±à¼­</a>
-             |
-			   <a href="delete.php?id=<?=$row[id]?>">É¾³ı</a>
+                        
+
+			 <form name="submitform" id="submitform" method="post" action="">
+			 
+			  <input type="hidden" name="id" id="ID" value="<?=$row[ID]?>">
+			  <INPUT TYPE="button" name="preEdit" id="preEdit" value="ç¼–è¾‘" onclick="submit1()"/>
+			  |
+			  <INPUT TYPE="button" name="delete" id="delete" value="åˆ é™¤" onclick="submit2()"/>
+			   | <a href="reply.php?id=<?=$row[ID]?>">å›å¤</a>
+			     </FORM>
+			   
        </div>
        </td> 
 </tr> 
 <tr bgColor="#ffffff"> 
-<td>ÄÚÈİ£º<?=$row[content]?></td> 
+<td>å†…å®¹ï¼š<?=$row[text]?></td> 
 </tr> 
 <tr bgColor="#ffffff"> 
-<td><div align="right">·¢±íÈÕÆÚ£º<?php echo substr($row[lastdate],0,16)?></div></td> 
+<td><div align="right">å‘è¡¨æ—¥æœŸï¼š<?php echo substr($row[createTime],0,16)?></div></td> 
 </tr> 
-<?php }?> 
+
+<?php }?>
 </table>
