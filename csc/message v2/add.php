@@ -20,7 +20,7 @@ return false;
 <?php echo $_SESSION['username']?><br/>
 标题：<INPUT TYPE="text" NAME="title" /><br /> 
 内容：<TEXTAREA NAME="content" ROWS="8" COLS="30"></TEXTAREA><br /> 
-<INPUT TYPE="submit" name="submit" value="添加" /></FORM>
+<INPUT TYPE="submit" name="submit" value="添加" /><a href="list.php">返回首页</a></FORM>
 
 
 
