@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="Content-text"Content="text/html" charset="utf8">
+	<title>simple js脚本</title>
+	</head>
+	<body>
+
+		<script>//通常的做法是把函数放入 <head> 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。
+			document.write("这是一个简单的JS！");
+
+			document.write("这是另一个简单的JS");
+		</script>
+
+
+
+
+		<br />
+		<button type="button" onclick="alert('welcome to the JSweb!')"><p>welcome</p></button>
+
+
+
+
+		<p id="demo">Hello JavaScript</p>	
+		<script>
+			function myfunction(){
+				x = document.getElementById("demo");//找到元素
+				x.innerHTML = "hello,welcome sb.";//显示
+			}
+		</script>
+		<button type="button" onclick="myfunction()">点击这里有变化</button>
+
+
+
+
+		<p id="1">JS可以改变样式</p>
+		<script>
+			function changestyle(){
+				m = document.getElementById("1");//找到元素
+				m.style.color = "#ff0000";//改变颜色
+
+			}
+		</script>
+		<button type="button" onclick="changestyle()">点击改变颜色</button>
+
+
+
+
+
+		<h1>请输入数字，输入的不是数字就会提醒</h1>
+		<input id="text" type="text" />
+		<script >
+			function identifynumber(){
+				var n = document.getElementById("text").value;
+				if (n==""||isNaN(n)){//注意NaN的大小写
+					alert("不是数字!");
+				}
+			}	
+			</script>
+			<button type="button" onclick="identifynumber()">提交</button>
+
+
+
+
+			<p id="3">我的js函数放在同目录下的p.js文件里面</p>
+			<button type="button" onclick="outfunction()" >点击这里有变化</button>
+			<script src="js/p.js"></script>
+
+
+
+
+<!-- 
+			<script>  //使用window.alert()弹出警示框
+			window.alert("3+4");//当里面添加双引号时，直接输出引号里面的内容
+			window.alert(3+4);//当不加引号时输出表达式的结果
+
+			</script> -->
+                     <br />
+
+
+			<script>
+				document.write(Date());
+			</script>
+
+
+
+
+
+			<script>
+				
+			function clkfunction(){
+				document.write(Date());
+			}
+
+			</script>
+			<button type="button" onclick="clkfunction()">点击显示时间</button>
+
+
+
+			<p id="test"></p>
+			<script>
+				var length;
+				length = 6;
+				document.getElementById("test").innerHTML = length;
+			</script>
+
+
+
+
+
+
+            <p id="test1"></p>
+			  <script>
+				var length;
+				length = 6 + 'vol';
+				document.getElementById("test1").innerHTML = length;
+
+               </script>
+
+
+
+
+
+
+               <p id="a">hello</p>
+               <p id="b">hi</p>
+               <button type="button" onclick="myfunction()">点击变化</button>
+              <script>
+               	function myfunction(){
+                    document.getElementById("a").innerHTML = "welcome here";
+               		document.getElementById("b").innerHTML = "thanks";
+               	}
+               </script>
+
+
+
+
+
+
+
+
+               <script>
+                var i;//每使用一个变量就要先定义
+               	var cars = new Array();
+               	cars[0] = "hi";
+               	cars[1] = "hello";
+               	cars[2] = "welcome";
+               	for(i=0;i<cars.length;i++){//for语句里面使用分号
+               		document.write(cars[i]+"<br />");
+               	}
+               	</script>
+
+
+
+
+
+
+
+
+
+               	<p>创建javascript对象</p>
+               	<p id="c"></p>
+               	<script>
+               		var person = {name:"Mr.li",year:"20"} ;
+               		document.getElementById("c").innerHTML = 
+               		person.name  + "is" + person["year"] ;//在中间一定要使用加号+
+
+
+               	</script>
+
+	</body>
+</html>			
+
