@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="Content-text"Content="text/html" charset="utf8">
+	<title>simple js脚本</title>
+	</head>
+	<body>
+
+
+
+	<p>constructor属性返回变量或对象的构造函数</p>
+	<p id="k"></p>
+	<script>
+		document.getElementById("k").innerHTML = 
+		  {name:"li",age:12}.constructor  + "<br />"
+		  + new Date().constructor + "<br />" +
+		  function(){}.constructor ;
+	</script>
+
+
+
+
+
+
+
+
+	<p>判断是否为日期</p>
+	<p id="l"></p>
+	<p id="m"></p>
+	<script>
+		var mydate = new Date();
+		var mya = [1,2,3];
+		document.getElementById("l").innerHTML = isDate(mydate);
+		document.getElementById("m").innerHTML = isArray(mya);
+		function isDate(n){
+			return n.constructor.toString().indexOf("Date") > -1; 
+		}
+		function isArray(n){
+			return n.constructor.toString().indexOf("Array") > -1; 
+		}
+		</script>	
+
+
+
+
+
+
+
+
+		<p>正则匹配</p>
+		<p id="n">welcome to visit mic</p>
+		<button onclick="myd()"></button>
+		<script>
+			function myd(){
+				var m = document.getElementById("n").innerHTML;
+				var n = m.replace(/mic/i,"w3cshool");//当时有正则匹配时，replace的第一个参数不加引号
+				document.getElementById("n").innerHTML = n ;
+			} 
+		</script>
+
+
+
+
+
+
+
+
+
+		<p>正则匹配</p>
+		<p id="o">welcome to visit mic</p>
+		<button onclick="q()">点击</button>
+		<script> 
+		function q(){
+			var x = new RegExp("come") ;
+
+			document.getElementById("o").innerHTML = x.exec(document.getElementById("o").innerHTML);
+		}
+			</script>
+
+
+
+
+
+
+
+
+
+
+
+
+			<script >
+				var txt="";
+				function message(){
+					try{
+						alerer("welcome here");
+					}
+					catch(err){
+						 txt="本页有一个错误。\n\n";
+                         txt+="错误描述：" + err.message + "\n\n";
+                         txt+="点击确定继续。\n\n";
+                         alert(txt);
+					}
+				}
+			</script>
+			<button onclick="message()">点击查看错误</button>
+
+
+
+
+
+
+			<script>
+				function myd(){
+					try{
+						var a = document.getElementById("u").value;
+						if(a=="") throw "不是数字";
+						if(isNaN(a)) throw "不是数字";
+						if(a<5) throw "太小" ;
+						if(a>10) throw "太大";
+
+					}
+					catch(err){
+						var y = document.getElementById("p");
+						y.innerHTML = "错误:" + err ; 
+					}
+				}
+			</script>
+				<p>请输入5到10的数字</p>
+				<input type="text" id="u"value="测试" />
+				<button onclick="myd()">测试</button>
+				<p id="p"></p>
+
+
+ 	
+
+
+
+
+
+ 		<p>开启调试模式</p>
+ 		<script>
+ 			var a = 5 ;
+ 			var b = 6 ;
+ 			var c = a + b ;
+ 			console.log(c);
+ 		</script>	 
+
+
+
+
+ 
+
+
+ 		<p>javascript内置构造函数</p>
+ 		<p id="er"></p>
+ 		<script>
+ 		var myfn = new Function("a","b","return a*b") ;//注意return语句加上""
+ 		document.getElementById("er").innerHTML = 
+ 		myfn(3,4);
+ 		</script>
+              
+
+
+
+
+
+
+
+
+
+              <p>toString将函数作为字符串返回</p>
+              <p id="rew"></p>
+              <script>
+              function mrt(a,b){
+              		return a*b;
+              }
+              document.getElementById("rew").innerHTML = mrt.toString();
+
+
+              </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             <p>全局变量计数。</p>
+
+                 <button type="button" onclick="myFunction()">计数!</button>
+
+          <p id="edemo">0</p>
+
+                 <script>
+                var counter = 0;//counter是全局变量
+
+                 function add() {
+                         return counter += 1;
+                        }
+
+                   function myFunction(){
+                document.getElementById("edemo").innerHTML = add();
+                              }
+                          </script>
+
+
+
+
+
+
+
+
+	</body>
+</html>	
+
+

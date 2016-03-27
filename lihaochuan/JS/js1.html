@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="Content-text"Content="text/html" charset="utf8">
+	<title>simple js脚本</title>
+	</head>
+	<body>
+
+	<p id="1"></p>
+		<script>
+		var person = {//注意后面的逗号和冒号
+			lastname:"lili",
+			firstname:"lala",
+			fullname:function(){
+				return this.firstname +" "+ this.lastname;
+			}
+
+		} ;
+		document.getElementById("1").innerHTML = person.fullname();
+		</script>
+
+
+
+
+		<p>调用这个参数来使用带参数的函数</p>
+		<button type="button" onclick='araa("hely","wizard")'>点击</button><!--不能同时使用“”,如onclick="araa("fs","fas")"会出错-->
+		<button type="button" onclick='araa("horry potter","wizard")'>点击</button>
+		<script> 
+			function araa(name,sc){
+				alert("welcome" + name  +",the"+sc);
+			}
+		</script>	
+
+
+
+		<p id="d"></p>
+		<script>
+		  funct();//必须先funct(),然后再docum...才有用;
+		 document.getElementById("d").innerHTML = "there"+ cans;
+		  
+		 function funct(){
+		 	cans = 123;
+
+		 }
+		 </script>
+
+
+
+
+
+		 <p id="demo1"></p>
+
+              <script>
+              myFunction();//函数提升
+               document.getElementById("demo1").innerHTML =
+              "I can display " + window.carName;
+
+            function myFunction() {
+             carName = "Volvo";
+              }
+             </script>
+
+
+
+
+             <button type="button" onclick="document.write(Date())">现在时间是？</button>
+
+             <button type="button" onclick="this.innerHTML=Date()">现在时间是多少？</button>
+
+
+
+
+
+
+
+
+             <p id="e"></p>
+             <script>
+             	var a = "acaa";
+             	var b = new String("aaa");
+             	document.getElementById("e").innerHTML = a==b;
+             	document.getElementById("e").innerHTML = typeof a +" " + typeof b;
+             	</script>
+
+
+
+
+             	<p>点击将两个字符串相加</p>
+             	<button type="button" onclick="str()">点击</button>
+             	<p id = "f"></p>
+             	<script>
+             		function str(){
+             			txt1 = "what a ";
+             			txt2 = "nice day";
+             			txt3 = txt1 + txt2;
+             			document.getElementById("f").innerHTML =txt3;
+             		}
+             		</script>
+		 
+
+
+
+
+
+		 <p>点击按钮测试环境</p>
+		 <input id="g" value="18" />
+
+		 <br />
+		 <button type="button" onclick="fun()"></button>
+		 <p id="h"></p>
+		 <script>
+		 function fun(){
+		 	var age;
+		 	 age = document.getElementById("g").value;
+		 	var vote=(age)<18? "未成年":"成年";
+		 	document.getElementById("h").innerHTML = vote ;
+
+		 }
+		 </script>
+
+
+
+
+
+		 <script type="text/javascript">
+             var d = new Date();
+             var time = d.getHours();
+              if (time<10)
+            {
+                  document.write("<b>早上好</b>");
+              }
+                 else if (time>=10 && time<16)
+            {
+               document.write("<b>今天好</b>");
+               }
+               else
+                {
+                document.write("<b>Hello World!</b>");
+                 }
+                 </script>
+
+
+
+
+
+
+
+                 <p>点击下面的按钮来显示今天是周几：</p>
+
+                       <button onclick="myFunction()">点击这里</button>
+
+                      <p id="demo2"></p>
+
+                     <script>
+                        function myFunction()
+                 {
+                      var x;
+                      var d=new Date().getDay();
+                       switch (d)
+                        {
+                            case 0:
+                       x="Today it's Sunday";
+                          break;
+                    case 1:
+                        x="Today it's Monday";
+                        break;
+                     case 2:
+                              x="Today it's Tuesday";
+                        break;
+                      case 3:
+                           x="Today it's Wednesday";
+                              break;
+                        case 4:
+                           x="Today it's Thursday";
+                            break;
+                              case 5:
+                         x="Today it's Friday";
+                                break;
+                             case 6:
+                         x="Today it's Saturday";
+                                break;
+                                   }
+                          document.getElementById("demo2").innerHTML=x;
+                         }
+                         </script>
+                         <p>typeof操作符返回变量的类型</p>
+                         <p id="i"></p>
+                         <script>
+                         document.getElementById("i").innerHTML
+                         = typeof "john" +" <br /> " + typeof 123
+                         +"<br />" + typeof ["1","2","3"] + "<br />"
+                         + {name:"li",age:19} ;
+                         </script>
+
+
+
+
+
+
+                         <p>对象可以通过设置null来清空</p>
+                         <p id="j"></p>
+                         <script>
+                         var person = {name:'li',age:19} ;
+                          var person = null;
+                         document.getElementById("j").innerHTML=typeof person;
+                         </script>
+
+
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+
+</html>

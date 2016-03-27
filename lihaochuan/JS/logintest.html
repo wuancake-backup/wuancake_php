@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="Content-text"Content="text/html" charset="utf8">
+	<title>simple js脚本</title>
+	</head>
+	<body>
+
+		<!-- 	<p>请输入8到10位的qq</p>
+           <input id="qwe" type="text" />
+
+           <button onclick="qq()">点击提交</button>
+           <p id="qw"></p>
+
+           <script>
+           	function qq(){
+           		try{
+           	  //  var x = new RegExp([0-9]{8,10});
+           	 //	var y = x.test(document.getElementById("qwe").value);
+           	      var y = document.getElementById("qwe").value;
+           			if(y==true) throw "输入正确";
+           			if(y==false) throw "输入错误";
+
+              		}
+              	catch(err){
+              		document.getElementById("qw").innerHTML = "提示:" + err ;
+              	}	
+           	}
+           </script>
+
+
+
+
+ -->
+
+
+
+
+           <script>
+            function submita(){
+             var x = document.forms["myform"]["fname"].value;
+             if (x==null||x==""){   //必须使用==,=没有反应
+              alert("必须填写名字");
+              return false;
+             }    //form表单里面的name必须写，还有就是return必须加上
+            }
+            </script>
+
+           <form action="#" name="myform" method="post" onsubmit=" return submita()" >
+           <input type="text" name="fname"  />
+           <input type="submit" value="提交">
+           </form>
+
+
+
+       
+       <script>
+         function validateForm()
+                 {
+                    var x=document.forms["myForm"]["email"].value;
+                    var atpos=x.indexOf("@");
+                    var dotpos=x.lastIndexOf(".");
+                     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                     {
+                   alert("Not a valid e-mail address");
+                  return false;
+                     }
+                         }
+                      </script>
+ 
+
+ 
+                 <form name="myForm" action="#" onsubmit="return validateForm();" method="post">
+               Email: <input type="text" name="email">
+                      <input type="submit" value="Submit">
+                         </form>
+
+
+
+
+          <p>为JSON字符串创建对象</p>
+          <p id="ew"></p>
+          <script> 
+
+          var text = '{"employee":['+' {"firstname":"lili","lastname":"lala"},'+' {"firstname":"mdmmd","lastname":"msms"}]}';
+          obj = JSON.parse(text);  //特别注意引号的使用
+          document.getElementById("ew").innerHTML = 
+          obj.employee[1].firstname ;
+
+
+          </script>
+
+
+
+
+
+
+
+
+
+
+<!--计数功能-->
+
+          <p>局部变量计数。</p>
+
+            <button type="button" onclick="myFunction()">计数!</button>
+
+         <p id="demo">0</p>
+
+                     <script>
+               var add = (function () {
+               var counter = 0;
+               return function () {return counter += 1;}
+         })();
+
+        function myFunction(){
+               document.getElementById("demo").innerHTML = add();
+              }
+            </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--   <p>点击以下链接查看不同效果：</p>
+<a href="javascript:void(0);">点我没有反应的!</a>
+<br>
+<a href="#pos">点我定位到指定位置!</a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p id="pos">尾部定位点</p> -->
+
+
+
+
+
+
+
+
+
+        <p>javascript:void(0)的使用</p>
+        <a href="javascript:void(0)" >点击查看效果</a>
+        <a href="javascript:void(alert('警告'))">点击</a>
+<!--注意 <a href="javascript:void(alert("警告"))">点击</a>不会有任何效果，即不能同时嵌有""-->
+
+	</body>
+</html>	
