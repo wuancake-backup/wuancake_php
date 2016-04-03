@@ -22,4 +22,6 @@ while($row = mysql_fetch_array($result)){
     {
     	echo "用户名密码错误";
     }
+    mysql_free_result($result);
+    mysql_close($con);
 ?>
