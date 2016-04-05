@@ -1,4 +1,6 @@
 <?php
+//数据库注册
+
 $con = mysql_connect("localhost","login","login");
 if (!$con)
   {

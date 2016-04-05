@@ -1,4 +1,6 @@
 <?php
+//验证登录
+
 header("Content-Type: text/html;charset=utf-8"); 
 $con = mysql_connect("localhost","login","login");
 if (!$con)
@@ -10,6 +12,8 @@ if (!$con)
   mysql_select_db("test",$con);
 
 $result=mysql_query("SELECT admin,password FROM login");
+
+//设置$num值，便于之后判断（验证登录）
 $num=0;
 while($row = mysql_fetch_array($result)){
 	if($admin==$row[0]&&$password==$row[1]){
