@@ -1,0 +1,20 @@
+<!DOCTYPE HTML> 
+<html>
+<body>
+<h2>注册</h2>
+<form action="register.php" method="post">
+用户名：<input type="text" name="username" />
+<span class="error"> <?php echo $usernameEr;?></span>
+<br/><br/>
+请设置密码：<input type="text" name="password" />
+<span class="error"> <?php echo $passwordEr;?></span>
+<br/><br/>
+请确认密码：<input type="text" name="passwordconfirm" />
+<span class="error"> <?php echo $passwordconfirmEr;?></span>
+<br/><br/>
+<input type="submit" value="注册" />
+<input type="button" value="取消" onClick="window.close()" /><br/>
+<br/>
+</form>
+</body>
+</html>
