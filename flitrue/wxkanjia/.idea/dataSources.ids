@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - kanjia@localhost" uuid="d868b1ca-e0d6-4b1b-91ea-e9ddae093ae9">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="kanjia"/>
+      <table id="2" parent="1" name="wx_admin"/>
+      <table id="3" parent="1" name="wx_buy"/>
+      <table id="4" parent="1" name="wx_shop"/>
+      <table id="5" parent="1" name="wx_shopinfo"/>
+      <table id="6" parent="1" name="wx_user"/>
+      <table id="7" parent="1" name="wx_vote"/>
+      <table id="8" parent="1" name="wx_voteinfo"/>
+      <column id="9" parent="2" name="admin_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="10" parent="2" name="admin_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="11" parent="2" name="admin_age">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="2" name="admin_sex">
+        <data-type>char(2)</data-type>
+        <default-expression>&apos;男&apos;</default-expression>
+      </column>
+      <column id="13" parent="2" name="admin_imgurl">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="14" parent="2" name="admin_info">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="15" parent="2" name="admin_weixin">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="16" parent="2" name="admin_qq">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="17" parent="2" name="admin_email">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="18" parent="2" name="PRIMARY">
+        <columns>admin_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="19" parent="3" name="buy_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="20" parent="3" name="shop_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="21" parent="3" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="22" parent="3" name="buy_starttime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="23" parent="3" name="buy_endtime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="24" parent="3" name="buy_fristprice">
+        <comment>商品原价格</comment>
+        <mandatory>1</mandatory>
+        <data-type>decimal(10)</data-type>
+      </column>
+      <column id="25" parent="3" name="buy_nowprice">
+        <comment>用户最终购买商品的价格</comment>
+        <mandatory>1</mandatory>
+        <data-type>decimal(10)</data-type>
+      </column>
+      <column id="26" parent="3" name="buy_mes">
+        <comment>拉票信息</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;各位乡亲父老，帮我砍一刀，我带你装逼，带你飞。&apos;</default-expression>
+      </column>
+      <column id="27" parent="3" name="buy_url">
+        <comment>存放购买商品相关文件的路径</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="28" parent="3" name="buy_imgurl">
+        <comment>存放购买商品的图片路径</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="29" parent="3" name="PRIMARY">
+        <columns>buy_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="30" parent="4" name="shop_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="31" parent="4" name="shop_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(15)</data-type>
+      </column>
+      <column id="32" parent="4" name="shop_info">
+        <comment>商品介绍</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="33" parent="4" name="shop_header">
+        <comment>商店头信息</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="34" parent="4" name="shop_copy">
+        <comment>商店版权信息</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="35" parent="4" name="shop_createtime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="36" parent="4" name="shop_endtime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="37" parent="4" name="shop_url">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="38" parent="4" name="shop_imgurl">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="39" parent="4" name="shop_voiceurl">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="40" parent="4" name="PRIMARY">
+        <columns>shop_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="41" parent="5" name="shopinfo_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="42" parent="5" name="admin_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="43" parent="5" name="shop_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="44" parent="5" name="PRIMARY">
+        <columns>shopinfo_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="45" parent="6" name="user_id">
+        <comment>买车人id</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="46" parent="6" name="user_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="47" parent="6" name="user_pwd">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="48" parent="6" name="user_sex">
+        <data-type>char(2)</data-type>
+        <default-expression>&apos;男&apos;</default-expression>
+      </column>
+      <column id="49" parent="6" name="user_age">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="50" parent="6" name="user_sign">
+        <comment>微信用户标识</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="51" parent="6" name="user_createtime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="52" parent="6" name="user_endtime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="53" parent="6" name="user_url">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="54" parent="6" name="user_imgurl">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="55" parent="6" name="user_voiceurl">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="56" parent="6" name="PRIMARY">
+        <columns>user_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="57" parent="7" name="vote_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="58" parent="7" name="vote_name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="59" parent="7" name="vote_weixin">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="60" parent="7" name="vote_fristtime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="61" parent="7" name="vote_lasttime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="62" parent="7" name="vote_times">
+        <comment>投票次数</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="63" parent="7" name="vote_ip">
+        <mandatory>1</mandatory>
+        <data-type>varchar(15)</data-type>
+      </column>
+      <key id="64" parent="7" name="PRIMARY">
+        <columns>vote_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="65" parent="8" name="voteinfo_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="66" parent="8" name="buy_id">
+        <comment>砍价的商品id</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="67" parent="8" name="voteinfo_time">
+        <comment>砍价时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="68" parent="8" name="voteinfo_changeprice">
+        <comment>砍价改变的价格</comment>
+        <mandatory>1</mandatory>
+        <data-type>decimal(2)</data-type>
+      </column>
+      <column id="69" parent="8" name="vote_id">
+        <comment>砍价用户的id</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="70" parent="8" name="voteinfo_url">
+        <comment>砍价用户存放相关文件的路径</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="71" parent="8" name="voteinfo_voiceurl">
+        <comment>砍价用户录制声音存放路径</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="72" parent="8" name="PRIMARY">
+        <columns>voteinfo_id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

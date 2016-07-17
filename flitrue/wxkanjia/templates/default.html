@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$smarty.const.TITLE}</title>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="{$smarty.const.TITLE}"/>
+    <meta name="description" content="{$smarty.const.TITLE}"/>
+    <meta name="author" content="flitrue"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libraries/weui/weui.min.css"/>
+    <link rel="stylesheet" href="sources/css/main.css">
+
+</head>
+<body ontouchstart onload="startTime();">
+    <div>
+        <section class="header-img">
+            <img class="img-responsive" style="width:380px;height:210px;" src="{$smarty.const.HEADERIMG}" onerror="javascript:this.src='http://placehold.it/380x210/'">
+            <span class="daojishi"><label id="txt"></label></span>
+        </section>
+        <section>
+            <h2>点炮竹  <small>点炮竹</small></h2>
+        </section>
+        <section> 参加人数：{$joinnum}</section>
+    </div>
+
+    <div id="box-img">
+    {foreach $arr as $value}
+        <div class="div-box">
+            <div class="list-detail">
+                <label style="position:absolute;z-index: 20;">{$value.user_mark}</label>
+                <a href="detail.php?userid={$value.user_id}&shopinfo_id={$value.shopinfo_id}" >
+                    <img style="width:150px; height:200px;" class="img-rounded" src="{$value.shop_imgpath}" onerror="javascript:this.src='http://placehold.it/150x200/'" alt="">
+                </a>
+            </div>
+            <div class="list-toupiao">
+                <div class="list-detail-info">
+                    <label>{$value.user_name}</label><br>
+                    <label>{$value.shopinfo_num}票</label>
+                </div>
+                <div class="list-detail-toupiao" onclick="window.location.href='detail.php?userid={$value.user_id}&shopinfo_id={$value.shopinfo_id}'">
+                    砍
+                </div>
+            </div>
+        </div>
+    {/foreach}
+    </div>
+
+    <div>
+        <h2>{$xiangqing}</h2>
+        <div id="xiangqing">{$xiangqing}</div>
+        <h2>{$guize}</h2>
+        <div id="guize">{$guize}</div>
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="sources/js/daojishi.js"></script>
+<script>
+    wx.config({
+        //debug: true,  //开启调试
+        appId: '{$signPackage_appid}',
+        timestamp: {$signPackage_timestamp},
+        nonceStr: '{$signPackage_noncestr}',
+        signature: '{$signPackage_signature}',
+        jsApiList: [
+        // 所有要调用的 API 都要加到这个列表中
+            "onMenuShareTimeline",
+            "onMenuShareAppMessage",
+            "onMenuShareQQ ",
+            "downloadImage",
+            "openLocation",
+            "getLocation",
+            "showMenuItems"
+    ]
+    });
+    wx.ready(function () {
+        // 在这里调用 API
+
+        wx.onMenuShareTimeline({
+            title: '{$smarty.const.TITLE}正在进行中', // 分享标题
+            link: 'http://{$smarty.const.WEBNAME}default.php', // 分享链接
+            imgUrl: '{$smarty.const.COPYIMGURL}', // 分享图标
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '{$smarty.const.TITLE}', // 分享标题
+            desc: '{$username}正在参加{$smarty.const.TITLE}，快来给我点炮吧！', // 分享描述
+            link: '', // 分享链接
+            imgUrl: '{$smarty.const.COPYIMGURL}', // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+    });
+
+</script>
+</html>
