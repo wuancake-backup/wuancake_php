@@ -1,0 +1,8 @@
+.main{ width: 360px; margin: 0 auto;}
+h1{ text-align: center;}
+label{ display: inline-block; width: 100px; height: 30px; line-height: 30px; text-align: right;}
+input[type="text"],input[type="password"]{ width: 200px; height: 20px; line-height: 20px;}
+.btn{ text-align: center; width: 100%; height: 40px; line-height: 40px;}
+.btn input{ margin: 10px 20px;}
+.register{ text-align: center; width: 100%;}
+			
