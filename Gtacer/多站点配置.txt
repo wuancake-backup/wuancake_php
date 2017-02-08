@@ -1,0 +1,35 @@
+1，在phpstudy\Apache\conf\extra目录下找到httpd-vhosts.conf文件并打开
+
+2，在配置文件后通过添加以下段落增加新站点
+<VirtualHost *:80>
+    ServerAdmin 管理员邮箱地址
+    DocumentRoot "网站代码文件目录"
+    ServerName 主机名
+    ErrorLog "错误日志"
+    CustomLog "日常日志" common
+</VirtualHost>
+
+3，在phpStudy\Apache\conf目录下找到httpd.conf文件并打开
+通过查找找到以下语句
+# Virtual hosts
+#Include conf/extra/httpd-vhosts.conf	//去掉此行的注释字符#
+//包含扩展文件httpd-vhosts.conf
+
+4，允许其他外部主机地址访问
+（1）打开httpd.conf文件，通过查找功能找到网站目录（WWW）
+（2）找到以下段落
+# onlineoffline tag - don't remove
+  Order Deny，Allow
+  Deny from all		//拒绝所有外部访问
+  Allow from 127.0.0.1	//允许本地地址访问
+修改为
+# onlineoffline tag - don't remove
+  Order Deny，Allow
+  Allow from all
+  #Allow from 127.0.0.1
+
+6，在网站根目录中建立对应的文件夹并新建Php文件
+
+5，修改host文件，添加以下语句
+127.0.0.1	网站地址		//首先从本地地址解析资源
+
