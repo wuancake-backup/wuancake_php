@@ -1,0 +1,21 @@
+字符串连接符
+$a="a";
+$b="b";
+$c=$a.$b;
+
+
+三元运算
+表达式1 ? 表达式2 : 表达式3
+if        then      else
+
+
+类型运算符(instanceof用于确定一个PHP变量是否属于一类class的实例)
+代码案例：
+class dog｛｝
+class cat｛｝
+//创建一个对象
+$cat1=new cat
+//在实际开发中，我们可能需要去判断某个变量是否是某个类型
+if($cat1 instanceof cat){
+	echo "cat1是一只猫";
+}
