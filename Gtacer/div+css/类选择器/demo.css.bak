@@ -1,0 +1,31 @@
+/*类选择器*/
+.style1{
+	background-color:pink;
+	font-weight:bold;
+	font-size:16px;
+	color:black;
+}
+
+/*id选择器*/
+#style2{
+	background-color:gray;
+	font-size:20px;
+}
+
+/*html元素选择器(优先级低于前两个选择器)*/
+body{
+	color:orange;
+}
+a:link{
+	color:black;
+	text-decoration:none;
+	font-size:24px;
+}
+a:hover{
+	text-decoration:underline;
+	color:red;
+	font-size:40px;
+}
+a:visited{
+	color:yellow;
+}

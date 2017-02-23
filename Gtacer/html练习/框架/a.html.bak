@@ -1,7 +1,0 @@
-<frameset cols="30%,70%">
-<!--  边框不可调   设置没有边框-->
-<frame name="frame1" noresize frameborder="0" src="Catalog.html"/>
-<frame name="frame2" noresize frameborder="0" src="content.html"/>
-</frameset>
-
-<!--该页面不能有body体-->
