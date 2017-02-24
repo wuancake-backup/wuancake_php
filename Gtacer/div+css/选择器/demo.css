@@ -15,6 +15,7 @@
 /*html元素选择器(优先级低于前两个选择器)*/
 body{
 	color:orange;
+	background:green;
 }
 a:link{
 	color:black;
@@ -37,4 +38,20 @@ p.cls1{
 p.cls2{
 	color:red;
 	font-size:20px;
+}
+
+/*通配符选择器(可以应用到所有的html元素，但是其优先级是最低的)*/
+*{
+	margin-top:50px;
+	margin-left:60px;
+}
+
+/*优先级：ID选择器 > class选择器 > html选择器 < 通配符选择器*/
+
+/*父子选择器*/
+#style2 span{
+	color:red;
+}
+#style2 span span{
+	color:green;
 }
