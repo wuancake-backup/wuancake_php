@@ -55,3 +55,9 @@ p.cls2{
 #style2 span span{
 	color:green;
 }
+
+/*将多个选择器的公共部分，单独抽取出来，可以减少css的冗余*/
+.styl1 , .styl2 , .styl3{
+	height:196px;
+	float:left;
+}
