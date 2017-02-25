@@ -1,0 +1,32 @@
+.font1{
+	font-size:25px;
+	font-weight:bold;
+}
+.font2{
+	padding-left:300px;
+}
+.div{
+	width:500px;
+	height:800px;
+	border:1px dotted gray;
+}
+.faceul{
+	width:500px;
+	height:150px;
+	border:0px solid blue;
+	padding-left:0px;
+}
+.faceul li{
+	width:65px;
+	height:60px;
+	border:0px solid green;
+	list-style-type:none;
+	float:left;
+	margin:20px 0px 5px 20px;
+}
+.faceul li img{
+	width:60px;
+	height:52px;
+	border:0px solid black;
+
+}

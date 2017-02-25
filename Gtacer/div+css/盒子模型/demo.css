@@ -1,0 +1,17 @@
+body{
+	border:5px solid red;	/*border-width border-style border-color*/
+	width:800px;
+	height:800px;
+	margin:20 auto;	/*auto表示自动居中*/
+}
+.div1{
+	width:500px;
+	height:500px;
+	border:2px solid blue;	/*solid表示实线*/
+	margin:50px 0px 0px 50px;/*上 右 下 左*/
+}
+.div1 img{
+	width:400px;
+	height:400px;
+	margin:5px 0px 0px 5px;
+}
