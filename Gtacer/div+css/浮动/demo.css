@@ -1,0 +1,17 @@
+body{
+	width:500px;
+	height:800px;
+	border:1px solid red;
+}
+.div1{
+	width:150px;
+	height:100px;
+	border:1px solid blue;
+	background:pink;
+	margin-top:5px;
+	margin-left:5px;
+}
+
+#special{
+	float:right;
+}
