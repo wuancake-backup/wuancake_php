@@ -1,5 +1,0 @@
-1，在httpd.conf文件中找到 Listen 80 语句，此处为Apache默认端口号，将其修改为其他端口号，如8080
-
-2，找到 ServerName localhost：80 语句，将此处的端口号保持和以上语句同步
-
-3，通过localhost:修改后的端口号/要访问的文件 访问相应的网站或文件
