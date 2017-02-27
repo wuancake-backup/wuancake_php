@@ -1,0 +1,8 @@
+.div1{
+	margin:0 auto;
+	margin-top:200px;
+	width:500px;
+	height:200px;
+	border:3px solid blue;
+}
+
