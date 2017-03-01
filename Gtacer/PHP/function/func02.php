@@ -1,6 +1,6 @@
 <html>
 <?php
-	require 'func01.php';//引入需要的php文件
+	require_once 'func01.php';//引入需要的php文件
 
 	$num1=34;
 	$num2=59;

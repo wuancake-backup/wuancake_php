@@ -1,5 +1,5 @@
 <?php
-	function jisuan($num1,$num2,$oper){
+	function jisuan($num1,$num2,$oper){   //函数名不区分大小写
 		$res=0;
 		switch($oper){
 			case "+":
