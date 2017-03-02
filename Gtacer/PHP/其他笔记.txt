@@ -34,3 +34,28 @@ $cat1=new cat
 if($cat1 instanceof cat){
 	echo "cat1是一只猫";
 }
+
+
+
+使用define定义常量
+define("PI",3.14);
+
+使用const定义常量
+const PI=3.14;
+
+
+使用unset($var)删除一个变量
+$a=12;
+unset($a);
+echo $a;	//无法输出
+
+
+
+给某些参数赋默认值
+function abc($c,$a=2){
+	$res=$a+$b;
+	return $res;
+}
+$e==70;
+echo abc($e).'||';	//没有为第二个形参传值，所以第二个形参的值为设置的默认值
+echo abcc($e,90);	//为第二个形参传值时，会覆盖掉为其设置的默认值
