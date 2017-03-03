@@ -1,26 +1,21 @@
 使用global访问全局变量
-
 <?php
 $x=5;
 $y=10;
-
-function myTest() {
+function myTest() {		//函数名不区分大小写
   global $x,$y;
   $y=$x+$y;
 }
-
 myTest();
 echo $y; // 输出 15
 ?>
 
 
-使用static声明静态变量
 
+使用static声明静态变量
 <?php
 	static $x=0;
 ?>
-
-
 
 
 
@@ -59,3 +54,13 @@ function abc($c,$a=2){
 $e==70;
 echo abc($e).'||';	//没有为第二个形参传值，所以第二个形参的值为设置的默认值
 echo abcc($e,90);	//为第二个形参传值时，会覆盖掉为其设置的默认值
+
+
+
+引入需要的php文件
+require 'test.php';	//引入后才可以使用该PHP页面定义的函数；
+require_once 'test.php';	//通常使用此函数,会先判断是否在之前包含过一次test.php文件
+include 'test.php';	//与require作用相同，但是在出错时会继续执行下面的语句，而require出错时会终止程序执行
+
+
+
