@@ -64,3 +64,15 @@ include 'test.php';	//与require作用相同，但是在出错时会继续执行下面的语句，而req
 
 
 
+对浮点数进行四舍五入
+echo round(1.355846,2);		//打印结果为1.36
+
+
+
+如何关闭notice级别的提示
+1，在php.ini文件中改动erroe_reporting
+	改为：
+	error_reporting = E_A & ~ E_NOTICE
+
+2.在你想禁止notice错误提示的页面中加入下面代码：
+erroe_reporting(E_ALL^E_NOTICE);

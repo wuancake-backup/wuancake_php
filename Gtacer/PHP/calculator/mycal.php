@@ -6,9 +6,8 @@
 body{
 	width:250px;
 	height:180px;
-	margin:0 auto;
+	margin:150px auto;
 	border:1px solid red;
-	margin-top:150px;
 }
 h1{
 	text-align:center;
