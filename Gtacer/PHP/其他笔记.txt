@@ -1,4 +1,4 @@
-使用global访问全局变量
+【使用global访问全局变量】
 <?php
 $x=5;
 $y=10;
@@ -12,14 +12,14 @@ echo $y; // 输出 15
 
 
 
-使用static声明静态变量
+【使用static声明静态变量】
 <?php
 	static $x=0;
 ?>
 
 
 
-类型运算符(instanceof用于确定一个PHP变量是否属于一类class的实例)
+【类型运算符】(instanceof用于确定一个PHP变量是否属于一类class的实例)
 代码案例：
 class dog｛｝
 class cat｛｝
@@ -32,21 +32,21 @@ if($cat1 instanceof cat){
 
 
 
-使用define定义常量
+【使用define定义常量】
 define("PI",3.14);
 
-使用const定义常量
+【使用const定义常量】
 const PI=3.14;
 
 
-使用unset($var)删除一个变量
+【使用unset($var)删除一个变量】
 $a=12;
 unset($a);
 echo $a;	//无法输出
 
 
 
-给某些参数赋默认值
+【给某些参数赋默认值】
 function abc($c,$a=2){
 	$res=$a+$b;
 	return $res;
@@ -57,22 +57,33 @@ echo abcc($e,90);	//为第二个形参传值时，会覆盖掉为其设置的默认值
 
 
 
-引入需要的php文件
+【引入需要的php文件】
 require 'test.php';	//引入后才可以使用该PHP页面定义的函数；
 require_once 'test.php';	//通常使用此函数,会先判断是否在之前包含过一次test.php文件
 include 'test.php';	//与require作用相同，但是在出错时会继续执行下面的语句，而require出错时会终止程序执行
 
 
 
-对浮点数进行四舍五入
+【对浮点数进行四舍五入】
 echo round(1.355846,2);		//打印结果为1.36
 
 
 
-如何关闭notice级别的提示
+【如何关闭notice级别的提示】
 1，在php.ini文件中改动erroe_reporting
 	改为：
 	error_reporting = E_A & ~ E_NOTICE
 
-2.在你想禁止notice错误提示的页面中加入下面代码：
+2，在你想禁止notice错误提示的页面中加入下面代码：
 erroe_reporting(E_ALL^E_NOTICE);
+
+3，$a=@$b	//如果$b出现了一个不致命的错误，那么将不会提示
+
+
+【拆分数组】
+$arr1=explode(" ",$arr);     //以双引号内的字符为界限拆分数组，将新的值赋给逗号后的数组
+
+
+
+【保留提交的表单内容】
+<input type="text" name="xxx" value="<?php echo $abc; ?>"/>	//<>
