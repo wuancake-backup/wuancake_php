@@ -1,5 +1,5 @@
 <?php
-header('Content-Type:text/plain;charset=utf-8');
+header('Content-Type:text/plain;charset=utf-8');    //plain控制网页以纯文本的格式显示，html控制网页以html的方式显示
 echo "中文".PHP_EOL;
 ?>
 Content-Type：用于定义用户的浏览器或相关设备如何显示将要加载的数据，或者如何处理将要加载的数据
