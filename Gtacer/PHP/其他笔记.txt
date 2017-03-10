@@ -1,7 +1,8 @@
 【使用global访问全局变量】
 <?php
-$x=5;
-$y=10;
+global $x;
+global $y;
+$x=5;$y=10;
 function myTest() {		//函数名不区分大小写
   global $x,$y;
   $y=$x+$y;
