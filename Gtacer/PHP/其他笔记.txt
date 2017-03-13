@@ -88,3 +88,7 @@ $arr1=explode(" ",$arr);     //ÒÔË«ÒýºÅÄÚµÄ×Ö·ûÎª½çÏÞ²ð·ÖÊý×é£¬½«ÐÂµÄÖµ¸³¸ø¶ººÅº
 
 ¡¾±£ÁôÌá½»µÄ±íµ¥ÄÚÈÝ¡¿
 <input type="text" name="xxx" value="<?php echo $abc; ?>"/>	//<>
+
+
+¡¾Ìø×ªµ½Ä³Ò³Ãæ¡¿
+header("Location:a.php");
