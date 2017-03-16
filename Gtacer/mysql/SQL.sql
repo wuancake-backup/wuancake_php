@@ -44,22 +44,6 @@
 	DROP TABLE table_name1,table_name2,……;	--可以同时删除多张数据表;
 
 
---新增字段：
-	ALTER TABLE table_name add[column]字段名 数据类型 [列属性][位置];	
-									--位置：FIRST：放在第一个字段
-									--	AFTER：AFTER 字段名；	--默认放在最后一个字段之后
-
-
---修改字段：
-	ALTER TABLE table_name MODIFY 字段名 数据类型 [属性][位置];
-
-
---删除字段：
-	ALTER TABLE table_name DROP 字段名;
-
-
---重命名字段：
-	ALTER TABLE 表名 CHANGE 旧字段 新字段名 数据类型[属性][位置];
 
 
 --修改数据表名：
@@ -90,6 +74,24 @@
 
 -- 记录查找：
 	SELECT expr,…… FROM tbl_name;
+
+
+--新增字段：
+	ALTER TABLE table_name add[column]字段名 数据类型 [列属性][位置];	
+									--位置：FIRST：放在第一个字段
+									--	AFTER：AFTER 字段名；	--默认放在最后一个字段之后
+
+
+--修改字段：
+	ALTER TABLE table_name MODIFY 字段名 数据类型 [属性][位置];
+
+
+--重命名字段：
+	ALTER TABLE 表名 CHANGE 旧字段 新字段名 数据类型[属性][位置];
+
+
+--删除字段：
+	ALTER TABLE table_name DROP 字段名;
 
 
 --查看指定字段，指定条件的数据：
