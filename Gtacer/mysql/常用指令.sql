@@ -26,3 +26,20 @@ MySql提示符参数：
 SQL语句必须以分号结尾
 
 
+查看服务器识别哪些字符集：
+	SHOW CHARACTER SET;
+
+查看服务器默认的对外处理的字符集：
+	SHOW VARIABLES LIKE 'CHARACTER_SET%';
+
+改变服务器默认的接受字符集为GBK：
+	SET CHARACTER_SET_CLIENT=GBK;		--当前客户端，当次链接有效
+
+修改服务器给客户端的数据字符集为GBK
+	SET CHARACTER_SET_RESULTS=GBK;		--当前客户端，当次链接有效
+
+快捷设置字符集（修改client,connection,results的字符集）：
+	SET NAMES GBK;
+
+查看数据库所支持的校对集：
+	SHOW COLLATION;
