@@ -7,7 +7,7 @@
     //2，获取数据库
     mysql_select_db("test");    //连接test数据库
     //3，设置操作编码
-	mysql_query(set names utf-8);		//保证php按utf8码操作
+	mysql_query("set names utf-8");		//保证php按utf8码操作
     //4，发送指令sql
     $sql="select * from user1";             //发送一条MySQL的语句
     $res=mysql_query($sql,$conn);           //取出一个结果集（一张表）
