@@ -1,0 +1,101 @@
+【视图】
+	
+	*创建视图
+	创建一个blog.php文件，放到application/views/目录下
+
+
+	*加载视图
+	使用下面的方法来加载指定的视图：
+	$this->load->view('name');	//name参数为你的视图文件名，文件的扩展名.php可以省略，除非你使用了其他的扩展名
+
+
+	*加载多个视图
+	CodeIgniter可以智能的处理在控制器中多次调用 $this->lode->view() 方法，如果出现了多次调用，视图会被合并到一起。
+	即你可以分别编辑一个页头视图、菜单试图、内容视图以及一个页脚视图。
+	public function index(){
+		$data['page_title']='Your title';
+		$this->load->view('header');
+		$this->load->view('menu');
+		$this->load->view('content',$data);	//动态添加数据
+		$this->load->view('footer');
+		$this->load->view('footer');
+	}
+
+
+	*在子目录中储存视图
+	$this->load->view('test/file_name');
+
+
+	*向视图添加动态数据
+	通过视图加载方法的第二个参数可以从控制器中动态的向视图传入数据，这个参数可以是一个数组或者一个对象。
+	数组：
+		$data = array(
+				    'title' => 'My Title',
+				    'heading' => 'My Heading',
+				    'message' => 'My Message'
+				);
+				$this->load->view('blogview', $data);
+	对象：
+		$data = new Someclass();
+		$this->load->view('blogview', $data);
+	//当你使用对象时，对象中的变量会转换为数组元素。
+	
+	具体使用：
+			控制器：
+				<?php
+				class Blog extends CI_Controller {
+
+				    public function index()
+				    {
+					$data['title'] = "My Real Title";
+					$data['heading'] = "My Real Heading";
+
+					$this->load->view('blogview', $data);
+				    }
+				}
+
+
+			视图：
+				<html>
+				<head>
+				    <title><?php echo $title;?></title>
+				</head>
+				<body>
+				    <h1><?php echo $heading;?></h1>
+				</body>
+				</html>
+
+
+	*使用循环
+	控制器：
+		<?php
+		class Blog extends CI_Controller {
+
+		    public function index()
+		    {
+			$data['todo_list'] = array('Clean House', 'Call Mom', 'Run Errands');
+
+			$data['title'] = "My Real Title";
+			$data['heading'] = "My Real Heading";
+
+			$this->load->view('blogview', $data);
+		    }
+		}
+
+	视图文件：
+		<html>
+		<head>
+		    <title><?php echo $title;?></title>
+		</head>
+		<body>
+		    <h1><?php echo $heading;?></h1>
+		    <h3>My Todo List</h3>
+		    <ul>
+		    <?php foreach ($todo_list as $item):?>
+
+			<li><?php echo $item;?></li>
+
+		    <?php endforeach;?>
+		    </ul>
+		</body>
+		</html>

@@ -1,0 +1,58 @@
+【模型】
+	模型是专门用来和数据库打交道的PHP类。
+
+
+	*剖析模型
+	模型类位于application/models/目录下，并且可以创建子目录
+	模型类的基本原型如下：
+		class Model_name extends CI_Model{
+			public function __construct(){
+				parent::__construct();
+				//code
+			}
+		}
+
+	//Model_name 是类的名字，类名的第一个字母 必须 大写，其余部分小写。确保你的类 继承 CI_Model 基类。
+	文件名和类名应该一致:
+		Model_name.php
+
+
+	*加载模型
+		$this->load->model('model_name');
+	加载子目录下的模型：
+		$this->load->model('blog/queries');
+	
+	加载之后，就可以通过一个和你的类同名的对象访问模型中的方法。
+	$this->load->model('model_name');
+	$this->model_name->method();
+
+	将模型对象赋值给一个不同名字的对象：
+	$this->load->model('model_name', 'foobar');
+	$this->foobar->method();
+
+	
+	*模型的自动加载
+	开 application/config/autoload.php 文件，并将该模型添加到 autoload 数组中，该模型就会在系统初始化时自动加载。
+	
+
+	*连接数据库
+	当模型加载之后，它并不会自动去连接你的数据库！
+	
+	可以在控制器或模型中使用 标准的数据库方法 连接数据库。
+
+	可以设置第三个参数为 TRUE 让模型在加载时自动连接数据库，会使用你的数据库配置文件中的配置:
+	$this->load->model('model_name', '', TRUE);
+
+	可以通过第三个参数传一个数据库连接配置:
+	$config['hostname'] = 'localhost';
+	$config['username'] = 'myusername';
+	$config['password'] = 'mypassword';
+	$config['database'] = 'mydatabase';
+	$config['dbdriver'] = 'mysqli';
+	$config['dbprefix'] = '';
+	$config['pconnect'] = FALSE;
+	$config['db_debug'] = TRUE;
+
+	$this->load->model('model_name', '', $config);
+
+
