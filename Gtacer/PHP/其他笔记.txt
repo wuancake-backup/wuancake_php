@@ -93,3 +93,9 @@ $arr1=explode(" ",$arr);     //ÒÔË«ÒıºÅÄÚµÄ×Ö·ûÎª½çÏŞ²ğ·ÖÊı×é£¬½«ĞÂµÄÖµ¸³¸ø¶ººÅº
 ¡¾Ìø×ªµ½Ä³Ò³Ãæ¡¿
 header("Location:a.php");
 header("Refresh:3;url=http://......");ÈıÃëºóÌø×ªµ½Ä³Ò³Ãæ
+
+
+¡¾¶ÁĞ´ÎÄ¼ş¡¿
+$text=fopen('test.txt','a');
+fread($text,filesize("test.txt"));
+fwrite($text,'hello world/r/n');
