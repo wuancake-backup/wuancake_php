@@ -1,0 +1,117 @@
+JSON语法：
+{
+	"brand":"crocs",
+	"color":"pink",
+	"size":9,
+	"joy's animal":"cat"		//应避免使用
+}
+
+JSON的媒体类型：application/json
+
+JSON中的数据类型包括：
+	·对象
+	·字符串
+	·数字
+	·布尔值
+	·null
+	·数组
+
+
+嵌套对象：
+{
+	"person":{
+		"name":"a",
+		"head":{
+			"hair":"red",
+			"something":"aaa"
+		}
+	}
+}
+
+
+
+转义
+{
+	"prom":"say\"hello\""
+}
+	需要转义的字符：
+	\/：正斜线	\\/
+	\b：退格符号	\\b
+	\f：换页符	\\f
+	\t：制表符	\\t
+	\n：换行符	\\n
+	\r：回车符	\\r
+	\u：后面跟十六进制字符	\\u
+
+
+
+布尔值：
+{
+	"a":ture,
+	"b":false	//仅能用小写的ture和false表示布尔值
+}
+
+
+null类型：
+{
+	"a":null	//表示没有值
+}
+
+
+数组：
+{
+	"eggcarton":["egg1","egg2","egg3",null,"egg4",5,"egg6"]		//数字5合法，但应该尽量避免这样使用
+}
+
+
+对象数组：
+{
+	"test":[
+	{
+		"question":"the sky is blue",
+		"answer:":true
+	},
+	{
+		"question":"the sky is red",
+		"answer:":false
+	}
+	]
+}
+
+
+JSON Schema验证:
+{
+	"$schema":"http://json-schema.org/draft-04/schema#"	//固定格式
+	"title":"cat"		//JSON Schema文件的标题
+	"properties":{		//定义需要包含的属性
+		"name":{
+			"type":"string",
+			"minLength":3;		//长度不少于3个字符
+			"maxLength":20		//长度不多于20个字符
+		},
+		"age":{
+			"type":"number",
+			"description":"your cat's age in years",
+			"minimum":0	//最小值
+		},
+		"declawer":{
+			"type":"boolean"
+		}
+	}
+	"required":[	//必填字段
+		"name",
+		"age",
+		"declawed"
+	]
+}
+//符合上面标准的JSON：
+{
+	"name":"Fluffy",
+	"age":2,
+	"declawed":false
+}
+
+
+
+
+63页
