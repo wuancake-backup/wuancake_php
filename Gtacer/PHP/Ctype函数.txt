@@ -1,0 +1,43 @@
+Ctype函数是PHP内置的字符串体测函数。
+
+ctype_alnum -- Check for alphanumeric character(s)
+检测是否是只包含[A-Za-z0-9]
+
+ctype_alpha -- Check for alphabetic character(s)
+检测是否是只包含[A-Za-z]
+
+
+ctype_cntrl -- Check for control character(s)
+检查是否是只包含类是“\n\r\t”之类的字 符控制字符
+
+
+ctype_digit -- Check for numeric character(s)
+检查时候是只包含数字字符的字符串（0-9）
+
+
+ctype_graph -- Check for any printable character(s) except space
+检查是否是只包含有可以打印出来的字符（除了空格）的字符串
+
+
+ctype_lower -- Check for lowercase character(s)
+检查是否所有的字符都是英文字母，并且都是小写的
+
+
+ctype_print -- Check for printable character(s)
+检查是否是只包含有可以打印出来的字符的字符串
+
+
+ctype_punct-- Check for any printable character which is not whitespace or an alphanumeric character
+检查是否是只包含非数字/字符/空格的可打印出来的字符
+
+
+ctype_space-- Check for whitespace character(s)
+检查是否是只包含类是“ ”之类的字符和空格
+
+
+ctype_upper-- Check for uppercase character(s)
+检查是否所有的字符都是英文字母，并且都是大写的
+
+
+ctype_xdigit -- Check for character(s) representing a hexadecimal digit
+检查是否是16进制的字符串，只能包括 “0123456789abcdef”
