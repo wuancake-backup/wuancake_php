@@ -6,10 +6,8 @@
         }
 
         public function check(){        //查看留言界面
-//            $this->load->view('board/check.php');
             $this->load->model('board_model');
             $result=$this->board_model->checkContents();
-//            echo "<table border=\"1\" >";
             echo "<table border=\"1\" style=\"word-break:break-all; word-wrap:break-all;\">";
             foreach ($result->result() as $row)
             {
