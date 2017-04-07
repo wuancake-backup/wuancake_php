@@ -99,3 +99,6 @@ header("Refresh:3;url=http://......");三秒后跳转到某页面
 $text=fopen('test.txt','a');
 fread($text,filesize("test.txt"));
 fwrite($text,'hello world/r/n');
+
+【换行符】
+echo "hello world".PHP_EOL;
