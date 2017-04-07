@@ -15,12 +15,12 @@
             $this->mysqli->query("SET NAMES utf8");
         }
 
-        public function execute_dql($sql){
+        public function execute_dql($sql){      //操作dql语句
             $res=$this->mysqli->query($sql) or die('操作dql语句失败！'.$this->mysqli->error);
             return $res;
         }
 
-        public function execute_dml($sql){
+        public function execute_dml($sql){      //操作dml语句
             $res=$this->mysqli->query($sql) or die('操作dml语句失败！'.$this->mysqli->error);
             if(!$res)
                 return 0;
@@ -28,5 +28,11 @@
                 return 1;   //操作成功，且有行数受到影响
             else
                 return 2;   //操作成功，但是没有行收到影响
+        }
+
+        public function execute_dmls($sql){
+            $res=$this->mysqli->multi_query($sql) or die('操作失败'.$this->mysqli->error);
+            $res=$this->mysqli->affected_rows;
+            return $res;
         }
     }
