@@ -1,0 +1,11 @@
+【开启缓存】
+	将下面的代码放到任何一个控制器的方法内，就可以开启缓存：
+		$this->output->cache($n);	//$n为缓存的更新时间
+	
+	/*****由于 CodeIgniter 存储缓存的方式，只有通过 view 输出的页面才能缓存******/
+
+
+【删除缓存】
+	$this->output->delete_cache();
+
+	$this->output->delete_cache('/foo/bar');	// Deletes cache for /foo/bar
