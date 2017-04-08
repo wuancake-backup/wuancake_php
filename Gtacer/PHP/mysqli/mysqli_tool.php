@@ -30,9 +30,28 @@
                 return 2;   //操作成功，但是没有行收到影响
         }
 
-        public function execute_dmls($sql){
+        public function execute_dmls($sql){     //操作多条dml语句
             $res=$this->mysqli->multi_query($sql) or die('操作失败'.$this->mysqli->error);
             $res=$this->mysqli->affected_rows;
-            return $res;
+            return $res;        //返回收到影响的行数
+        }
+
+        public function execute_dqls($sql){     //操作多条dql语句
+            $res=$this->mysqli->multi_query($sql) or die ('操作失败'.$this->mysqli->error);
+            do{
+                $results=$this->mysqli->store_result();
+
+                while($row=$results->fetch_row()){
+                    foreach($row as $key=>$rel){
+                        echo "-----$rel<br/>";
+                    }
+                }
+
+                $results->free();
+                if($this->mysqli->more_results())
+                    break;
+                echo "*********************<br/>";
+
+            }while($this->mysqli->next_result());
         }
     }
