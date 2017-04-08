@@ -37,7 +37,7 @@
 	CREATE TABLE[IF NOT EXISTS] table_name(
 		column_name data_type,		--列名称 数据类型
 		……
-	);
+	)ENGINE=MYISAM;		--数据表引擎INNODB引擎支持高级事务处理，而使用全文索引必须使用MYISAM
 
 
 --删除数据表：

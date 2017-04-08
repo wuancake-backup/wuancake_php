@@ -43,3 +43,22 @@ SQL语句必须以分号结尾
 
 查看数据库所支持的校对集：
 	SHOW COLLATION;
+
+改变自动提交：
+set autocommit=0;	--0为关闭，1为开启
+
+开启事务
+	START TRANSACTION;
+设置保存点
+	SAVEPOINT save_name;
+回滚保存点
+	ROLLBACK TO save_name;
+提交事务
+	COMMIT;
+
+
+-- 查看表类型（存储引擎）
+SHOW TABLE STATUS FROM db_name;
+
+-- 修改数据表引擎  
+ALTER TABLE table_name ENGINE=INNODB;		--INNODB引擎支持高级事务处理，而使用全文索引必须使用MYISAM
