@@ -9,11 +9,8 @@
     //操作数据库
     $sql='SELECT * FROM test';
     $res=$mysqli->query($sql);
-    while($row=$res->fetch_row()){
-        foreach($row as $key=>$val){
-            echo $key."--".$val;
-        }
-        echo "<br/>";
+    while($row=$res->fetch_object()){
+        echo $row->name."--".$row->password."<br/>";
     }
     //关闭资源
     $res->free();   //释放内存
