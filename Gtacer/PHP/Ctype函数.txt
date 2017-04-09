@@ -1,43 +1,43 @@
-Ctypeº¯ÊıÊÇPHPÄÚÖÃµÄ×Ö·û´®Ìå²âº¯Êı¡£
+ï»¿Ctypeå‡½æ•°æ˜¯PHPå†…ç½®çš„å­—ç¬¦ä¸²ä½“æµ‹å‡½æ•°ã€‚
 
 ctype_alnum -- Check for alphanumeric character(s)
-¼ì²âÊÇ·ñÊÇÖ»°üº¬[A-Za-z0-9]
+æ£€æµ‹æ˜¯å¦æ˜¯åªåŒ…å«[A-Za-z0-9]
 
 ctype_alpha -- Check for alphabetic character(s)
-¼ì²âÊÇ·ñÊÇÖ»°üº¬[A-Za-z]
+æ£€æµ‹æ˜¯å¦æ˜¯åªåŒ…å«[A-Za-z]
 
 
 ctype_cntrl -- Check for control character(s)
-¼ì²éÊÇ·ñÊÇÖ»°üº¬ÀàÊÇ¡°\n\r\t¡±Ö®ÀàµÄ×Ö ·û¿ØÖÆ×Ö·û
+æ£€æŸ¥æ˜¯å¦æ˜¯åªåŒ…å«ç±»æ˜¯â€œ\n\r\tâ€ä¹‹ç±»çš„å­— ç¬¦æ§åˆ¶å­—ç¬¦
 
 
 ctype_digit -- Check for numeric character(s)
-¼ì²éÊ±ºòÊÇÖ»°üº¬Êı×Ö×Ö·ûµÄ×Ö·û´®£¨0-9£©
+æ£€æŸ¥æ—¶å€™æ˜¯åªåŒ…å«æ•°å­—å­—ç¬¦çš„å­—ç¬¦ä¸²ï¼ˆ0-9ï¼‰
 
 
 ctype_graph -- Check for any printable character(s) except space
-¼ì²éÊÇ·ñÊÇÖ»°üº¬ÓĞ¿ÉÒÔ´òÓ¡³öÀ´µÄ×Ö·û£¨³ıÁË¿Õ¸ñ£©µÄ×Ö·û´®
+æ£€æŸ¥æ˜¯å¦æ˜¯åªåŒ…å«æœ‰å¯ä»¥æ‰“å°å‡ºæ¥çš„å­—ç¬¦ï¼ˆé™¤äº†ç©ºæ ¼ï¼‰çš„å­—ç¬¦ä¸²
 
 
 ctype_lower -- Check for lowercase character(s)
-¼ì²éÊÇ·ñËùÓĞµÄ×Ö·û¶¼ÊÇÓ¢ÎÄ×ÖÄ¸£¬²¢ÇÒ¶¼ÊÇĞ¡Ğ´µÄ
+æ£€æŸ¥æ˜¯å¦æ‰€æœ‰çš„å­—ç¬¦éƒ½æ˜¯è‹±æ–‡å­—æ¯ï¼Œå¹¶ä¸”éƒ½æ˜¯å°å†™çš„
 
 
 ctype_print -- Check for printable character(s)
-¼ì²éÊÇ·ñÊÇÖ»°üº¬ÓĞ¿ÉÒÔ´òÓ¡³öÀ´µÄ×Ö·ûµÄ×Ö·û´®
+æ£€æŸ¥æ˜¯å¦æ˜¯åªåŒ…å«æœ‰å¯ä»¥æ‰“å°å‡ºæ¥çš„å­—ç¬¦çš„å­—ç¬¦ä¸²
 
 
 ctype_punct-- Check for any printable character which is not whitespace or an alphanumeric character
-¼ì²éÊÇ·ñÊÇÖ»°üº¬·ÇÊı×Ö/×Ö·û/¿Õ¸ñµÄ¿É´òÓ¡³öÀ´µÄ×Ö·û
+æ£€æŸ¥æ˜¯å¦æ˜¯åªåŒ…å«éæ•°å­—/å­—ç¬¦/ç©ºæ ¼çš„å¯æ‰“å°å‡ºæ¥çš„å­—ç¬¦
 
 
 ctype_space-- Check for whitespace character(s)
-¼ì²éÊÇ·ñÊÇÖ»°üº¬ÀàÊÇ¡° ¡±Ö®ÀàµÄ×Ö·ûºÍ¿Õ¸ñ
+æ£€æŸ¥æ˜¯å¦æ˜¯åªåŒ…å«ç±»æ˜¯â€œ â€ä¹‹ç±»çš„å­—ç¬¦å’Œç©ºæ ¼
 
 
 ctype_upper-- Check for uppercase character(s)
-¼ì²éÊÇ·ñËùÓĞµÄ×Ö·û¶¼ÊÇÓ¢ÎÄ×ÖÄ¸£¬²¢ÇÒ¶¼ÊÇ´óĞ´µÄ
+æ£€æŸ¥æ˜¯å¦æ‰€æœ‰çš„å­—ç¬¦éƒ½æ˜¯è‹±æ–‡å­—æ¯ï¼Œå¹¶ä¸”éƒ½æ˜¯å¤§å†™çš„
 
 
 ctype_xdigit -- Check for character(s) representing a hexadecimal digit
-¼ì²éÊÇ·ñÊÇ16½øÖÆµÄ×Ö·û´®£¬Ö»ÄÜ°üÀ¨ ¡°0123456789abcdef¡±
+æ£€æŸ¥æ˜¯å¦æ˜¯16è¿›åˆ¶çš„å­—ç¬¦ä¸²ï¼Œåªèƒ½åŒ…æ‹¬ â€œ0123456789abcdefâ€
