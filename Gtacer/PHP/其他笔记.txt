@@ -102,3 +102,8 @@ fwrite($text,'hello world/r/n');
 
 【换行符】
 echo "hello world".PHP_EOL;
+
+【传值】
+a.php中链接传递时："<a href=b.php?a_tmp=".$a.">传递变量a</a>"
+点击转到b.php中时使用$b=$_GET["a_tmp"]；
+如果$a是由form中的元素传递的，那么在b.php中采用$b=$_POST["form元素的name"];
