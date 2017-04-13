@@ -32,7 +32,8 @@
 
         }
 
-        public function login($name,$password){        //验证登录
+        //验证登录
+        public function login($name,$password){
             $true_psw=$this->db->query("SELECT password FROM _administrator WHERE name='$name';");
             $res=$true_psw->row();
             if(isset($res)){
@@ -44,8 +45,11 @@
             }else{
                 return -1;
             }
-//            $row=$true_psw->row();
-//            echo $row->password;
+        }
+
+        //插入新的博客内容
+        public function new_blog($title,$content){
+            return $this->db->query("INSERT INTO _article(title,content) VALUE('$title','$content');");
         }
     }
 

@@ -122,4 +122,18 @@
             }
         }
 
+        //接受传来的文章标题与内容，写入到数据库中
+        public function submit_blog(){
+            $title=$_GET['title'];
+            $content=$_GET['content'];
+            if ($title=='' || $content==''){
+                echo '<script language="javascript">alert("标题或内容不能为空！");history.back();</script>';
+            }else{
+                $res=$this->blog_model->new_blog($title,$content);
+                if($res){
+                    echo '<script language="javascript">alert("发表成功");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
+                }
+            }
+        }
+
     }

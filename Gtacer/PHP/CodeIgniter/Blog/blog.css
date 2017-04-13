@@ -71,7 +71,8 @@ td{
 .left_2{
     margin:30px auto 0 auto;
     width: 67px;
-    border: solid #7b7b87 1px;
+    border: solid #544e8f 1px;
+    background: #55629a;
 }
 
 .all_right{
@@ -213,11 +214,20 @@ td{
 }
 
 .content_4{
-    /*border:solid red 1px;*/
     width:750px;
     margin:0 auto;
     font-family: 微软雅黑;
+    font-size: 20px;
     color: whitesmoke;
+    white-space: normal;
+}
+
+.content_5{
+    white-space: pre-wrap; /*css-3*/
+    white-space: -moz-pre-wrap; /*Mozilla,since1999*/
+    /*white-space: -pre-wrap; !*Opera4-6*!*/
+    white-space: -o-pre-wrap; /*Opera7*/
+    word-wrap: break-word; /*InternetExplorer5.5+*/
 }
 
 .blank{
@@ -230,12 +240,12 @@ td{
 /*留言板样式*/
 .board{
     width: 1000px;
-    margin: 350px auto 0 auto;
+    margin: 360px auto 0 auto;
 }
 
 .board_1{
     width: 1000px;
-    color: #8fa4ff;
+    color: #544e8f;
     margin-top: 20px;
 }
 
@@ -302,7 +312,8 @@ td{
     height:50px;
     font-size:30px;
     text-align: center;
-    background: #bccfff;
+    background: #2b2b2b;
+    color: whitesmoke;
 }
 
 .write_3{
@@ -317,7 +328,8 @@ td{
     font-size: 20px;
     font-family: 微软雅黑;
     resize:none;
-    background: #bccfff;
+    background: #2b2b2b;
+    color: whitesmoke;
 }
 
 .write_5{

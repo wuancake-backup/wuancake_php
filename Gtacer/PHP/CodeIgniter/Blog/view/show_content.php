@@ -6,11 +6,9 @@
     <div class="content_3"><?php echo $date; ?></div>
 
     <div class="content_4">
-        <table style="word-break:break-all;">
-            <tr VALIGN="TOP"><td style="width: 900px;">
-                    <?php echo $content; ?>
-                </td></tr>
-        </table>
+        <pre class="content_5">
+            <?php echo $content; ?>
+        </pre>
     </div>
 
     <div class="blank"> </div>
