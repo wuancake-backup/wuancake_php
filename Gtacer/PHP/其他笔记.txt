@@ -107,3 +107,9 @@ echo "hello world".PHP_EOL;
 a.php中链接传递时："<a href=b.php?a_tmp=".$a.">传递变量a</a>"
 点击转到b.php中时使用$b=$_GET["a_tmp"]；
 如果$a是由form中的元素传递的，那么在b.php中采用$b=$_POST["form元素的name"];
+
+【同时遍历多个数组（下标相同）】
+//            foreach($data['title'] as $key=>$val){
+//                echo $val."<br/>".$data['content'][$key]."<br/>";
+//            }
+//            exit();

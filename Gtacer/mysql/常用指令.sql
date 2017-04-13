@@ -62,3 +62,6 @@ SHOW TABLE STATUS FROM db_name;
 
 -- 修改数据表引擎  
 ALTER TABLE table_name ENGINE=INNODB;		--INNODB引擎支持高级事务处理，而使用全文索引必须使用MYISAM
+
+--设置字段默认值
+MySQL的字段默认值不可以是函数。除 TIMESTAMP字段可以用CURRENT_TIMESTAMP外（默认值为当前时间）。其它都使用常数为默认值。
