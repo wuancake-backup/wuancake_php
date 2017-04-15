@@ -10,6 +10,7 @@
 
         public function index()
         {
+
             //调用数据库函数，获取最新的十五个文章列表，获取文章标题，内容，时间，并传给视图
             $result = $this->blog_model->get_article();       //获取最近的十五个文章列表
             FOR ($i = 0; $i <= 14; $i++) {
@@ -19,6 +20,7 @@
                 $data["title"]["$i"] = "$row->title";
                 $data["content"]["$i"] = "$row->content";
                 $data['date']["$i"] = "$row->date";
+                $data['id']["$i"] = "$row->id";
             }
             $this->load->view('blog/header.php');
             $this->load->view('blog/homepage', $data);

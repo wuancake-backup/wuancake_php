@@ -6,16 +6,16 @@
         }
 
         //从数据库读取文章
-        public function get_article($id=-1){      //从数据库读取文章
-            if($id==-1)
-                return $this->db->query('select * from _article;');
-            else
+        public function get_article($id=-1){
+            if($id==-1)     //如果没有参数到形参，那么返回最新的十五条数据
+                return $this->db->query('select * from _article ORDER BY date DESC LIMIT 15;');
+            else        //如果有传了参数值到形参，那么返回该ID号所在的行
                 return $this->db->query("SELECT * FROM _article WHERE id=$id;");
         }
 
         //从数据库获取标题
         public function get_title(){
-            return $this->db->query('SELECT title,date,id from _article;');
+            return $this->db->query('SELECT title,date,id from _article ORDER BY date DESC;');
         }
 
         //从数据库获取留言
