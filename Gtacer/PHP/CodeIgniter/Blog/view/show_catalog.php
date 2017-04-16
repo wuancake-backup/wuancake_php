@@ -4,6 +4,9 @@
     <div class="catalog">
         <span><a href="http://localhost/codeigniter/index.php/blog/show_content/<?php echo $id[$key] ?>"><?php echo $value; ?></a></span>
         <span class="article_date">(<?php echo $date[$key]; ?>)</span>
+        <?php if(!empty($_SESSION['credentials'])){?>
+            <span style="float: right;font-size: 15px;"><a href="http://localhost/codeigniter/index.php/blog/delete_message/2/<?php echo $id[$key];?>">删除</a></span>
+        <?php }?>
         <hr/>
     </div>
     <?php } ?>

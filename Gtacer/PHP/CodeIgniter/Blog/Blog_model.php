@@ -51,6 +51,16 @@
         public function new_blog($title,$content){
             return $this->db->query("INSERT INTO _article(title,content) VALUE('$title','$content');");
         }
+
+        //接受传来的type值，判断是删除留言还是删除文章。并通过接受id号，删除指定的留言或文章
+        public function delete($type,$id)
+        {
+            if ($type == 1) {                //值为1时，执行删除留言操作
+                return $this->db->query("DELETE FROM _message_board WHERE id='$id';");
+            } else{                         //值为2时，执行删除博文操作
+                return $this->db->query("DELETE FROM _article WHERE id='$id';");
+            }
+        }
     }
 
 

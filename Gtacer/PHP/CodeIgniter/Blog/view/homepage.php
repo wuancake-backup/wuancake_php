@@ -1,5 +1,5 @@
 <!--        网页主内容：左侧，右侧内容栏-->
-<div>
+<div class="hp">
     <div class="all_left">
         <div class="cs2">个人资料</div>
         <div class="left">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         <?php } ?>
-        <div style="height: 150px;width:700px;background: #05121a;float: left"></div>
+        <div style="height: 30px;width:700px;background: #1a1a1a;float: left"></div>
     </div>
 </div>
 

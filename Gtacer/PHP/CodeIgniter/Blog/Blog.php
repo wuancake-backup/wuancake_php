@@ -66,6 +66,7 @@
                 $data['message'][$i] = $row->word;
                 $data['date'][$i] = $row->date;
                 $data['name'][$i] = $row->name;
+                $data['id'][$i]=$row->id;
             }
 
             $this->load->view('blog/header.php');
@@ -135,6 +136,16 @@
                 if($res){
                     echo '<script language="javascript">alert("发表成功");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
                 }
+            }
+        }
+
+        //接受传来的type值，判断是删除留言还是删除文章。并通过接受id号，删除指定的留言或文章
+        public function delete_message($type,$id){
+            $res=$this->blog_model->delete($type,$id);
+            if($res){
+                echo '<script language="javascript">alert("删除成功！");history.back();</script>';
+            }else{
+                echo '<script language="javascript">alert("删除失败！");history.back();</script>';
             }
         }
 

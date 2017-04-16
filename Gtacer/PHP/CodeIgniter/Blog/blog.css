@@ -1,6 +1,8 @@
 body{
-    background: #05121a url("http://localhost/CodeIgniter/picture/background1.jpg" ) repeat-x 0 0;
+    background: #05121a url("http://localhost/CodeIgniter/picture/background1.jpg" )  fixed center center no-repeat;
     /*background-size:auto;*/
+    background-size: cover;
+    width: 100%;
 }
 
 nav{
@@ -24,6 +26,11 @@ hr{
 td{
     letter-spacing: 1px;
     line-height: 28px;
+}
+
+.hp{
+    width: 1000px;
+    margin-top:50px;
 }
 
 .blog_title{
@@ -71,8 +78,11 @@ td{
 .left_2{
     margin:30px auto 0 auto;
     width: 67px;
-    border: solid #544e8f 1px;
-    background: #55629a;
+    border: solid black 1px;
+    background: #4f5356;
+    color: #ecf2ff;
+    font-size:15px;
+    font-family: 微软雅黑;
 }
 
 .all_right{
@@ -80,7 +90,7 @@ td{
     /*border: solid darkmagenta 1px;*/
     float: right;
     background: #1a1a1a;
-    margin-top:61px;
+    /*margin-top:61px;*/
 }
 
 .all_left{
@@ -88,7 +98,7 @@ td{
     /*border: solid darkmagenta 1px;*/
     float: left;
     background: #1a1a1a;
-    margin-top:350px;
+    /*margin-top:350px;*/
 }
 
 .right{
@@ -129,7 +139,7 @@ td{
 
 .statistics{
     float: right;
-    margin-top: 360px;
+    margin-top: 110px;
     font-size:14px;
     color: #959595;
 }
@@ -173,7 +183,7 @@ td{
 
 .catalog_box{
     width: 900px;
-    margin: 300px auto 0 auto;
+    margin: 50px auto 0 auto;
     background: #1a1a1a;
 }
 
@@ -190,7 +200,7 @@ td{
     width: 1000px;
     background: #1a1a1a;
     padding-top:70px;
-    margin-top:360px;
+    margin-top:50px;
 }
 
 .content_1{
@@ -240,12 +250,12 @@ td{
 /*留言板样式*/
 .board{
     width: 1000px;
-    margin: 360px auto 0 auto;
+    margin: 150px auto 0 auto;
 }
 
 .board_1{
     width: 1000px;
-    color: #544e8f;
+    color: #5961d9;
     margin-top: 20px;
 }
 
@@ -294,7 +304,7 @@ td{
 
 /*博客编写界面样式*/
 .write{
-    margin: 360px auto 0 auto;
+    margin: 60px auto 0 auto;
     width: 1000px;
     height: 1150px;
     background: #1a1a1a
