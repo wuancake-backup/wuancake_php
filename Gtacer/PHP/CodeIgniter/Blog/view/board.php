@@ -3,8 +3,8 @@
         <?php foreach ($name as $key=>$value){?>
         <table  border='1' cellspacing="0" cellpadding="20" >
             <tr>
-                <td class="board_2">用户昵称：<br/><?php echo $value; ?><br/>留言时间:<br/><?php echo $date[$key]; ?></td>
-                <td class="board_3"><?php echo $message[$key]; ?></td>
+                <td class="board_2">用户昵称：<br/><?php echo htmlentities($value); ?><br/>留言时间:<br/><?php echo $date[$key]; ?></td>
+                <td class="board_3"><?php echo htmlentities($message[$key]); ?></td>
                 <?php if(!empty($_SESSION['credentials'])){ ?>
                 <td><a href="http://localhost/codeigniter/index.php/blog/delete_message/1/<?php echo $id[$key];?>/">删除</a></td>
                 <?php }?>
