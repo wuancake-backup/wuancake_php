@@ -119,5 +119,9 @@ a.php中链接传递时："<a href=b.php?a_tmp=".$a.">传递变量a</a>"
 
 
 
-【对html元素转义】
-htmlentities($str); 
+【防注入】
+获取到从网页传来的字符串时，要先使用 addslashes()函数进行转义，再将其添加到数据库：
+	$content=addslashes(_GET['content']);
+
+从数据库读取信息到网页时，要使用htmlentities()对输出内容进行转义，再通过echo输出到屏幕
+	echo htmlentities($content);
