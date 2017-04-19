@@ -1,12 +1,12 @@
 <?php   header('content-type:text/html;charset=utf-8');
     class A
     {
-        public function test01($p)
+        public function test01()
         {
             echo "接收一个参数";
         }
 
-        public function test02($p)
+        public function test02()
         {
             echo "接收二个参数";
         }
