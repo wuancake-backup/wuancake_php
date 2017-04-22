@@ -125,3 +125,14 @@ a.php中链接传递时："<a href=b.php?a_tmp=".$a.">传递变量a</a>"
 
 从数据库读取信息到网页时，要使用htmlentities()对输出内容进行转义，再通过echo输出到屏幕
 	echo htmlentities($content);
+
+
+【设置PHP内部字符编码】
+/* 设置内部字符编码为 UTF-8 */
+mb_internal_encoding("UTF-8");
+
+/* 显示当前的内部字符编码*/
+echo mb_internal_encoding();
+
+【设置/获取 HTTP 输出字符编码】
+mb_http_output("UTF-8");
