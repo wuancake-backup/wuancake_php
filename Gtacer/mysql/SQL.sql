@@ -106,21 +106,39 @@
 	DELETE FROM table_name WHERE sex='man';			--删除性别为男的数据
 
 
--- 自动编号（必须与主键组合使用,默认情况下，起始值为1，每次的增量为1）：
+-- 自动增长（必须与主键组合使用,默认情况下，起始值为1，每次的增量为1）：
 	AUTO_INCREMENT;
+		--修改自增长
+		ALTER TABLE table_name AUTO_INCREMENT = 值;
+		--删除自增长
+		ALTER TABLE table_name MODIFY 字段 类型;
 
 
 -- 主键（每一张数据表只能有一个主键）：
-	PRIMARY KEY	-- 创建列表时写在数据类型之后
+	PRIMARY KEY	
+			-- 方案1:创建列表时在字段名后跟PRIMARY KEY关键字
+			-- 方案2:在创建表的时候，在所有的字段之后，使用PRIMARY KEY(主键字段列表)来创建主键
+				 --（如果有多个字段作为主键，可以是复合主键。）
+			-- 方案3:当表已经创建好之后，再次额外追加主键：可以通过修改表字段属性，也可以直接追加
+				--ALTER TABLE 表名 ADD PRIMARY KEY(字段列表);
+	--删除主键
+		ALTER TABLE table_name DROP PRIMARY KEY;
 
 
--- 唯一约束：
-	UNIQUE KEY	-- 创建列表时写在数据类型之后
+-- 唯一约束(唯一键)：
+	UNIQUE KEY	-- 唯一键默认允许字段为空，而且可以多个为空，空字段不参与唯一性比较
+			
+			--方案1：创建列表时写在数据类型之后加UNIQUE关键字
+			--方案2：在创建表的时候，在所有的字段之后，使用UNIQUE KEY(主键字段列表)来创建唯一约束
+				 --（如果有多个字段作为唯一键，可以是复合约束。）
+			--方案3：在创建表之后增加唯一键；
+				--ALTER TABLE 表名 ADD UNIQUE KEY(字段名);
 
 
 -- 默认值：
-	DEFAULT 值	-- 
-
+	DEFAULT 值
+		--在插入数据的时候不给对应的字段赋值，
+		--或者设置为default,就会设置为默认值
 
 -- 禁止为空：
 	NOT NULL	-- 
