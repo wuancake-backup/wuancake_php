@@ -129,3 +129,22 @@
 --排序
 	ORDER BY DESC(升序)/ASC(降序)
 
+
+--枚举类型
+	--创建枚举表
+		CREATE TABLE my_enum(
+		gender enum('男','女','保密')	--定义：enum(可能出现的元素列表)
+		);
+
+	--加入数据	插入的数据必须是规定的类型中的一个(也可以插入数值)
+		INSERT INTO my_enum VALUES('男'),('保密');
+
+
+--集合字符串
+	--定义	set(元素列表)
+	CREATE TABLE my_set(
+	hobby set('篮球','足球','乒乓球','羽毛球','台球','网球')
+	)charset utf8;
+
+	--插入数据  可以使用列表中的元素(多个)，使用,分隔
+	INSERT INTO my_set VALUES('足球,台球,网球');
