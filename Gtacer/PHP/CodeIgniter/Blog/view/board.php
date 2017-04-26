@@ -7,9 +7,8 @@
                     留言时间:<br/><?php echo $date[$key]; ?><br/>
                     用户IP：
                     <?php
-                    $ip=$_SERVER['REMOTE_ADDR'];
-                    $ip=explode(".","$ip");
-                    echo "$ip[0].$ip[1].*.*";
+                    $user_ip=explode(".",$ip[$key]);
+                    echo "$user_ip[0].$user_ip[1].*.*";
                     ?>
                 </td>
 

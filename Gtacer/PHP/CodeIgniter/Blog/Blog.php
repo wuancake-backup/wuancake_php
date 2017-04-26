@@ -66,6 +66,7 @@
                 $data['message'][$i] = $row->word;
                 $data['date'][$i] = $row->date;
                 $data['name'][$i] = $row->name;
+                $data['ip'][$i]=$row->ip;
                 $data['id'][$i]=$row->id;
             }
 
@@ -88,15 +89,16 @@
             $this->load->view('blog/foot.php');
         }
 
-        //接受传来的用户名和留言，添加到数据库中
+        //接受传来的用户名、ip和留言，添加到数据库中
         public function give_message()
         {
             $message = $_POST['message'];
             $name = $_POST['username'];
+            $ip=$_SERVER['REMOTE_ADDR'];    //1
             if ($message == '' || $name == '') {
                 echo '<script language="javascript">alert("输入的用户名或信息不能为空！");history.back();</script>';
             } else {
-                $res = $this->blog_model->give_message($name, $message);
+                $res = $this->blog_model->give_message($name, $message,$ip);
                 if ($res) {
                     echo '<script language="javascript">alert("留言成功");history.back();</script>';
                 } else {

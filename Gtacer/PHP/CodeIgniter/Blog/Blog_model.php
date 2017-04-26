@@ -24,8 +24,8 @@
         }
 
         //插入留言
-        public function give_message($name,$message){
-            return $this->db->query("INSERT INTO _message_board(name,word) VALUE('$name','$message');");
+        public function give_message($name,$message,$ip){
+            return $this->db->query("INSERT INTO _message_board(name,word,ip) VALUE('$name','$message','$ip');");
         }
 
         public function get_content(){  //从数据库获取评论
