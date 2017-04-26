@@ -49,6 +49,8 @@
 
         //插入新的博客内容
         public function new_blog($title,$content){
+            $title=addslashes($title);
+            $content=addslashes($content);
             return $this->db->query("INSERT INTO _article(title,content) VALUE('$title','$content');");
         }
 
@@ -61,6 +63,7 @@
                 return $this->db->query("DELETE FROM _article WHERE id='$id';");
             }
         }
+
     }
 
 
