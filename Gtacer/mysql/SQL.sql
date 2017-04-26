@@ -133,6 +133,8 @@
 				 --（如果有多个字段作为唯一键，可以是复合约束。）
 			--方案3：在创建表之后增加唯一键；
 				--ALTER TABLE 表名 ADD UNIQUE KEY(字段名);
+			--删除唯一键：
+				ALTER TABLE table_name DROP INDEX 字段名;
 
 
 -- 默认值：
