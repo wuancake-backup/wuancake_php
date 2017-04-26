@@ -77,10 +77,10 @@ td{
 
 .left_2{
     margin:30px auto 0 auto;
-    width: 67px;
+    width: 60px;
     border: solid black 1px;
-    background: #4f5356;
-    color: #ecf2ff;
+    background: #151515;
+
     font-size:15px;
     font-family: 微软雅黑;
 }
@@ -255,16 +255,17 @@ td{
 
 .board_1{
     width: 1000px;
-    color: #5961d9;
     margin-top: 20px;
 }
 
 .board_1 tr{
     width:800px;
+    color: white;
 }
 
 .board_2{
     width: 200px;
+    font-size:12px;
 }
 
 .board_3{
@@ -372,6 +373,11 @@ td{
     margin:0 auto;
     padding-top: 180px;
     font-size: 80px;
+}
+
+.commend_1{
+    background: black;
+    color:white;
 }
 /*a:link {*/
 /*text-decoration: none;*/

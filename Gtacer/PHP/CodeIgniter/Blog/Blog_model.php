@@ -63,7 +63,6 @@
                 return $this->db->query("DELETE FROM _article WHERE id='$id';");
             }
         }
-
     }
 
 

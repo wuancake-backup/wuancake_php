@@ -116,8 +116,7 @@
                 $res = $this->blog_model->login($name, $password);
                 if ($res == 1) {    //验证成功
                     session_start();
-                    $a = md5(time());
-                    $_SESSION['credentials'] = $a;
+                    $_SESSION['credentials'] = md5(time());
                     echo '<script language="javascript">alert("登录成功");window.location.href="http://localhost/codeigniter/index.php/blog/";</script>';
                 } else {
                     echo '<script language="javascript">alert("登录失败");history.back();</script>';
