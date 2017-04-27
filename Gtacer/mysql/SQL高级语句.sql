@@ -57,3 +57,47 @@
 		SELECT * FROM test,test2,test3...;	--笛卡尔积（交叉连接）（没卵用，应该尽量避免）
 	子查询
 		SELECT * FROM(SELECT语句)AS 别名;
+	WHERE子句
+		返回结果0或者1，0代表FALSE,1代表TRUE
+		判断条件：
+			比较运算符 >,<,<=,>=,!=,<>,=,like,between and,in/not in
+			逻辑运算符 &&(and)  ||(or)   !(not)
+
+		SELECT * FROM test WHERE id IN(1,2,3)	--找出ID为1，2，3的学生
+
+		SELECT * FROM test WHERE id BETWEEN 1 AND 3;	--找出ID在1-3之间的学生（between是闭区间，且左边的值必须小于右边的值）
+
+
+	GROUP BY(分组)
+		基本语法:GROUP BY 字段名;
+
+		 COUNT():统计分组后的记录数：每一组有多少记录
+		 MAX():统计每组中最大的值
+		 MIN():统计最小值
+		 AVG():统计平均值
+		 SUM():统计和
+
+		SELECT test,COUNT(*),MAX(height),... FROM table_name GROUP BY test;
+
+	多字段分组
+		--先按照班级分组，再按照男女分组
+		SELECT class,sex,COUNT(*) FROM table_name GROUP BY class,sex;
+
+		group_concat(字段名)	--将字段中的数据当作字符串连接起来
+
+		回溯统计:WITH ROLLUP
+
+
+	HAVING 子句	--与WHERE子句一样，进行判断的
+		HAVING 可以使用别名，而 WHERE 不行
+		HAVING 可以对分组内容进行筛选，而 WHERE 不行
+
+	ORDER BY 子句	--排序
+		ORDER BY 字段名 ASC/DESC	升序/降序
+		
+	LIMIT 子句
+		LIMIT子句是一种限制结果的语句
+
+		限制长度（数据量）：LIMIT 数据量;
+
+		限制起始位置，限制数量：LIMIT 起始位置，长度;
