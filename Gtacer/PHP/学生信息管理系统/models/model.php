@@ -6,6 +6,7 @@
             $this->connect=new mysqli('localhost','root','root','student_info');
             if($this->connect->connect_error)
                 die('连接数据库失败'.$this->connect->connect_error);
+            $this->connect->query('SET NAMES UTF8');
         }
 
         public function login($username,$password){
