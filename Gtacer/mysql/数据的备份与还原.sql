@@ -41,10 +41,11 @@ SQL备份		--备份的是SQL语句，系统会对表结构以及数据进行处�
 
 		Mysqldump/mysqldump.exe -hPup 数据库名字[数据表1,数据表2....]>外部文件目录	--建议使用.sql
 
-	SQL 还原数据：
+	SQL 还原数据： 
 
 		使用mysql.exe客户端还原
 			Mysql.exe/mysql -hPup 数据库名字<备份文件目录
+			-- 例：mysqldump.exe -uroot -proot test test > D:/SQL/sql.sql
 
 		使用SQL指令还原SQL备份
 			SOURCE 文件目录
