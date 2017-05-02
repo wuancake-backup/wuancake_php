@@ -1,67 +1,67 @@
-��¼mysql��
+登录mysql：
 	   mysql.exe -hlocalhost -P3306 -uroot -p --prompt
-	             ����������  �˿ں� �û��� ���� ��ʾ��
+	             服务器名称  端口号 用户名 密码 提示符
 
 
-MySql��ʾ��������
-		\p	����������
-		\d	��ǰ���ݿ�
-		\h	����������
-		\u	��ǰ�û�
+MySql提示符参数：
+		\p	完整的日期
+		\d	当前数据库
+		\h	服务器名称
+		\u	当前用户
 
 
-�Ͽ����ӣ��˳�mysql��:
+断开链接（退出mysql）:
 			exit
 			quit
 			\q
 
 
-��ʾ��ǰ�������汾��	SELECT VERSION();
-��ʾ��ǰ����ʱ�䣺	SELECT NOW();
-��ʾ��ǰ�û���		SELECT USER();
+显示当前服务器版本：	SELECT VERSION();
+显示当前日期时间：	SELECT NOW();
+显示当前用户：		SELECT USER();
 
 
-�ؼ����뺯������ȫ����д
-���ݿ����ơ������ơ��ֶ�����ȫ��Сд
-SQL�������ԷֺŽ�β
+关键字与函数名称全部大写
+数据库名称、表名称、字段名称全部小写
+SQL语句必须以分号结尾
 
 
-�鿴������ʶ����Щ�ַ�����
+查看服务器识别哪些字符集：
 	SHOW CHARACTER SET;
 
-�鿴������Ĭ�ϵĶ��⴦�����ַ�����
+查看服务器默认的对外处理的字符集：
 	SHOW VARIABLES LIKE 'CHARACTER_SET%';
 
-�ı������Ĭ�ϵĽ����ַ���ΪGBK��
-	SET CHARACTER_SET_CLIENT=GBK;		--��ǰ�ͻ��ˣ�����������Ч
+改变服务器默认的接受字符集为GBK：
+	SET CHARACTER_SET_CLIENT=GBK;		--当前客户端，当次链接有效
 
-�޸ķ��������ͻ��˵������ַ���ΪGBK
-	SET CHARACTER_SET_RESULTS=GBK;		--��ǰ�ͻ��ˣ�����������Ч
+修改服务器给客户端的数据字符集为GBK
+	SET CHARACTER_SET_RESULTS=GBK;		--当前客户端，当次链接有效
 
-��������ַ������޸�client,connection,results���ַ�������
+快捷设置字符集（修改client,connection,results的字符集）：
 	SET NAMES GBK;
 
-�鿴���ݿ���֧�ֵ�У�Լ���
+查看数据库所支持的校对集：
 	SHOW COLLATION;
 
-�ı��Զ��ύ��
-set autocommit=0;	--0Ϊ�رգ�1Ϊ����
+改变自动提交：
+set autocommit=0;	--0为关闭，1为开启
 
-��������
+开启事务
 	START TRANSACTION;
-���ñ����
+设置保存点
 	SAVEPOINT save_name;
-�ع������
+回滚保存点
 	ROLLBACK TO save_name;
-�ύ����
+提交事务
 	COMMIT;
 
 
--- �鿴�����ͣ��洢���棩
+-- 查看表类型（存储引擎）
 SHOW TABLE STATUS FROM db_name;
 
--- �޸����ݱ�����  
-ALTER TABLE table_name ENGINE=INNODB;		--INNODB����֧�ָ߼�����������ʹ��ȫ����������ʹ��MYISAM
+-- 修改数据表引擎  
+ALTER TABLE table_name ENGINE=INNODB;		--INNODB引擎支持高级事务处理，而使用全文索引必须使用MYISAM
 
---�����ֶ�Ĭ��ֵ
-MySQL���ֶ�Ĭ��ֵ�������Ǻ������� TIMESTAMP�ֶο�����CURRENT_TIMESTAMP�⣨Ĭ��ֵΪ��ǰʱ�䣩��������ʹ�ó���ΪĬ��ֵ��
+--设置字段默认值
+MySQL的字段默认值不可以是函数。除 TIMESTAMP字段可以用CURRENT_TIMESTAMP外（默认值为当前时间）。其它都使用常数为默认值。

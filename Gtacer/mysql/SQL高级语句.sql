@@ -1,103 +1,103 @@
-Êý¾ÝÐÂÔö
-	»ù±¾Óï·¨£º
-		INSERT INTO ±íÃû[(×Ö¶ÎÁÐ±í)] VALUES(ÖµÁÐ±í)
+æ•°æ®æ–°å¢ž
+	åŸºæœ¬è¯­æ³•ï¼š
+		INSERT INTO è¡¨å[(å­—æ®µåˆ—è¡¨)] VALUES(å€¼åˆ—è¡¨)
 		
-	Ö÷¼ü³åÍ»£º¸üÐÂ²Ù×÷
-		INSERT INTO ±íÃû[(×Ö¶ÎÃû)] VALUES(ÖµÁÐ±í) ON DUPLICATE KEY UPDATE ×Ö¶Î = ÐÂÖµ;
+	ä¸»é”®å†²çªï¼šæ›´æ–°æ“ä½œ
+		INSERT INTO è¡¨å[(å­—æ®µå)] VALUES(å€¼åˆ—è¡¨) ON DUPLICATE KEY UPDATE å­—æ®µ = æ–°å€¼;
 
-	Ö÷¼ü³åÍ»£ºÌæ»»
-		REPLACE INSERT INTO ±íÃû[(×Ö¶ÎÃû:°üº¬Ö÷¼ü)] VALUES(ÖµÁÐ±í);
+	ä¸»é”®å†²çªï¼šæ›¿æ¢
+		REPLACE INSERT INTO è¡¨å[(å­—æ®µå:åŒ…å«ä¸»é”®)] VALUES(å€¼åˆ—è¡¨);
 
 
 
-Èä³æ¸´ÖÆ      --´ÓÒÑÓÐµÄÊý¾ÝÖÐÈ¥»ñÈ¡Êý¾Ý£¬È»ºó½«Êý¾ÝÓÖ½øÐÐÐÂÔö²Ù×÷£ºÊý¾Ý³É±¶µÄÔö¼Ó.
+è •è™«å¤åˆ¶      --ä»Žå·²æœ‰çš„æ•°æ®ä¸­åŽ»èŽ·å–æ•°æ®ï¼Œç„¶åŽå°†æ•°æ®åˆè¿›è¡Œæ–°å¢žæ“ä½œï¼šæ•°æ®æˆå€çš„å¢žåŠ .
 	
-	±í´´½¨¸ß¼¶²Ù×÷£º´ÓÒÑÓÐ±í´´½¨ÐÂ±í(¸´ÖÆ±í½á¹¹)
-	CREATE TABLE ±íÃû LIKE Êý¾Ý¿â.±íÃû;	
+	è¡¨åˆ›å»ºé«˜çº§æ“ä½œï¼šä»Žå·²æœ‰è¡¨åˆ›å»ºæ–°è¡¨(å¤åˆ¶è¡¨ç»“æž„)
+	CREATE TABLE è¡¨å LIKE æ•°æ®åº“.è¡¨å;	
 
-	Èä³æ¸´ÖÆ£ºÏÖ²é³öÊý¾Ý£¬È»ºó½«²é³öµÄÊý¾ÝÐÂÔöÒ»±é
-	INSERT INTO ±íÃû[(×Ö¶ÎÁÐ±í)] SELECT ×Ö¶ÎÁÐ±í/£¨*£© FROM Êý¾Ý±íÃû;
-
-
-¸üÐÂÊý¾Ý
-	»ù±¾Óï·¨£º
-		UPDATE ±íÃû SET ×Ö¶Î = Öµ[WHEREÌõ¼þ];
-
-	¸ß¼¶ÐÂÔöÓï·¨
-		UPDATE ±íÃû SET ×Ö¶Î = Öµ[WHEREÌõ¼þ][LIMT¸üÐÂÊýÁ¿];
+	è •è™«å¤åˆ¶ï¼šçŽ°æŸ¥å‡ºæ•°æ®ï¼Œç„¶åŽå°†æŸ¥å‡ºçš„æ•°æ®æ–°å¢žä¸€é
+	INSERT INTO è¡¨å[(å­—æ®µåˆ—è¡¨)] SELECT å­—æ®µåˆ—è¡¨/ï¼ˆ*ï¼‰ FROM æ•°æ®è¡¨å;
 
 
-É¾³ýÊý¾Ý
-	DELETE FROM ±íÃû[WHERE][LIMITÊýÁ¿];
+æ›´æ–°æ•°æ®
+	åŸºæœ¬è¯­æ³•ï¼š
+		UPDATE è¡¨å SET å­—æ®µ = å€¼[WHEREæ¡ä»¶];
+
+	é«˜çº§æ–°å¢žè¯­æ³•
+		UPDATE è¡¨å SET å­—æ®µ = å€¼[WHEREæ¡ä»¶][LIMTæ›´æ–°æ•°é‡];
 
 
-	Çå¿Õ±í£¨ÖØÖÃ×ÔÔö³¤£©£º
-	TRUNCATE ±íÃû;	--ÏÈÉ¾³ý¸Ã±í£¬ºóÐÂÔö¸Ã±í
+åˆ é™¤æ•°æ®
+	DELETE FROM è¡¨å[WHERE][LIMITæ•°é‡];
 
 
-²éÑ¯Êý¾Ý
-	»ù±¾Óï·¨£º
-		SELECT ×Ö¶ÎÁÐ±í/£¨*£© FROM ±íÃû[WHERE Ìõ¼þ];
+	æ¸…ç©ºè¡¨ï¼ˆé‡ç½®è‡ªå¢žé•¿ï¼‰ï¼š
+	TRUNCATE è¡¨å;	--å…ˆåˆ é™¤è¯¥è¡¨ï¼ŒåŽæ–°å¢žè¯¥è¡¨
 
-	ÍêÕûÓï·¨£º
-		SELECT[SELECTÑ¡Ïî]×Ö¶ÎÁÐ±í[×Ö¶Î±ðÃû]/£¨*£© FROM Êý¾ÝÔ´ [WHEREÌõ¼þ×Ó¾ä][GROUP BY ×Ö¾ä]
-		[HAVING×Ó¾ä][ORDER BY×Ó¾ä][LIMIT ×Ó¾ä];
 
-			SELECTÑ¡Ïî£º¶Ô²é³öÀ´µÄ½á¹ûµÄ´¦Àí·½Ê½
-				ALL£ºÄ¬ÈÏµÄ£¬±£ÁôËùÓÐµÄ½á¹û
-				DISTINCT£ºÈ¥ÖØ£¬²é³öÀ´µÄ½á¹û£¬½«ÖØ¸´µÄÈ¥³ý£¨ËùÓÐ×Ö¶Î¶¼ÏàÍ¬£©
+æŸ¥è¯¢æ•°æ®
+	åŸºæœ¬è¯­æ³•ï¼š
+		SELECT å­—æ®µåˆ—è¡¨/ï¼ˆ*ï¼‰ FROM è¡¨å[WHERE æ¡ä»¶];
+
+	å®Œæ•´è¯­æ³•ï¼š
+		SELECT[SELECTé€‰é¡¹]å­—æ®µåˆ—è¡¨[å­—æ®µåˆ«å]/ï¼ˆ*ï¼‰ FROM æ•°æ®æº [WHEREæ¡ä»¶å­å¥][GROUP BY å­—å¥]
+		[HAVINGå­å¥][ORDER BYå­å¥][LIMIT å­å¥];
+
+			SELECTé€‰é¡¹ï¼šå¯¹æŸ¥å‡ºæ¥çš„ç»“æžœçš„å¤„ç†æ–¹å¼
+				ALLï¼šé»˜è®¤çš„ï¼Œä¿ç•™æ‰€æœ‰çš„ç»“æžœ
+				DISTINCTï¼šåŽ»é‡ï¼ŒæŸ¥å‡ºæ¥çš„ç»“æžœï¼Œå°†é‡å¤çš„åŽ»é™¤ï¼ˆæ‰€æœ‰å­—æ®µéƒ½ç›¸åŒï¼‰
 			
-			×Ö¶Î±ðÃû£º×Ö¶ÎÃû [AS] ±ðÃû
-				Àý£ºSELECT name as Ãû×Ö FROM test;
+			å­—æ®µåˆ«åï¼šå­—æ®µå [AS] åˆ«å
+				ä¾‹ï¼šSELECT name as åå­— FROM test;
 	
-Êý¾ÝÔ´
-	µ¥±íÊý¾ÝÔ´
+æ•°æ®æº
+	å•è¡¨æ•°æ®æº
 		SELECT * FROM test;
-	¶à±íÊý¾ÝÔ´
-		SELECT * FROM test,test2,test3...;	--µÑ¿¨¶û»ý£¨½»²æÁ¬½Ó£©£¨Ã»ÂÑÓÃ£¬Ó¦¸Ã¾¡Á¿±ÜÃâ£©
-	×Ó²éÑ¯
-		SELECT * FROM(SELECTÓï¾ä)AS ±ðÃû;
-	WHERE×Ó¾ä
-		·µ»Ø½á¹û0»òÕß1£¬0´ú±íFALSE,1´ú±íTRUE
-		ÅÐ¶ÏÌõ¼þ£º
-			±È½ÏÔËËã·û >,<,<=,>=,!=,<>,=,like,between and,in/not in
-			Âß¼­ÔËËã·û &&(and)  ||(or)   !(not)
+	å¤šè¡¨æ•°æ®æº
+		SELECT * FROM test,test2,test3...;	--ç¬›å¡å°”ç§¯ï¼ˆäº¤å‰è¿žæŽ¥ï¼‰ï¼ˆæ²¡åµç”¨ï¼Œåº”è¯¥å°½é‡é¿å…ï¼‰
+	å­æŸ¥è¯¢
+		SELECT * FROM(SELECTè¯­å¥)AS åˆ«å;
+	WHEREå­å¥
+		è¿”å›žç»“æžœ0æˆ–è€…1ï¼Œ0ä»£è¡¨FALSE,1ä»£è¡¨TRUE
+		åˆ¤æ–­æ¡ä»¶ï¼š
+			æ¯”è¾ƒè¿ç®—ç¬¦ >,<,<=,>=,!=,<>,=,like,between and,in/not in
+			é€»è¾‘è¿ç®—ç¬¦ &&(and)  ||(or)   !(not)
 
-		SELECT * FROM test WHERE id IN(1,2,3)	--ÕÒ³öIDÎª1£¬2£¬3µÄÑ§Éú
+		SELECT * FROM test WHERE id IN(1,2,3)	--æ‰¾å‡ºIDä¸º1ï¼Œ2ï¼Œ3çš„å­¦ç”Ÿ
 
-		SELECT * FROM test WHERE id BETWEEN 1 AND 3;	--ÕÒ³öIDÔÚ1-3Ö®¼äµÄÑ§Éú£¨betweenÊÇ±ÕÇø¼ä£¬ÇÒ×ó±ßµÄÖµ±ØÐëÐ¡ÓÚÓÒ±ßµÄÖµ£©
+		SELECT * FROM test WHERE id BETWEEN 1 AND 3;	--æ‰¾å‡ºIDåœ¨1-3ä¹‹é—´çš„å­¦ç”Ÿï¼ˆbetweenæ˜¯é—­åŒºé—´ï¼Œä¸”å·¦è¾¹çš„å€¼å¿…é¡»å°äºŽå³è¾¹çš„å€¼ï¼‰
 
 
-	GROUP BY(·Ö×é)
-		»ù±¾Óï·¨:GROUP BY ×Ö¶ÎÃû;
+	GROUP BY(åˆ†ç»„)
+		åŸºæœ¬è¯­æ³•:GROUP BY å­—æ®µå;
 
-		 COUNT():Í³¼Æ·Ö×éºóµÄ¼ÇÂ¼Êý£ºÃ¿Ò»×éÓÐ¶àÉÙ¼ÇÂ¼
-		 MAX():Í³¼ÆÃ¿×éÖÐ×î´óµÄÖµ
-		 MIN():Í³¼Æ×îÐ¡Öµ
-		 AVG():Í³¼ÆÆ½¾ùÖµ
-		 SUM():Í³¼ÆºÍ
+		 COUNT():ç»Ÿè®¡åˆ†ç»„åŽçš„è®°å½•æ•°ï¼šæ¯ä¸€ç»„æœ‰å¤šå°‘è®°å½•
+		 MAX():ç»Ÿè®¡æ¯ç»„ä¸­æœ€å¤§çš„å€¼
+		 MIN():ç»Ÿè®¡æœ€å°å€¼
+		 AVG():ç»Ÿè®¡å¹³å‡å€¼
+		 SUM():ç»Ÿè®¡å’Œ
 
 		SELECT test,COUNT(*),MAX(height),... FROM table_name GROUP BY test;
 
-	¶à×Ö¶Î·Ö×é
-		--ÏÈ°´ÕÕ°à¼¶·Ö×é£¬ÔÙ°´ÕÕÄÐÅ®·Ö×é
+	å¤šå­—æ®µåˆ†ç»„
+		--å…ˆæŒ‰ç…§ç­çº§åˆ†ç»„ï¼Œå†æŒ‰ç…§ç”·å¥³åˆ†ç»„
 		SELECT class,sex,COUNT(*) FROM table_name GROUP BY class,sex;
 
-		group_concat(×Ö¶ÎÃû)	--½«×Ö¶ÎÖÐµÄÊý¾Ýµ±×÷×Ö·û´®Á¬½ÓÆðÀ´
+		group_concat(å­—æ®µå)	--å°†å­—æ®µä¸­çš„æ•°æ®å½“ä½œå­—ç¬¦ä¸²è¿žæŽ¥èµ·æ¥
 
-		»ØËÝÍ³¼Æ:WITH ROLLUP
+		å›žæº¯ç»Ÿè®¡:WITH ROLLUP
 
 
-	HAVING ×Ó¾ä	--ÓëWHERE×Ó¾äÒ»Ñù£¬½øÐÐÅÐ¶ÏµÄ
-		HAVING ¿ÉÒÔÊ¹ÓÃ±ðÃû£¬¶ø WHERE ²»ÐÐ
-		HAVING ¿ÉÒÔ¶Ô·Ö×éÄÚÈÝ½øÐÐÉ¸Ñ¡£¬¶ø WHERE ²»ÐÐ
+	HAVING å­å¥	--ä¸ŽWHEREå­å¥ä¸€æ ·ï¼Œè¿›è¡Œåˆ¤æ–­çš„
+		HAVING å¯ä»¥ä½¿ç”¨åˆ«åï¼Œè€Œ WHERE ä¸è¡Œ
+		HAVING å¯ä»¥å¯¹åˆ†ç»„å†…å®¹è¿›è¡Œç­›é€‰ï¼Œè€Œ WHERE ä¸è¡Œ
 
-	ORDER BY ×Ó¾ä	--ÅÅÐò
-		ORDER BY ×Ö¶ÎÃû ASC/DESC	ÉýÐò/½µÐò
+	ORDER BY å­å¥	--æŽ’åº
+		ORDER BY å­—æ®µå ASC/DESC	å‡åº/é™åº
 		
-	LIMIT ×Ó¾ä
-		LIMIT×Ó¾äÊÇÒ»ÖÖÏÞÖÆ½á¹ûµÄÓï¾ä
+	LIMIT å­å¥
+		LIMITå­å¥æ˜¯ä¸€ç§é™åˆ¶ç»“æžœçš„è¯­å¥
 
-		ÏÞÖÆ³¤¶È£¨Êý¾ÝÁ¿£©£ºLIMIT Êý¾ÝÁ¿;
+		é™åˆ¶é•¿åº¦ï¼ˆæ•°æ®é‡ï¼‰ï¼šLIMIT æ•°æ®é‡;
 
-		ÏÞÖÆÆðÊ¼Î»ÖÃ£¬ÏÞÖÆÊýÁ¿£ºLIMIT ÆðÊ¼Î»ÖÃ£¬³¤¶È;
+		é™åˆ¶èµ·å§‹ä½ç½®ï¼Œé™åˆ¶æ•°é‡ï¼šLIMIT èµ·å§‹ä½ç½®ï¼Œé•¿åº¦;

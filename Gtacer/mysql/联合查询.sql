@@ -1,19 +1,19 @@
-���ϲ�ѯ	--����β�ѯ(����SELECT���),�ڼ�¼�Ͻ���ƴ��(�ֶβ�������)
+联合查询	--将多次查询(多条SELECT语句),在记录上进行拼接(字段不会增加)
 
-	�����﷨	--����SELETCT��乹�ɣ�ÿһ��SELECT����ȡ���ֶ��������ϸ�һ��(�������ֶ������޹�)
-		SELECT ���1 UNION[UNIONѡ��] SELECT ���2 ...
+	基本语法	--多条SELETCT语句构成：每一条SELECT语句获取的字段数必须严格一致(但是与字段类型无关)
+		SELECT 语句1 UNION[UNION选项] SELECT 语句2 ...
 
-			UNIONѡ�
-				ALL:��������(��������)
-				DISTINCT:ȥ��(�����ظ�)(Ĭ��)
+			UNION选项：
+				ALL:保留所有(保留所有)
+				DISTINCT:去重(整个重复)(默认)
 
 	ORDER BY
-		�����ϲ�ѯ��,ORDER BY ����ֱ��ʹ�ã���Ҫ�Բ�ѯ���ʹ�����Ų���
-		����Ҫ ORDER BY ��Ч��������� LIMIT �ؼ���;
+		在联合查询中,ORDER BY 不能直接使用，需要对查询语句使用括号才行
+		且若要 ORDER BY 生效，必须搭配 LIMIT 关键字;
 
-		(SELECT * FROM test WHERE sex = '��' ORDER BY age ASC LIMIT 9999999)
+		(SELECT * FROM test WHERE sex = '男' ORDER BY age ASC LIMIT 9999999)
 		UNION
-		(SELECT * FROM test WHERE sex = 'Ů' ORDER BY age DESC LIMIT 9999999);
+		(SELECT * FROM test WHERE sex = '女' ORDER BY age DESC LIMIT 9999999);
 
 
 

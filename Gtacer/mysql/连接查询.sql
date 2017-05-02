@@ -1,58 +1,58 @@
 
-Á¬½Ó²éÑ¯
-	ÄÚÁ¬½Ó£¬ÍâÁ¬½Ó£¬×ÔÈ»Á¬½Ó£¬½»²æÁ¬½Ó
-	×ó±í JOIN ÓÒ±í	--×ó±í£ºJOIN¹Ø¼ü×Ö×ó±ßµÄ±í£¬ÓÒ±í£ºJOIN¹Ø¼ü×ÖÓÒ±ßµÄ±í
+è¿žæŽ¥æŸ¥è¯¢
+	å†…è¿žæŽ¥ï¼Œå¤–è¿žæŽ¥ï¼Œè‡ªç„¶è¿žæŽ¥ï¼Œäº¤å‰è¿žæŽ¥
+	å·¦è¡¨ JOIN å³è¡¨	--å·¦è¡¨ï¼šJOINå…³é”®å­—å·¦è¾¹çš„è¡¨ï¼Œå³è¡¨ï¼šJOINå…³é”®å­—å³è¾¹çš„è¡¨
 
-½»²æÁ¬½Ó
-	»ù±¾Óï·¨£º×ó±í CROSS JOIN ÓÒ±í; === FROM ×ó±í,ÓÒ±í;
+äº¤å‰è¿žæŽ¥
+	åŸºæœ¬è¯­æ³•ï¼šå·¦è¡¨ CROSS JOIN å³è¡¨; === FROM å·¦è¡¨,å³è¡¨;
 
-ÄÚÁ¬½Ó
-	´Ó×ó±íÖÐÈ¡³öÃ¿Ò»Ìõ¼ÇÂ¼£¬È¥ÓÒ±íÖÐÓëËùÓÐµÄ¼ÇÂ¼½øÐÐÆ¥Åä£º
-	Æ¥Åä±ØÐëÊÇÄ³¸öÌõ¼þÔÚ×ó±íÖÐÓëÓÒ±íÖÐÏàÍ¬×îÖÕ²Å»á±£Áô½á¹û£¬·ñÔò²»±£Áô¡£
+å†…è¿žæŽ¥
+	ä»Žå·¦è¡¨ä¸­å–å‡ºæ¯ä¸€æ¡è®°å½•ï¼ŒåŽ»å³è¡¨ä¸­ä¸Žæ‰€æœ‰çš„è®°å½•è¿›è¡ŒåŒ¹é…ï¼š
+	åŒ¹é…å¿…é¡»æ˜¯æŸä¸ªæ¡ä»¶åœ¨å·¦è¡¨ä¸­ä¸Žå³è¡¨ä¸­ç›¸åŒæœ€ç»ˆæ‰ä¼šä¿ç•™ç»“æžœï¼Œå¦åˆ™ä¸ä¿ç•™ã€‚
 
-	»ù±¾Óï·¨£º×ó±í [INNER] JOIN ÓÒ±í ON ×ó±í.×Ö¶Î = ÓÒ±í.×Ö¶Î;
-	--ON±íÊ¾Á¬½ÓÌõ¼þ£ºÌõ¼þ×Ö¶Î¾ÍÊÇ´ú±íÏàÍ¬µÄÒµÎñº¬Òå;
+	åŸºæœ¬è¯­æ³•ï¼šå·¦è¡¨ [INNER] JOIN å³è¡¨ ON å·¦è¡¨.å­—æ®µ = å³è¡¨.å­—æ®µ;
+	--ONè¡¨ç¤ºè¿žæŽ¥æ¡ä»¶ï¼šæ¡ä»¶å­—æ®µå°±æ˜¯ä»£è¡¨ç›¸åŒçš„ä¸šåŠ¡å«ä¹‰;
 
-	ÔÚ²éÑ¯Êý¾ÝµÄÊ±ºò£¬²»Í¬±íÓÐÍ¬Ãû×Ö¶Î£¬Õâ¸öÊ±ºòÐèÒª¼ÓÉÏ±íÃû²ÅÄÜÇø·Ö£¬¶ø±íÃûÌ«³¤£¬Í¨³£¿ÉÒÔÊ¹ÓÃ±ðÃû
+	åœ¨æŸ¥è¯¢æ•°æ®çš„æ—¶å€™ï¼Œä¸åŒè¡¨æœ‰åŒåå­—æ®µï¼Œè¿™ä¸ªæ—¶å€™éœ€è¦åŠ ä¸Šè¡¨åæ‰èƒ½åŒºåˆ†ï¼Œè€Œè¡¨åå¤ªé•¿ï¼Œé€šå¸¸å¯ä»¥ä½¿ç”¨åˆ«å
 		SELECT S.*,c.name AS c_name,c.room FROM 
 		my_student AS s INNER JOIN my_class AS c
 		ON s.c_id = c.id;
 
-ÍâÁ¬½Ó
-	ÒÔÄ³ÕÅ±íÎªÖ÷£¬È¡³öÀïÃæµÄËùÓÐ¼ÇÂ¼£¬È»ºóÃ¿ÌõÓëÁíÍâÒ»ÕÅ±í½øÐÐÁ¬½Ó£º
-	²»¹ÜÄÜ²»ÄÜÆ¥ÅäÉÏÌõ¼þ£¬×îÖÕ¶¼»á±£Áô£»²»ÄÜÆ¥Åä£¬ÆäËû±íµÄ×Ö¶Î¶¼ÖÃ¿ÕNULL
+å¤–è¿žæŽ¥
+	ä»¥æŸå¼ è¡¨ä¸ºä¸»ï¼Œå–å‡ºé‡Œé¢çš„æ‰€æœ‰è®°å½•ï¼Œç„¶åŽæ¯æ¡ä¸Žå¦å¤–ä¸€å¼ è¡¨è¿›è¡Œè¿žæŽ¥ï¼š
+	ä¸ç®¡èƒ½ä¸èƒ½åŒ¹é…ä¸Šæ¡ä»¶ï¼Œæœ€ç»ˆéƒ½ä¼šä¿ç•™ï¼›ä¸èƒ½åŒ¹é…ï¼Œå…¶ä»–è¡¨çš„å­—æ®µéƒ½ç½®ç©ºNULL
 
-	ÍâÁ¬½Ó·ÖÎªÁ½ÖÖ£º
-		LEFT JOIN:×óÍâÁ¬½Ó£¬ÒÔ×ó±íÎªÖ÷±í;
-		RIGHT JOIN:ÓÒÍâÁ¬½Ó£¬ÒÔÓÒ±íÎªÖ÷±í;
+	å¤–è¿žæŽ¥åˆ†ä¸ºä¸¤ç§ï¼š
+		LEFT JOIN:å·¦å¤–è¿žæŽ¥ï¼Œä»¥å·¦è¡¨ä¸ºä¸»è¡¨;
+		RIGHT JOIN:å³å¤–è¿žæŽ¥ï¼Œä»¥å³è¡¨ä¸ºä¸»è¡¨;
 
-	»ù±¾Óï·¨£º
-		×ó±í LEFT/RIGHT JOIN ÓÒ±í ON ×ó±í.×Ö¶Î = ÓÒ±í.×Ö¶Î;
-		--×ó±íÎªÖ÷±í
+	åŸºæœ¬è¯­æ³•ï¼š
+		å·¦è¡¨ LEFT/RIGHT JOIN å³è¡¨ ON å·¦è¡¨.å­—æ®µ = å³è¡¨.å­—æ®µ;
+		--å·¦è¡¨ä¸ºä¸»è¡¨
 		SELECT s.*,c.name as c_name,c.room FROM
 		my_student AS s LEFT JOIN my_class AS c
 		ON s.c_id = c.id;
 	
-		--ÓÒ±íÎªÖ÷±í
+		--å³è¡¨ä¸ºä¸»è¡¨
 		SELECT s.*,c.name as c_name,c.room FROM
 		my_student AS s RIGHT JOIN my_class AS c
 		ON s.c_id = c.id;
 		
-		--ËäÈ»×óÁ¬½ÓºÍÓÒÁ¬½ÓÓÐÖ÷±í²îÒì£¬µ«ÊÇÏÔÊ¾µÄ½á¹û£º×ó±íµÄÊý¾ÝÔÚÔÚ×ó±ß£¬ÓÒ±ßµÄÊý¾ÝÔÚÓÒ±ß
+		--è™½ç„¶å·¦è¿žæŽ¥å’Œå³è¿žæŽ¥æœ‰ä¸»è¡¨å·®å¼‚ï¼Œä½†æ˜¯æ˜¾ç¤ºçš„ç»“æžœï¼šå·¦è¡¨çš„æ•°æ®åœ¨åœ¨å·¦è¾¹ï¼Œå³è¾¹çš„æ•°æ®åœ¨å³è¾¹
 
 
-×ÔÈ»Á¬½Ó£º
-	×Ô¶¯Æ¥ÅäÁ¬½ÓÌõ¼þ£ºÏµÍ³ÒÔ×Ö¶ÎÃû×Ö×÷ÎªÆ¥ÅäÄ£Ê½
-	£¨Í¬Ãû×Ö¶Î¾Í×÷ÎªÌõ¼þ£¬¶à¸öÍ¬Ãû×Ö¶Î¶¼×÷ÎªÌõ¼þ£©
+è‡ªç„¶è¿žæŽ¥ï¼š
+	è‡ªåŠ¨åŒ¹é…è¿žæŽ¥æ¡ä»¶ï¼šç³»ç»Ÿä»¥å­—æ®µåå­—ä½œä¸ºåŒ¹é…æ¨¡å¼
+	ï¼ˆåŒåå­—æ®µå°±ä½œä¸ºæ¡ä»¶ï¼Œå¤šä¸ªåŒåå­—æ®µéƒ½ä½œä¸ºæ¡ä»¶ï¼‰
 
-	×ÔÈ»Á¬½Ó¿ÉÒÔ·ÖÎª×ÔÈ»ÄÚÁ¬½ÓºÍ×ÔÈ»ÍâÁ¬½Ó
+	è‡ªç„¶è¿žæŽ¥å¯ä»¥åˆ†ä¸ºè‡ªç„¶å†…è¿žæŽ¥å’Œè‡ªç„¶å¤–è¿žæŽ¥
 
-	×ÔÈ»ÄÚÁ¬½Ó
-		×ó±í NATURAL JOIN ÓÒ±í;
+	è‡ªç„¶å†…è¿žæŽ¥
+		å·¦è¡¨ NATURAL JOIN å³è¡¨;
 
-	×ÔÈ»ÍâÁ¬½Ó
-		×ó±í NATURAL LEFT/RIGHT JOIN ÓÒ±í;
+	è‡ªç„¶å¤–è¿žæŽ¥
+		å·¦è¡¨ NATURAL LEFT/RIGHT JOIN å³è¡¨;
 
 
-	Ð§¹ûµÈÍ¬ÓÚ£º--Ê¹ÓÃÍ¬Ãû×Ö¶Î×÷ÎªÌõ¼þ£¬²¢ÇÒºÏ²¢Í¬Ãû×Ö¶Î
-	×ó±í LEFT/RIGHT/INNER JOIN ÓÒ±í USING(×Ö¶ÎÃû);
+	æ•ˆæžœç­‰åŒäºŽï¼š--ä½¿ç”¨åŒåå­—æ®µä½œä¸ºæ¡ä»¶ï¼Œå¹¶ä¸”åˆå¹¶åŒåå­—æ®µ
+	å·¦è¡¨ LEFT/RIGHT/INNER JOIN å³è¡¨ USING(å­—æ®µå);
