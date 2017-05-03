@@ -63,6 +63,19 @@
                 return $this->db->query("DELETE FROM _article WHERE id='$id';");
             }
         }
+
+        public function edit_blog($title,$content,$id){
+            $title = addslashes($title);
+            $content = addslashes($content);
+            if ($this->db->query("UPDATE _article SET title = '$title' WHERE id = $id;")){
+                $this->db->query("UPDATE _article SET content = '$content' WHERE id = $id");
+                return 1;
+            }
+            else
+                return 0;
+
+        }
+
     }
 
 

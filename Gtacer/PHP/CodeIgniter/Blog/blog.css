@@ -379,6 +379,13 @@ td{
     background: black;
     color:white;
 }
+
+.content_6{
+    margin:  50px 0 0 0;
+    padding: 0 50px 0 0;
+    float: right;
+}
+
 /*a:link {*/
 /*text-decoration: none;*/
 /*}*/
