@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT movies (movie+)>
+<!ELEMENT movie (title,actor+,rating)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT actor (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+
+<!-- 属性 -->
+<!-- <!ATTLIST 元素名称 属性的名称 数据类型 附加条件> -->
+
+	 <!ATTLIST movie id CDATA #REQUIRED>					<!-- REQUIRED 意思为该属性为必填 -->
+	 <!ATLLIST movie type CDATA #IMPLIED>					<!-- IMPLIED 可选，可填可不填 -->
+	 <!ATLLIST 元素名称 属性名称 CDATA "默认值">			<!-- default 默认值 -->
+	 <!ATLLIST 元素名称 属性名称 CDATA #FIXED "值">			<!-- FIXED 固定值 -->
+	 <!ATLLIST 元素名称 属性名称 (值1|值2|...) "默认值">	<!-- 枚举 -->
+	 <!ATLLIST 元素名称 属性名称 ID #REQUIRED>				<!-- ID 唯一属性，ID类型的属性，值不能是纯数字，必须是字母开头 -->

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies SYSTEM "属性.dtd">	
+<movies>
+	<movie id="01">
+		<title>123123</title>
+		<actor>123123</actor>
+		<rating>123123</rating>
+	</movie>
+	<movie>
+		<title>12312</title>
+		<actor>12313</actor>
+		<rating>123123</rating>
+	</movie>
+</movies>

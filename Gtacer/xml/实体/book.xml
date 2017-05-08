@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "book.dtd"[
+<!ENTITY bj "北京大学出版社">	<!-- 定义实体(变量) -->
+]>
+
+<book>
+	<detail>
+		<name>XML</name>
+		<author>李白</author>
+		<publisher>&bj;</publisher>		<!-- 引用实体 -->
+		<price>22.5</price>
+		<url><![CDATA[
+			<a href="#">链接</a>
+		]]></url>
+	</detail>
+	<detail>
+		<name>php</name>
+		<author>杜甫</author>
+		<publisher>&bj;</publisher>
+		<price>86.3</price>
+		<url><![CDATA[
+			<a href="#">链接</a>
+		]]></url>
+	</detail>
+</book>

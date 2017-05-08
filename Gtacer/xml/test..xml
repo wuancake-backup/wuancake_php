@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="tuf-8"?>
-<°à¼¶>
-	<Ñ§Éú stuNo="123123" stuNo2="t-00012">
-		<ÐÕÃû>Ì·µÂÁÖ</ÐÕÃû>
-		<½éÉÜ><![CDATA[sdfkdsngl#$%$%&%*]]></½éÉÜ>
-	</Ñ§Éú>
-	<Ñ§Éú stuNo="1223" stuNo2="t-000123">
-		<ÐÕÃû>ÕÅ²¨</ÐÕÃû>
-	</Ñ§Éú>
-</°à¼¶>
+<?xml version="1.0" encoding="UTF-8"?>
+<class>
+	<stu stuNo="123123" stuNo2="t-00012">
+		<name>è°­å¾·æž—</name>
+		<ae>
+		<![CDATA[
+		sdfkdsngl#$%$%&%*
+		]]>
+		</ae>
+	</stu>
+	<stu stuNo="1223" stuNo2="t-000123">
+		<name>å¼ æ³¢</name>
+	</stu>
+</class>
