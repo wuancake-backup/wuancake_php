@@ -50,6 +50,7 @@
             $data['title'] = $row->title;
             $data['content'] = $row->content;
             $data['date'] = $row->date;
+            $data['id'] = $row->id;
 
             $this->load->view('blog/header.php');
             $this->load->view('blog/show_content.php', $data);
@@ -136,7 +137,9 @@
                 $res=$this->blog_model->new_blog($title,$content);
                 if($res){
                     echo '<script language="javascript">alert("发表成功");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
-                }
+                }else
+                    echo '<script language="javascript">alert("发表成功");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
+
             }
         }
 
@@ -144,9 +147,35 @@
         public function delete_message($type,$id){
             $res=$this->blog_model->delete($type,$id);
             if($res){
-                echo '<script language="javascript">alert("删除成功！");history.back();</script>';
+                echo '<script language="javascript">alert("删除成功！");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
             }else{
                 echo '<script language="javascript">alert("删除失败！");history.back();</script>';
+            }
+        }
+
+        public function edit_blog($id){
+            $result = $this->blog_model->get_article($id);
+            $row = $result->row();
+            $data['title'] = $row->title;
+            $data['id'] = $row->id;
+            $data['content'] = $row->content;
+
+            $this->load->view('blog/header.php');
+            $this->load->view('blog/edit_blog.php', $data);
+            $this->load->view('blog/foot.php');
+        }
+
+        public function submit_edit_blog($id){
+            $title=$_GET['title'];
+            $content=$_GET['content'];
+            if ($title=='' || $content==''){
+                echo '<script language="javascript">alert("标题或内容不能为空！");history.back();</script>';
+            }else{
+                $res=$this->blog_model->edit_blog($title,$content,$id);
+                if($res){
+                    echo '<script language="javascript">alert("修改成功");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
+                }else
+                    echo '<script language="javascript">alert("发表成功");window.location.href="http://localhost/codeigniter/index.php/blog/show_article";</script>';
             }
         }
 

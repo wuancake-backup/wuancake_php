@@ -29,7 +29,7 @@
                 <div class="comment">
                     <table style="word-break:break-all;">
                         <tr VALIGN="TOP"><td style="width: 800px;">
-                                <span class="article_content"><?php echo htmlentities($content[$key]); ?></span>  <!--内容-->
+                                <span class="article_content"><?php echo $content[$key]; ?></span>  <!--内容-->
                             </td></tr>
                     </table>
                 </div>
