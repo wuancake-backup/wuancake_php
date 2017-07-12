@@ -1,0 +1,5 @@
+1，主键索引：PRIMARY KEY
+2，唯一索引：UNIQUE KEY
+3，全文索引：FULLTEXT INDEX
+4，普通索引：INDEX
+

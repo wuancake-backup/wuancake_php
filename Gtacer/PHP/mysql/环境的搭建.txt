@@ -1,0 +1,5 @@
+1，启用mysql扩展库
+	在php.ini文件中去配置mysql扩展库
+	extension=php_mysql.dll
+
+	可以通过<?php phpinfo() ?>查看当前php支持什么扩展库

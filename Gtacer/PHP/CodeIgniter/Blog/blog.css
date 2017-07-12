@@ -1,0 +1,400 @@
+body{
+    background: #05121a url("http://localhost/CodeIgniter/picture/background1.jpg" )  fixed center center no-repeat;
+    /*background-size:auto;*/
+    background-size: cover;
+    width: 100%;
+}
+
+nav{
+    color: lightskyblue;
+    padding-top:45px;
+    /*padding-left:155px;*/
+}
+
+a{
+    text-decoration:none;
+    color: #b0bddf;
+}
+
+hr{
+    height:1px;
+    border:none;
+    border-top:1px dashed lightskyblue;
+    margin-top: 40px;
+}
+
+td{
+    letter-spacing: 1px;
+    line-height: 28px;
+}
+
+.hp{
+    width: 1000px;
+    margin-top:50px;
+}
+
+.blog_title{
+    font-size: 45px;
+    font-family: 微软雅黑;
+    color: ghostwhite;
+    /*padding-left:60px;*/
+}
+
+.blog_location{
+    font-size: 10px;
+    font-family:微软雅黑;
+    color: white;
+    /*padding-left:70px;*/
+    padding-top: 8px;
+}
+
+.overall{
+    width: 1000px;
+    /*border: solid darkorchid 1px;*/
+    margin: 0 auto;
+    padding-top: 130px;
+}
+
+.header{
+    width:700px;
+    height:250px;
+    /*border:solid red 1px;*/
+    margin:0 auto;
+}
+
+.left{
+    width: 290px;
+    height:1000px;
+    background: #1a1a1a;
+}
+
+.left_1{
+    color: white;
+    font-family:楷体;
+    font-size:24px;
+    padding:20px 0 0 110px;
+}
+
+.left_2{
+    margin:30px auto 0 auto;
+    width: 60px;
+    border: solid black 1px;
+    background: #151515;
+
+    font-size:15px;
+    font-family: 微软雅黑;
+}
+
+.all_right{
+    width:699px;
+    /*border: solid darkmagenta 1px;*/
+    float: right;
+    background: #1a1a1a;
+    /*margin-top:61px;*/
+}
+
+.all_left{
+    width: 295px;
+    /*border: solid darkmagenta 1px;*/
+    float: left;
+    background: #1a1a1a;
+    /*margin-top:350px;*/
+}
+
+.right{
+    width: 696px;
+    /*border: solid red 1px;*/
+    float: right;
+    margin-top:16px;
+}
+
+.title{
+    width: 695px;
+    height: 80px;
+    /*border: solid chartreuse 1px;*/
+}
+
+.article_title{
+    font-family: 楷体;
+    font-size: 30px;
+    color:whitesmoke;
+}
+
+.article_date{
+    font-size: 13px;
+    color: gray;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.article_content{
+    color:lightslategrey;
+    font-family:微软雅黑;
+}
+.comment{
+    width: 695px;
+
+    /*border: solid chartreuse 1px;*/
+}
+
+.statistics{
+    float: right;
+    margin-top: 110px;
+    font-size:14px;
+    color: #959595;
+}
+
+.cs1{
+    width: 700px;
+    height: 25px;
+    font-size: 15px;
+    color: #ecf2ff;
+    background:#3c3f41 ;
+    /*border: solid pink 1px;*/
+}
+
+.cs2{
+    width: 295px;
+    height: 25px;
+    font-size: 15px;
+    color: #ecf2ff;
+    background:#3c3f41 ;
+    /*border: solid pink 1px;*/
+}
+
+.cs3{
+    width: 900px;
+    height: 25px;
+    font-size: 15px;
+    color: #ecf2ff;
+    background:#3c3f41 ;
+    /*border: solid pink 1px;*/
+}
+
+.read_all{
+    height:20px;
+    width: 695px;
+    padding-top: 18px;
+}
+
+.read_all a{
+    float:right;
+}
+
+.catalog_box{
+    width: 900px;
+    margin: 50px auto 0 auto;
+    background: #1a1a1a;
+}
+
+.catalog{
+    color: blue;
+    width: 900px;
+    font-size: 25px;
+    font-family: 微软雅黑;
+    color: gray;
+    padding-top: 10px;
+}
+
+.content{
+    width: 1000px;
+    background: #1a1a1a;
+    padding-top:70px;
+    margin-top:50px;
+}
+
+.content_1{
+    width: 1000px;
+    height:70px;
+    text-align: center;
+}
+
+.content_2{
+    /*border: solid red 1px;*/
+    color: #8aadf5;
+    font-family: 微软雅黑;
+    font-size: 30px;
+}
+
+.content_3{
+    width: 160px;
+    height:50px;
+    margin: 0 auto;
+    color:grey;
+}
+
+.content_4{
+    width:750px;
+    margin:0 auto;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    color: whitesmoke;
+    white-space: normal;
+}
+
+.content_5{
+    white-space: pre-wrap; /*css-3*/
+    white-space: -moz-pre-wrap; /*Mozilla,since1999*/
+    /*white-space: -pre-wrap; !*Opera4-6*!*/
+    white-space: -o-pre-wrap; /*Opera7*/
+    word-wrap: break-word; /*InternetExplorer5.5+*/
+}
+
+.blank{
+    width: 1000px;
+    height:100px;
+    background: #1a1a1a;
+    color: #8aadf5;
+}
+
+/*留言板样式*/
+.board{
+    width: 1000px;
+    margin: 150px auto 0 auto;
+}
+
+.board_1{
+    width: 1000px;
+    margin-top: 20px;
+}
+
+.board_1 tr{
+    width:800px;
+    color: white;
+}
+
+.board_2{
+    width: 200px;
+    font-size:12px;
+}
+
+.board_3{
+    width: 900px;
+}
+/*登录界面样式*/
+.login{
+    width:800px;
+    height:600px;
+    margin:363px auto 0 auto;
+    background:#1a1a1a;
+}
+
+.login_1{
+    width:300px;
+    height:300px;
+    margin:0 auto;
+    padding-top: 200px;
+}
+
+.login_2{
+    margin: 0 auto;
+    width: 240px;
+    color: white;
+}
+
+.login_3{
+    margin: 0 auto;
+    width: 222px;
+    color: white;
+}
+
+.login_4{
+    margin: 0 auto;
+    width:160px;
+}
+
+/*博客编写界面样式*/
+.write{
+    margin: 60px auto 0 auto;
+    width: 1000px;
+    height: 1150px;
+    background: #1a1a1a
+}
+
+.write_1{
+    margin:0 auto;
+    padding-top: 60px;
+    width: 800px;
+    height:58px;
+}
+
+.write_2{
+    width:795px;
+    height:50px;
+    font-size:30px;
+    text-align: center;
+    background: #2b2b2b;
+    color: whitesmoke;
+}
+
+.write_3{
+    width: 850px;
+    height: 806px;
+    margin: 50px auto 0 auto;
+}
+
+.write_4{
+    width: 844px;
+    height: 800px;
+    font-size: 20px;
+    font-family: 微软雅黑;
+    resize:none;
+    background: #2b2b2b;
+    color: whitesmoke;
+}
+
+.write_5{
+    width:300px;
+    margin:50px auto 0 auto;
+}
+
+.write_6{
+    float:left;
+    background: #4f5356;
+    color: #ecf2ff;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 微软雅黑;
+}
+
+.write_7{
+    float:right;
+    background: #4f5356;
+    color: #ecf2ff;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 微软雅黑;
+}
+
+.write_8{
+    width: 800px;
+    margin:0 auto;
+    padding-top: 180px;
+    font-size: 80px;
+}
+
+.commend_1{
+    background: black;
+    color:white;
+}
+
+.content_6{
+    margin:  50px 0 0 0;
+    padding: 0 50px 0 0;
+    float: right;
+}
+
+/*a:link {*/
+/*text-decoration: none;*/
+/*}*/
+/*a:visited {*/
+/*text-decoration: none;*/
+/*}*/
+/*a:hover {*/
+/*text-decoration: none;*/
+/*}*/
+/*a:active {*/
+/*text-decoration: none;*/
+/*}*/

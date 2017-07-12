@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--外部引用-->
+<!DOCTYPE movies SYSTEM "movies.dtd">	
+<!--内部引用-->
+<!DOCTYPE movies [	
+	<!ELEMENT movies (movie+)>
+	<!ELEMENT movie (title,actor+,rating*)>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT actor (#PCDATA)>
+	<!ELEMENT rating (#PCDATA)>
+]>
+<movies>
+	<movie>
+		<title>123123</title>
+		<actor>123123</actor>
+		<rating>123123</rating>
+	</movie>
+	<movie>
+		<title>12312</title>
+		<actor>12313</actor>
+		<rating>123123</rating>
+	</movie>
+</movies>

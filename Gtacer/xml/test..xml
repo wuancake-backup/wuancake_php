@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class>
+	<stu stuNo="123123" stuNo2="t-00012">
+		<name>谭德林</name>
+		<ae>
+		<![CDATA[
+		sdfkdsngl#$%$%&%*
+		]]>
+		</ae>
+	</stu>
+	<stu stuNo="1223" stuNo2="t-000123">
+		<name>张波</name>
+	</stu>
+</class>

@@ -1,0 +1,110 @@
+body{
+	margin:0 auto;	/*居中*/
+	border:2px solid green;
+	width:100%;
+	height:2000px;
+}
+
+.top{
+	width:100%;
+	height:32px;
+	background:#B0F9F9;
+}
+
+.logo1{
+	margin-left:30%;
+	float:left;
+}
+
+.login{
+	width:350px;
+	height:22px;
+	background:#B0F9F9;
+	float:left;
+}
+.login input{
+	float:left;
+}
+.myhref{
+	float:left;
+	background:#B0F9F9;
+}
+
+.setindex{
+	float:right;
+	background:#B0F9F9;
+}
+
+.secend{
+	margin:0 auto;
+	width:1130px;
+	height:100px;
+	margin-top:2px;
+}
+.secend img{height:100px;width:150px}
+.secend span{
+	float:left;
+	background-color:orange;
+}
+
+hr{
+	border:1px;
+	width:86.5%;
+	color:red;
+	float:right;
+	margin:4px 0px 2px 0px;
+}
+
+#fistcolor{
+	background-color:yellow;
+}
+/***********第三行**********/
+.third{
+	margin:0 auto;
+	margin-top:3px;
+	border:2px solid red;
+	width:1130px;
+	height:70px;
+	background-color:#00CCFF;
+}
+.third img{
+	height:70px;
+	width:150px;
+	float:left;
+}
+.third span{
+	float:left;
+}
+.third span input{
+	float:left;
+}
+
+/***********第四行，左侧**********/
+.left_fourth{
+	border:2px solid red;
+	width:350px;
+	height:900px;
+	position:absolute;
+	left:387px;
+	margin-top:3px;
+}
+
+/***********第四行，中间**********/
+.middle_fourth{
+	border:2px solid red;
+	width:550px;
+	height:900px;
+	position:absolute;
+	margin-top:3px;
+	left:739px;
+}
+
+/***********第四行，右侧**********/
+.right_fourth{
+	border:2px solid red;
+	width:226px;
+	height:900px;
+	margin-top:3px;
+	position:absolute;
+	left:1291px;
+}

@@ -1,0 +1,35 @@
+<html>
+<head><title>表单元素</title></head>
+<body>
+<form action="OK.html" method="get">
+<!--复选框-->
+你最喜欢哪些城市<br/>
+<input type="checkbox" name="cities" value="beijing"/>北京
+<input type="checkbox" name="cities" value="shanghai" checked/>上海
+<input type="checkbox" name="cities" value="guangzhou" checked/>广州<p>
+<!--单选框-->
+你的性别<br/>
+<input type="radio" name="sex" value="boy"/>男
+<input type="radio" name="sex" value="girl" checked/>女<br/>
+<!--隐藏域-->
+<input type="hidden" name="data" value="ok"/>
+<!--下拉列表-->
+请选择你的出生地：
+<select name="address"/>
+<option value="sichuan">四川</option>
+<option value="beijing" selected>北京</option>
+<option value="xizang">西藏</option>
+</select>
+<!--文本域   多少行   多少列-->
+<textarea name="mytextarea" cols="40" rows="10">
+</textarea>
+<!--文件上传的控件-->
+<input type="file" name="myfile">上传文件<br/>
+<!--提交按钮-->
+<input type="submit" value="测试"/>
+<!--图片按钮-->
+<input type="image" src="image1.jpg">
+
+</form>
+</body>
+</html>

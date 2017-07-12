@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GBK"?>
+<!ELEMENT book (detail+)>
+<!ELEMENT detail (name,author,publisher,price,url)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT url (#PCDATA)>

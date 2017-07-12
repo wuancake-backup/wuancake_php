@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT movies (movie+)>
+<!ELEMENT movie (title,actor+,rating)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT actor (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+
+<!ELEMENT test ANY>		<!-- 根下可以放任意子元素 -->
+<!ELEMENT br EMPTY>		<!-- 规定该标签为空标记(单标记) -->
+
+<!ELEMENT html (body)>
+<!ELEMENT strong (#PCDATA)>
+<!ELEMENT body (#PCDATA|strong)*>	<!-- 混合元素，*不能省略 -->

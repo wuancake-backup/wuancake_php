@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE roster SYSTEM "属性.dtd"[
+	<!ENTITY % p "teacher">		<!-- 首先在DTD文件中定义，引用到具体的xml文件中后，再对其重新赋值 -->
+]>
+<roster>
+	<teacher id="t001">
+	</teacher>
+</roster>

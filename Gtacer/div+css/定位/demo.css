@@ -1,0 +1,32 @@
+.div1{
+	width:70px;
+	heigh:30px;
+	background:silver;
+	float:left;
+	margin-left:5px;
+}
+
+#spe{
+	/*position:relative;*/     /*相对定位,所谓相对定位是指，相对该元素的原位置重新定位，而它的原位置不能被占用*/
+	position:absolute;		/*绝对定位，对该元素最近的那个脱离了标准流的元素定位，如果没有父元素，则对应body左上角定位*/
+	left:40px;
+	top:100px;
+	
+}
+
+.div2{
+	position:relative;
+	left:10px;
+	top:100px;
+	width:200px;
+	height:200px;
+	float:left;
+	background:pink;
+}
+
+/*fixed 固定定位，总是针对视窗的左上角进行定位*/
+#spe2{
+	position:fixed;
+	left:50px;
+	top:200px;
+}

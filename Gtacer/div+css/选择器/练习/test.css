@@ -1,0 +1,23 @@
+h1{
+	color:orange;
+}
+/*span{
+	background:gray;
+}*/
+
+a:link{
+	color:red;
+	font-size:24px;
+	font-family:华文新魏;
+	background:gray;
+	}
+a:visited{
+	color:black;
+	background:gray;
+}
+a:hover{
+	color:green;
+	font-size:40px;
+	font-family:宋体;
+	text-decoration:underline;
+}

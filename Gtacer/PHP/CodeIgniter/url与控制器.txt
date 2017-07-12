@@ -1,0 +1,95 @@
+【URL】
+	遵循 模型-视图-控制器 模式：
+	localhost/class/function/ID
+	/*第一段表示要调用的类中的类；
+	 *第二段表示要调用的类中的函数或方法；
+	 *第三段以及后面的段代表传给控制器的参数，如ID或其他任何变量*/
+
+【控制器】
+	*一个控制器就是一个类文件，是以一种能够和 URI 关联在一起的方式来命名的。
+	当控制器的名称和 URI 的第一段匹配上时，它将会被加载。
+	example.com/index.php/blog	//将会尝试查询一个名为Blog.php的控制器并加载他
+
+
+	*index()方法：index方法总是在URI的第二段为空时被调用：
+	<?php
+		class Blog extends CI_controller{
+			public function index(){
+				echo 'hello world';
+			}
+			public function comments(){
+				echo 'look at this';
+			}
+		}
+	?>
+	example.com/index.php/blog/		-->调用index方法	-->hello world
+	example.com/index.php/blog/index/	-->调用index方法	-->hello world
+	example.com/index.php/blog/coments/	-->调用coments方法	-->look at this
+
+
+	*如果你的URL多于两个段，多余的段将作为参数传递到你的方法中。
+	/*****如果你使用了 URI 路由 ，传递到你的方法的参数将是路由后的参数。********/
+	<?php
+		class Products extends CI_Controller{
+			public function shoes($sandals,$id){
+				echo $sandals;
+				echo $sandals;
+			}
+		}
+	example.com/index.php/products/shoes/sandals/123	-->调用Products方法	-->将sandals和123传递给被调用的方法
+	
+
+	*定义默认控制器
+	通过修改routes.php（application/config/routes.php）文件可以设置默认的控制器，当通过不带任何参数的index.php访问站点时，你将看到设置的默认页面
+		
+		$route['default_controller']='blog';
+			
+
+	*重映射方法
+	使用_remap()方法来重写该规则:
+
+		public function _remap($method){
+			//some code here
+		}
+	被重写的方法（通常是 URI 的第二段）将被作为参数传递到 _remap() 方法;
+	方法名之后的所有其他段将作为 _remap() 方法的第二个参数;
+	如果你的控制包含一个 _remap() 方法，那么无论 URI 中包含什么参数时都会调用该方法。
+
+
+	!!!*处理输出
+		_output()
+
+
+	*私有方法
+	将方法声明为private或protected，这样这个方法就不能被URL访问到了
+	/***在方法名前加上一个下划线前缀也可以让该方法无法访问***/
+
+		private function _utility(){
+			//some code
+		}
+		example.com/index.php/blog/_utility/	-->无法访问
+
+
+	*将控制器放入子目录中
+	在application/controllers/目录下创建新的目录，并将控制器文件放到子目录下
+	文件位置-->application/controllers/products/Shoes.php
+	   👇
+	URL-->example.com/index.php/products/shoes/show/123
+	
+
+	*构造函数
+	在控制器中调用构造函数时，必须将下面这行代码包括在内：
+		parent::_construct();
+	如果不这么做，子类的构造函数将会覆盖父类的构造函数，所以要手工调用他
+		<?php
+			class Blog extends CI_Controller{
+				public function _construct();
+				//your own constructor code
+			}
+		?>
+
+
+	*保留方法名
+	为你的控制器将继承主程序的控制器，在新建方法时你必须要小心不要使用和父类一样的方法名， 要不然你的方法将覆盖它们！
+
+

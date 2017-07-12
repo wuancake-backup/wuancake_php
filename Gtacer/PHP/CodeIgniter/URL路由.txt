@@ -1,0 +1,13 @@
+路由规则定义在：
+		application/config/routes.php
+	通过修改$route数组设置自己的路由规则。在路由规则中可以使用通配符或正则表达式。
+
+【通配符】
+
+$route['journals']='blogs';	//当URL的第一段是单词"journals"时，将重定向到"blogs"类
+
+$route['blog/joe']='blogs/user/34';	//URL 包含 blog/joe 的话，将重定向到 "blogs" 类和 "users" 方法。ID 参数设为 "34" 
+
+$route['product/(:any)'] = 'catalog/product_lookup';	//URL 的第一段是 "product" ，第二段是任意字符时，将重定向到 "catalog" 类的 "product_lookup" 方法。
+
+$route['product/(:num)'] = 'catalog/product_lookup_by_id/$1';	//URL 的第一段是 "product" ，第二段是数字时，将重定向到 "catalog" 类的 "product_lookup_by_id" 方法，并将第二段的数字作为参数传递给它。

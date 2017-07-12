@@ -1,0 +1,138 @@
+﻿【使用global访问全局变量】
+<?php
+global $x;
+global $y;
+$x=5;$y=10;
+function myTest() {		//函数名不区分大小写
+  global $x,$y;
+  $y=$x+$y;
+}
+myTest();
+echo $y; // 输出 15
+?>
+
+
+
+【使用static声明静态变量】
+<?php
+	static $x=0;
+?>
+
+
+
+【类型运算符】(instanceof用于确定一个PHP变量是否属于一类class的实例)
+代码案例：
+class dog｛｝
+class cat｛｝
+//创建一个对象
+$cat1=new cat
+//在实际开发中，我们可能需要去判断某个变量是否是某个类型
+if($cat1 instanceof cat){
+	echo "cat1是一只猫";
+}
+
+
+
+【使用define定义常量】
+define("PI",3.14);
+
+【使用const定义常量】
+const PI=3.14;
+
+
+【使用unset($var)删除一个变量】
+$a=12;
+unset($a);
+echo $a;	//无法输出
+
+
+
+【给某些参数赋默认值】
+function abc($c,$a=2){
+	$res=$a+$b;
+	return $res;
+}
+$e==70;
+echo abc($e).'||';	//没有为第二个形参传值，所以第二个形参的值为设置的默认值
+echo abcc($e,90);	//为第二个形参传值时，会覆盖掉为其设置的默认值
+
+
+
+【引入需要的php文件】
+require 'test.php';	//引入后才可以使用该PHP页面定义的函数；
+require_once 'test.php';	//通常使用此函数,会先判断是否在之前包含过一次test.php文件
+include 'test.php';	//与require作用相同，但是在出错时会继续执行下面的语句，而require出错时会终止程序执行
+
+
+
+【对浮点数进行四舍五入】
+echo round(1.355846,2);		//打印结果为1.36
+
+
+
+【如何关闭notice级别的提示】
+1，在php.ini文件中改动erroe_reporting
+	改为：
+	error_reporting = E_A & ~ E_NOTICE
+
+2，在你想禁止notice错误提示的页面中加入下面代码：
+erroe_reporting(E_ALL^E_NOTICE);
+
+3，$a=@$b	//如果$b出现了一个不致命的错误，那么将不会提示
+
+
+【拆分数组】
+$arr1=explode(" ",$arr);     //以双引号内的字符为界限拆分数组，将新的值赋给逗号后的数组
+
+
+
+【保留提交的表单内容】
+<input type="text" name="xxx" value="<?php echo $abc; ?>"/>	//<>
+
+
+【跳转到某页面】
+header("Location:a.php");
+header("Refresh:3;url=http://......");三秒后跳转到某页面
+
+
+【读写文件】
+$text=fopen('test.txt','a');
+fread($text,filesize("test.txt"));
+fwrite($text,'hello world/r/n');
+
+
+【换行符】
+echo "hello world".PHP_EOL;
+
+
+【传值】
+a.php中链接传递时："<a href=b.php?a_tmp=".$a.">传递变量a</a>"
+点击转到b.php中时使用$b=$_GET["a_tmp"]；
+如果$a是由form中的元素传递的，那么在b.php中采用$b=$_POST["form元素的name"];
+
+
+【同时遍历多个数组（下标相同）】
+//            foreach($data['title'] as $key=>$val){
+//                echo $val."<br/>".$data['content'][$key]."<br/>";
+//            }
+//            exit();
+
+
+
+【防注入】
+获取到从网页传来的字符串时，要先使用 addslashes()函数进行转义，再将其添加到数据库：
+	$content=addslashes(_GET['content']);
+
+从数据库读取信息到网页时，要使用htmlentities()对输出内容进行转义，再通过echo输出到屏幕
+	echo htmlentities($content);
+
+
+【设置PHP内部字符编码】
+/* 设置内部字符编码为 UTF-8 */
+mb_internal_encoding("UTF-8");
+
+/* 显示当前的内部字符编码*/
+echo mb_internal_encoding();
+
+【设置/获取 HTTP 输出字符编码】
+mb_http_output("UTF-8");
