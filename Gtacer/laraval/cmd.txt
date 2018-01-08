@@ -1,0 +1,7 @@
+设置应用名(命名空间的根目录命)：php artisan app:name exampleName
+
+缓存配置文件：php artisan config:cache
+
+启用维护模式：php artisan down
+
+关闭维护模式：php artisan up
