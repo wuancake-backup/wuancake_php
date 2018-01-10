@@ -7,3 +7,9 @@
 关闭维护模式：php artisan up
 
 建立中间件：php artisan make:middleware OldMiddleware
+
+命令 Vagrant 重新加载 Homestead.yaml 配置：vagrant provision
+
+重启虚拟机：vagrant reload
+
+生成新的控制器：php artisan make:controller ControllerName
