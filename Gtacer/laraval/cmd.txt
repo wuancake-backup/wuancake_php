@@ -1,15 +1,33 @@
-ÉèÖÃÓ¦ÓÃÃû(ÃüÃû¿Õ¼äµÄ¸ùÄ¿Â¼Ãü)£ºphp artisan app:name exampleName
+ï»¿è®¾ç½®åº”ç”¨å(å‘½åç©ºé—´çš„æ ¹ç›®å½•å‘½)ï¼šphp artisan app:name exampleName
 
-»º´æÅäÖÃÎÄ¼ş£ºphp artisan config:cache
+ç¼“å­˜é…ç½®æ–‡ä»¶ï¼šphp artisan config:cache
 
-ÆôÓÃÎ¬»¤Ä£Ê½£ºphp artisan down
+å¯ç”¨ç»´æŠ¤æ¨¡å¼ï¼šphp artisan down
 
-¹Ø±ÕÎ¬»¤Ä£Ê½£ºphp artisan up
+å…³é—­ç»´æŠ¤æ¨¡å¼ï¼šphp artisan up
 
-½¨Á¢ÖĞ¼ä¼ş£ºphp artisan make:middleware OldMiddleware
+å»ºç«‹ä¸­é—´ä»¶ï¼šphp artisan make:middleware OldMiddleware
 
-ÃüÁî Vagrant ÖØĞÂ¼ÓÔØ Homestead.yaml ÅäÖÃ£ºvagrant provision
+å‘½ä»¤ Vagrant é‡æ–°åŠ è½½ Homestead.yaml é…ç½®ï¼švagrant provision
 
-ÖØÆôĞéÄâ»ú£ºvagrant reload
+é‡å¯è™šæ‹Ÿæœºï¼švagrant reload
 
-Éú³ÉĞÂµÄ¿ØÖÆÆ÷£ºphp artisan make:controller ControllerName
+ç”Ÿæˆæ–°çš„æ§åˆ¶å™¨ï¼šphp artisan make:controller ControllerName
+
+- yarn install --no-bin-links (å®‰è£…å½“å‰é¡¹ç›®æ‰€æœ‰åŒ…)
+  - åœ¨ `pakage.json` ä¸­æŒ‡å®š
+- yarn add cross-env (æ·»åŠ æŒ‡å®šçš„åŒ…)
+
+ç¼–è¯‘ .scss æ–‡ä»¶ï¼šnpm run dev`
+
+åœ¨æ¯æ¬¡æ£€æµ‹åˆ° .scss æ–‡ä»¶å‘ç”Ÿæ›´æ”¹æ—¶ï¼Œè‡ªåŠ¨å°†å…¶ç¼–è¯‘ä¸º .css æ–‡ä»¶ï¼šnpm run watch-pol
+
+æ‰§è¡Œæ•°æ®åº“è¿ç§»ï¼šphp artisan migrate
+
+æ‰§è¡Œæ•°æ®åº“å›æ»šæ“ä½œï¼šphp artisan migrate:rollback
+
+åˆ›å»ºæ¨¡å‹ï¼šphp artisan make:model ModelName [NameSpace]
+
+åˆ›å»ºæ¨¡å‹å¹¶ç”Ÿæˆè¿ç§»æ–‡ä»¶ï¼šphp artisan make:model ModelName [NameSpace] -m
+
+è¿›å…¥ Tinker ç¯å¢ƒï¼šphp artisan tinker
