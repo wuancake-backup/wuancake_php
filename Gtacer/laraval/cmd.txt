@@ -31,3 +31,5 @@
 创建模型并生成迁移文件：php artisan make:model ModelName [NameSpace] -m
 
 进入 Tinker 环境：php artisan tinker
+
+重置项目数据库：php artisan migrate:refresh
