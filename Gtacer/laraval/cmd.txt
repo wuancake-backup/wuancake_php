@@ -20,7 +20,7 @@
 
 编译 .scss 文件：npm run dev`
 
-在每次检测到 .scss 文件发生更改时，自动将其编译为 .css 文件：npm run watch-pol
+在每次检测到 .scss 文件发生更改时，自动将其编译为 .css 文件：npm run watch-poll
 
 执行数据库迁移：php artisan migrate
 
